@@ -1,12 +1,13 @@
 using UnityEngine;
 
-namespace Percy
-{
     [CreateAssetMenu]
     public class ScriptableStats : ScriptableObject
     {
         [Header("LAYERS")]
         public LayerMask PlayerLayer;
+
+        [Header("FORM")]
+
 
         [Header("INPUT")]
         public bool SnapInput = true;
@@ -38,5 +39,10 @@ namespace Percy
         public float CoyoteTime = .15f;
 
         public float JumpBuffer = .2f;
+
+        public int fireDamage;
+
+        public int windDamage;
+
+        public int waterDamage;
     }
-}
