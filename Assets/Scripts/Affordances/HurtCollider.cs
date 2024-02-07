@@ -34,7 +34,6 @@ public class HurtCollider : MonoBehaviour, IDoDamage
         if (collision.CompareTag("Player"))
         {
             //DoDamage(collision.GetComponent<Player>().Scriptab);
-            //Here we can check the state we are in to do more damage to a certain type of state
         }
     }
 
