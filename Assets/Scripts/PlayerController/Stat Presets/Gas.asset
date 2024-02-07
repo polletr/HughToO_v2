@@ -30,5 +30,6 @@ MonoBehaviour:
   JumpEndEarlyGravityModifier: 3
   CoyoteTime: 0.15
   JumpBuffer: 0.2
-  fireDamage: 0
+  fireDamage: 1
   windDamage: 1
+  waterDamage: 0

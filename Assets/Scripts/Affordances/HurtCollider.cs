@@ -1,32 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class HurtCollider : MonoBehaviour, IDoDamage
 {
-    public enum DamageType
-    {
-        Fire,
-        Wind
-    }
 
-    public DamageType currentType;
     private int finalDamage;
+    [SerializeField]
+    private ScriptableAffordances scriptableAffordances; 
 
-    void checkAffordance(ScriptableStats stats)
+    void checkAffordance(ScriptableAffordances affordanceStats, ScriptableStats playerStats)
     {
-        switch (currentType)
+        switch (playerStats.currentForm)
         {
-            case DamageType.Fire:
-                finalDamage = stats.fireDamage;
+            case ScriptableStats.Form.Water:
+                finalDamage = affordanceStats.waterDamage;
                 break;
-            case DamageType.Wind:
-                finalDamage = stats.windDamage;
+            case ScriptableStats.Form.Ice:
+                finalDamage = affordanceStats.iceDamage;
+                break;
+            case ScriptableStats.Form.Gas:
+                finalDamage = affordanceStats.gasDamage;
                 break;
             default:
                 break;
         }
+        //Check what the current state is and 
     }
     
     private void OnTriggerEnter2D(Collider2D collision)
@@ -37,9 +38,9 @@ public class HurtCollider : MonoBehaviour, IDoDamage
         }
     }
 
-    public void DoDamage(ScriptableStats form)
+    public void DoDamage(ScriptableStats playerStats)
     {
-        checkAffordance(form);
-        //form.health -= finalDamage;
+        checkAffordance(scriptableAffordances, playerStats);
+        //playerStats.health -= finalDamage;
     }
 }

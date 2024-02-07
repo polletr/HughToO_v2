@@ -3,11 +3,18 @@ using UnityEngine;
     [CreateAssetMenu]
     public class ScriptableStats : ScriptableObject
     {
+        public enum Form
+        {
+            Water,
+            Ice,
+            Gas
+        }
+
         [Header("LAYERS")]
         public LayerMask PlayerLayer;
 
         [Header("FORM")]
-
+        public Form currentForm;
 
         [Header("INPUT")]
         public bool SnapInput = true;
@@ -40,9 +47,4 @@ using UnityEngine;
 
         public float JumpBuffer = .2f;
 
-        public int fireDamage;
-
-        public int windDamage;
-
-        public int waterDamage;
     }

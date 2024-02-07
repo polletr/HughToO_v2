@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractionCollider : MonoBehaviour
+public class InteractableObjects : MonoBehaviour
 {
     public enum Type
     {
