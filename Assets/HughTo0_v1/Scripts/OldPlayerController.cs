@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerController : MonoBehaviour
+public class OldPlayerController : MonoBehaviour
 {
 
     private Rigidbody2D rb;
