@@ -1,7 +1,7 @@
 using UnityEngine;
 
     [CreateAssetMenu]
-    public class ScriptableAffordances : ScriptableObject
+    public class DamageScriptable : ScriptableObject
     {
         [Header("LAYERS")]
         public LayerMask AffordanceLayer;

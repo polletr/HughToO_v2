@@ -9,9 +9,9 @@ public class HurtCollider : MonoBehaviour, IDoDamage
 
     private int finalDamage;
     [SerializeField]
-    private ScriptableAffordances scriptableAffordances; 
+    private DamageScriptable scriptableAffordances; 
 
-    void checkAffordance(ScriptableAffordances affordanceStats, ScriptableStats playerStats)
+    void checkAffordance(DamageScriptable affordanceStats, ScriptableStats playerStats)
     {
         switch (playerStats.currentForm)
         {
@@ -27,12 +27,11 @@ public class HurtCollider : MonoBehaviour, IDoDamage
             default:
                 break;
         }
-        //Check what the current state is and 
     }
     
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             //DoDamage(collision.GetComponent<Player>().Scriptab);
         }

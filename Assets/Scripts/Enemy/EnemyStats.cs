@@ -9,9 +9,6 @@ using UnityEngine;
         [Header("INPUT")]
 
         public int currentHealth;
-
         public int maxHealth;
-
-        public int damage;
 
     }
