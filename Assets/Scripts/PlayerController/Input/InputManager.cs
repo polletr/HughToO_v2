@@ -1,38 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;  
+using UnityEngine.InputSystem;
+using HughTo0;
 
 public class InputManager : MonoBehaviour
 {
-    public PlayerInputs action;
+    PlayerInput action;
 
-    public InputAction Movement;
-    public InputAction Jump;
-    public InputAction Glid;
-    public InputAction Attack;
-    public InputAction Dash;
-
-    public InputAction WaterForm;
-    public InputAction IceForm;
-    public InputAction WindForm;
+    Player player { get; set; }
 
     void Awake()
     {
-        action = new PlayerInputs();
-     
-        Movement = action.Player.Movement;
-        Jump = action.Player.Jump;
-        Glid = action.Player.Glid;
-        Attack = action.Player.Attack;
-        Dash = action.Player.Dash;
-
-        WaterForm = action.Player.Water;
-        IceForm = action.Player.Ice;
-        WindForm = action.Player.Wind;
+        player = GetComponent<Player>();
+        action = new PlayerInput();
     }
 
-    private void OnEnable() => action.Enable();
+    private void OnEnable() 
+    {
+       
+        action.Player.Movement.performed += (val) => player.HandleMovement(val.ReadValue<Vector2>());
+        action.Player.Jump.performed += (val) => player.HandleJump();
+        action.Player.Attack.performed += (val) => player.HandleAttack();
+        action.Player.Dash.performed += (val) => player.HandleDash();
 
-    private void OnDisable() => action.Disable();
+        action.Player.Water.performed += (val) => player.HandleWater();
+        action.Player.Ice.performed += (val) => player.HandleIce();
+        action.Player.Wind.performed += (val) => player.HandleWind();
+
+
+        action.Enable(); 
+    }
+
 }
