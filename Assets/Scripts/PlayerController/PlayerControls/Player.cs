@@ -74,15 +74,6 @@ public class Player : MonoBehaviour
         currentState?.OnMovement(movement);
     }
 
-    public void HandleJump()
-    {
-        currentState?.OnJump();
-    }
-    public void HandleJumpFinish()
-    {
-        currentState?.OnJumpFinish();
-    }
-
     public void HandleGlid()
     {
 

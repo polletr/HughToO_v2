@@ -18,8 +18,6 @@ public class InputManager : MonoBehaviour
     {
        
         action.Player.Movement.performed += (val) => player.HandleMovement(val.ReadValue<Vector2>());
-        action.Player.Jump.performed += (val) => player.HandleJump();
-        action.Player.Jump.canceled += (val) => player.HandleJumpFinish();
         action.Player.Attack.performed += (val) => player.HandleAttack();
         action.Player.Dash.performed += (val) => player.HandleDash();
 
@@ -34,8 +32,6 @@ public class InputManager : MonoBehaviour
     private void OnDisable()
     {
         action.Player.Movement.performed -= (val) => player.HandleMovement(val.ReadValue<Vector2>());
-        action.Player.Jump.performed -= (val) => player.HandleJump();
-        action.Player.Jump.canceled -= (val) => player.HandleJumpFinish();
         action.Player.Attack.performed -= (val) => player.HandleAttack();
         action.Player.Dash.performed -= (val) => player.HandleDash();
         action.Player.Water.performed -= (val) => player.HandleWater();

@@ -22,8 +22,6 @@ namespace HughTo0
         {
             direction = movement;
         }
-        public virtual void OnJump() {  }
-        public virtual void OnJumpFinish() { }
         public virtual void OnGlid() { }
         public virtual void OnAttack() { }
         public virtual void OnDash() { }

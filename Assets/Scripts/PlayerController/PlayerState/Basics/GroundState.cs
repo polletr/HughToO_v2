@@ -73,10 +73,6 @@ public class GroundState : PlayerState
 
     }
 
-    public override void OnJump()
-    {
-
-    }
    
 
     public override void StateFixedUpdate()
