@@ -79,6 +79,7 @@ GameObject:
   - component: {fileID: 5091020094319808}
   - component: {fileID: 7079064395621335063}
   - component: {fileID: 2562733099182961330}
+  - component: {fileID: 4253888109633006799}
   m_Layer: 0
   m_Name: Blind_Enemy
   m_TagString: Untagged
@@ -182,7 +183,7 @@ MonoBehaviour:
   enemyStats: {fileID: 11400000, guid: 08bf56e43c10bdf4097fcd363620c6e6, type: 2}
   pointA: {fileID: 7360993138625659926}
   pointB: {fileID: 1165304775844456162}
-  moveSpeed: 2
+  moveSpeed: 1
 --- !u!70 &7079064395621335063
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -244,7 +245,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &8305507958084633020
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,5 +340,21 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8033090045652716246, guid: 2def416a984f1f94bb7cfec74b19d83c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4253888109633006799}
   m_SourcePrefab: {fileID: 100100000, guid: 2def416a984f1f94bb7cfec74b19d83c, type: 3}
+--- !u!114 &4253888109633006799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7779565578161464808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c33819ca7a4ee334496178786eb0f625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentType: 2

@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
     [CreateAssetMenu]
@@ -15,6 +16,9 @@ using UnityEngine;
 
         [Header("FORM")]
         public Form currentForm;
+
+        [Header("COMBAT")]
+        public int damage;
 
         [Header("INPUT")]
         public bool SnapInput = true;
