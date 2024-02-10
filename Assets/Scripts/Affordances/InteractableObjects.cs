@@ -7,31 +7,41 @@ public class InteractableObjects : MonoBehaviour
     public enum Type
     {
         Fire,
-        BreakableWall
+        BreakableWall,
+        Enemy
     }
 
     public Type currentType;
 
-    private bool checkAttack = false;
 
     void Check(ScriptableStats stats)
     {
         switch (currentType)
         {
             case Type.Fire:
-                if (true)//Check if the State is Water
-                    checkAttack = true; 
+                if (stats.currentForm == ScriptableStats.Form.Water)//Check if the State is Water
+                {
+                 //Play fire animation dissipating
+                 //Destroy this gameobject after animation
+                }
                 break;
             case Type.BreakableWall:
-                if (true)//Check if the State is Ice
-                    checkAttack = true;
+                if (stats.currentForm == ScriptableStats.Form.Ice) //Check if the State is Ice
+                {
+                 //Play wall animation breaking
+                 //Destroy this gameobject after animation
+                }
+                break;
+            case Type.Enemy:
+                //Play Enemy got hit animation
+                this.gameObject.GetComponent<EnemyBase>().TakeDamage(stats.damage);
+                if (stats.currentForm == ScriptableStats.Form.Gas)
+                {
+                    //push enemy
+                }
                 break;
             default:
                 break;
-        }
-        if (checkAttack)
-        {
-            //Run Animation and Destroy game object at the end of animation
         }
     }
 

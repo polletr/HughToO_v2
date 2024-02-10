@@ -24,9 +24,6 @@ public class BlindEnemy : EnemyBase
     [SerializeField]
     private float moveSpeed;
 
-    private Transform target;
-    private Vector2 moveDirection;
-
     private float vx;
 
     private bool facingLeft;
@@ -104,7 +101,7 @@ public class BlindEnemy : EnemyBase
                 currentPoint = pointA;
             }
 
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSecondsRealtime(2f);
         }
 
 

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e95b4084468ad9747b62951bb5a0b1b1, type: 3}
-  m_Name: Side_To_Side_Enemy
+  m_Name: Blind_Enemy
   m_EditorClassIdentifier: 
   AffordanceLayer:
     serializedVersion: 2

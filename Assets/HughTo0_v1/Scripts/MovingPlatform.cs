@@ -8,7 +8,7 @@ public class MovingPlatform : MonoBehaviour
     private enum State
     {
         Idle,
-        Patrolling
+        Moving
     }
 
     [SerializeField]
@@ -19,6 +19,9 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField]
     private float moveSpeed;
 
+    [SerializeField]
+    private float WaitTimeInIdle;
+
     private Transform currentPoint;
     private Transform lastPoint;
 
@@ -28,7 +31,6 @@ public class MovingPlatform : MonoBehaviour
 
     private void SetState(State newState)
     {
-        //what we want to do here is look at the newstater, compare it to the enumvalues, and then figure out what to do based on that.
         //set state will only be called when a state changes
         currentState = newState;
         StopAllCoroutines();//stop the previous coroutines so they aren't operating at the same time
@@ -39,8 +41,8 @@ public class MovingPlatform : MonoBehaviour
                 StartCoroutine(OnIdle());
                 //do some work
                 break;
-            case State.Patrolling:
-                StartCoroutine(OnPatrolling());
+            case State.Moving:
+                StartCoroutine(OnMoving());
                 //do some work
                 break;
             default:
@@ -71,15 +73,15 @@ public class MovingPlatform : MonoBehaviour
                 currentPoint = pointA;
             }
 
-            yield return null;
+            yield return new WaitForSecondsRealtime(WaitTimeInIdle);
         }
 
-        SetState(State.Patrolling); //we found a point, we now need to move
+        SetState(State.Moving); //we found a point, we now need to move
 
     }
 
     // Update is called once per frame
-    private IEnumerator OnPatrolling()
+    private IEnumerator OnMoving()
     {
         bool moveRight = true;
 
@@ -116,7 +118,6 @@ public class MovingPlatform : MonoBehaviour
             yield return null;
         }
 
-        //After Value turns 1, he is going to search for a new spot
         SetState(State.Idle);
 
     }
@@ -135,7 +136,6 @@ public class MovingPlatform : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             collision.transform.SetParent(null);
-
         }
 
     }

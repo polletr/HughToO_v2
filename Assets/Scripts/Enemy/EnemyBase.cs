@@ -22,6 +22,14 @@ public class EnemyBase : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
+    public virtual void TakeDamage(int damage)
+    {
+        enemyStats.currentHealth -= damage;
+        if (enemyStats.currentHealth <= 0)
+            Die();
+
+    }
+
     public virtual void Die()
     {
         isAlive = false;
