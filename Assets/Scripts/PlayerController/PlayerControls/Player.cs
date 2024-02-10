@@ -14,13 +14,22 @@ public class Player : MonoBehaviour
     PlayerState currentState;
     PlayerStateType currentStateValue;
 
+    public Transform GroundCheck;
+
+    public ScriptableStats stats;
+
     private InputManager InputManager;
 
     private Vector2 _moveInput;
     private bool _isMoving, _isFalling, _isSprinting, _isJumping, _isGliding, _isAttacking, _isDashing, _isWater, _isIce, _isWind;
 
     public Vector3 Position => transform.position;
-    public Vector2 Velocity => _rb.velocity;
+    public Vector2 Velocity
+    {
+        get => _rb.velocity;
+        set => _rb.velocity = value;
+    }
+
 
     private Animator _animator;
     private Rigidbody2D _rb;
@@ -34,7 +43,7 @@ public class Player : MonoBehaviour
         _collider = GetComponent<Collider2D>();
         //_animator = GetComponent<Animator>();
 
-        ChangeState(new GroundState());
+        ChangeState(new InAirState());
 
     }
 
@@ -44,7 +53,7 @@ public class Player : MonoBehaviour
     }
     private void Update()
     {
-
+      currentState?.StateUpdate();
     }
     private void FixedUpdate()
     {
@@ -62,12 +71,16 @@ public class Player : MonoBehaviour
     #region Player Actions
     public void HandleMovement(Vector2 movement)
     {
-     currentState?.OnMovement(movement);
+        currentState?.OnMovement(movement);
     }
 
     public void HandleJump()
     {
         currentState?.OnJump();
+    }
+    public void HandleJumpFinish()
+    {
+        currentState?.OnJumpFinish();
     }
 
     public void HandleGlid()
@@ -88,7 +101,7 @@ public class Player : MonoBehaviour
     {
 
     }
-  
+
     public void HandleIce()
     {
 

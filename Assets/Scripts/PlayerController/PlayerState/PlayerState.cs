@@ -6,6 +6,11 @@ namespace HughTo0
     {
         public Player player { get; set;}
 
+        public Vector2 direction;
+        public Vector2 velocity;
+        public bool isJumping = false;
+
+
         public virtual void EnterState() { }
         public virtual void ExitState() { }
         public virtual void StateFixedUpdate() { }
@@ -13,8 +18,12 @@ namespace HughTo0
 
         #region Player Actions 
 
-        public virtual void OnMovement(Vector2 movement) { }
-        public virtual void OnJump() { }
+        public virtual void OnMovement(Vector2 movement) 
+        {
+            direction = movement;
+        }
+        public virtual void OnJump() {  }
+        public virtual void OnJumpFinish() { }
         public virtual void OnGlid() { }
         public virtual void OnAttack() { }
         public virtual void OnDash() { }
@@ -27,7 +36,26 @@ namespace HughTo0
 
 
         #endregion
+        #region Player Checks
+        public bool GroundCheck()
+        {
+            return Physics2D.OverlapCircle(player.GroundCheck.position, 0.1f, LayerMask.GetMask("Ground"));
+        }
 
+        public void HandleDirection()
+        {
+            if (direction.x == 0)
+            {
+                var deceleration = GroundCheck()? player.stats.GroundDeceleration : player.stats.AirDeceleration;
+                velocity.x = Mathf.MoveTowards(velocity.x, 0, deceleration * Time.fixedDeltaTime);
+            }
+            else
+            {
+                velocity.x = Mathf.MoveTowards(velocity.x, direction.x * player.stats.MaxSpeed, player.stats.Acceleration * Time.fixedDeltaTime);
+            }
+        }
+
+        #endregion
     }
 
     public enum PlayerStateType
