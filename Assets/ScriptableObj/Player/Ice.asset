@@ -15,7 +15,7 @@ MonoBehaviour:
   PlayerLayer:
     serializedVersion: 2
     m_Bits: 64
-  currentForm: 0
+  currentForm: 1
   damage: 2
   SnapInput: 1
   VerticalDeadZoneThreshold: 0.3
@@ -26,7 +26,7 @@ MonoBehaviour:
   AirDeceleration: 30
   GroundingForce: -1.5
   GrounderDistance: 0.05
-  JumpPower: 36
+  JumpPower: 20
   MaxFallSpeed: 40
   FallAcceleration: 110
   JumpEndEarlyGravityModifier: 3

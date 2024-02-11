@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.InputSystem;
 using HughTo0;
+using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D), typeof(InputManager))]
 public class Player : MonoBehaviour
@@ -16,12 +13,15 @@ public class Player : MonoBehaviour
 
     public Transform GroundCheck;
 
-    public ScriptableStats stats;
+    public ScriptableStats[] stats;
+    public ScriptableStats currentStats;
+
+    public Collider2D AttackHitBox;
 
     private InputManager InputManager;
 
     private Vector2 _moveInput;
-    private bool _isMoving, _isFalling, _isSprinting, _isJumping, _isGliding, _isAttacking, _isDashing, _isWater, _isIce, _isWind;
+    public bool _isMoving, _isFalling, _isSprinting, _isJumping, _isGliding, _isAttacking, _isDashing, _isWater, _isIce, _isWind;
 
     public Vector3 Position => transform.position;
     public Vector2 Velocity
@@ -38,12 +38,12 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         InputManager = GetComponent<InputManager>();
-
+       
         _rb = GetComponent<Rigidbody2D>();
         _collider = GetComponent<Collider2D>();
         //_animator = GetComponent<Animator>();
-
-        ChangeState(new InAirState());
+        AttackHitBox.enabled = false;
+        ChangeState(new GroundState());
 
     }
 
@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
     }
     private void Update()
     {
-      currentState?.StateUpdate();
+        currentState?.StateUpdate();
     }
     private void FixedUpdate()
     {
@@ -72,6 +72,7 @@ public class Player : MonoBehaviour
     public void HandleMovement(Vector2 movement)
     {
         currentState?.OnMovement(movement);
+        Debug.Log("Movement");
     }
 
     public void HandleGlid()
@@ -80,7 +81,9 @@ public class Player : MonoBehaviour
     }
     public void HandleAttack()
     {
-
+        ChangeState(new AttackState());
+        currentState?.OnAttack();
+        Debug.Log("Attack");
     }
 
     public void HandleDash()
@@ -90,20 +93,32 @@ public class Player : MonoBehaviour
 
     public void HandleWater()
     {
-
+       ChangeForm(ScriptableStats.Form.Water);
+        Debug.Log("Water");
     }
 
     public void HandleIce()
     {
-
+     ChangeForm(ScriptableStats.Form.Ice);
+        Debug.Log("Ice");
     }
 
     public void HandleWind()
     {
-
+     ChangeForm(ScriptableStats.Form.Gas);
+        Debug.Log("Wind");
     }
     #endregion
-
+    void ChangeForm(ScriptableStats.Form newForm)
+    {
+        foreach (ScriptableStats stat in stats)
+        {
+            if (stat.currentForm == newForm)
+            {
+                currentStats = stat;
+            }
+        }      
+    }
 }
 
 
