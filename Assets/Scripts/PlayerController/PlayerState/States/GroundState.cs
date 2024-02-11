@@ -18,8 +18,8 @@ public class GroundState : PlayerState
     float _time;
     private float _frameLeftGrounded = float.MinValue;
 
-    private bool HasBufferedJump => _bufferedJumpUsable && _time < _timeJumpWasPressed + player.stats.JumpBuffer;
-    private bool CanUseCoyote => _coyoteUsable && !GroundCheck() && _time < _frameLeftGrounded + player.stats.CoyoteTime;
+    private bool HasBufferedJump => _bufferedJumpUsable && _time < _timeJumpWasPressed + player.currentStats.JumpBuffer;
+    private bool CanUseCoyote => _coyoteUsable && !GroundCheck() && _time < _frameLeftGrounded + player.currentStats.CoyoteTime;
 
     private void GatherInput()
     {
@@ -54,7 +54,7 @@ public class GroundState : PlayerState
         _timeJumpWasPressed = 0;
         _bufferedJumpUsable = false;
         _coyoteUsable = false;
-        velocity.y = player.stats.JumpPower;
+        velocity.y = player.currentStats.JumpPower;
     }
 
     public override void StateUpdate()
@@ -90,13 +90,13 @@ public class GroundState : PlayerState
     {
         if (GroundCheck() && velocity.y <= 0f)
         {
-            velocity.y = player.stats.GroundingForce;
+            velocity.y = player.currentStats.GroundingForce;
         }
         else
         {
-            var inAirGravity = player.stats.FallAcceleration;
-            if (_endedJumpEarly && velocity.y > 0) inAirGravity *= player.stats.JumpEndEarlyGravityModifier;
-            velocity.y = Mathf.MoveTowards(velocity.y, -player.stats.MaxFallSpeed, inAirGravity * Time.fixedDeltaTime);
+            var inAirGravity = player.currentStats.FallAcceleration;
+            if (_endedJumpEarly && velocity.y > 0) inAirGravity *= player.currentStats.JumpEndEarlyGravityModifier;
+            velocity.y = Mathf.MoveTowards(velocity.y, -player.currentStats.MaxFallSpeed, inAirGravity * Time.fixedDeltaTime);
         }
     }
 

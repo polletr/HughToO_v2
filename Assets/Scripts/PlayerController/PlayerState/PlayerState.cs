@@ -44,12 +44,12 @@ namespace HughTo0
         {
             if (direction.x == 0)
             {
-                var deceleration = GroundCheck()? player.stats.GroundDeceleration : player.stats.AirDeceleration;
+                var deceleration = GroundCheck()? player.currentStats.GroundDeceleration : player.currentStats.AirDeceleration;
                 velocity.x = Mathf.MoveTowards(velocity.x, 0, deceleration * Time.fixedDeltaTime);
             }
             else
             {
-                velocity.x = Mathf.MoveTowards(velocity.x, direction.x * player.stats.MaxSpeed, player.stats.Acceleration * Time.fixedDeltaTime);
+                velocity.x = Mathf.MoveTowards(velocity.x, direction.x * player.currentStats.MaxSpeed, player.currentStats.Acceleration * Time.fixedDeltaTime);
             }
         }
 
