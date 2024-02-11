@@ -15,7 +15,7 @@ public class ParallaxController : MonoBehaviour
     float farthestBack;
 
     [Range(0.01f, 0.05f)]
-    public float parallaxSpeed;
+    [SerializeField] private float parallaxSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +25,7 @@ public class ParallaxController : MonoBehaviour
 
         int backCount = transform.childCount;
         mat = new Material[backCount];
+        backSpeed = new float[backCount];
         backgrounds = new GameObject[backCount];
 
         for ( int i = 0; i < backCount; i++ )
