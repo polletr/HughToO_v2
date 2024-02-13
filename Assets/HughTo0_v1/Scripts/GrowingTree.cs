@@ -12,6 +12,13 @@ public class GrowingTree : MonoBehaviour
         Up
     }
 
+    private enum State
+    {
+        Growing,
+        Retracting,
+        Idle
+    }
+
     public growthDirection currentDirection;
     private Vector2 finalDirection;
 
@@ -43,6 +50,7 @@ public class GrowingTree : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         audioSource = GetComponent<AudioSource>();
         GetVector(currentDirection);
+        
     }
 
     private void GetVector(growthDirection direction)
@@ -60,6 +68,26 @@ public class GrowingTree : MonoBehaviour
         }
     }
 
+    private void SetState(State currentState)
+    {
+        switch (currentState)
+        {
+            case State.Idle:
+                break;
+            case State.Growing:
+                StopAllCoroutines();
+                StartCoroutine(GrowTree());
+                break;
+            case State.Retracting:
+                StopAllCoroutines();
+                StartCoroutine(RetractTree());
+            break;
+            default:
+                break;
+        }
+    }
+
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -70,17 +98,15 @@ public class GrowingTree : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" /*&& Add Check for water form*/)
         {
-            StopAllCoroutines();
-            StartCoroutine(GrowTree());
+            SetState(State.Growing);
         }
     }
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        if (!fixedTree)
+        if (!fixedTree && other.gameObject.tag == "Player")
         {
-            StopAllCoroutines();
-            StartCoroutine(RetractTree());
+            SetState(State.Retracting);
         }
 
     }
@@ -91,7 +117,7 @@ public class GrowingTree : MonoBehaviour
         {
             transform.Translate(finalDirection * speed * Time.fixedDeltaTime);
             anim.SetTrigger("Shake");
-            currentPos = transform;
+            currentPos.position = transform.position;
             if (!audioSource.isPlaying)
             {
                 audioSource.Play();
@@ -106,7 +132,7 @@ public class GrowingTree : MonoBehaviour
         {
             transform.Translate(finalDirection * -1 * speed * Time.fixedDeltaTime);
             anim.SetTrigger("Shake");
-            currentPos = transform;
+            currentPos.position = transform.position;
             if (!audioSource.isPlaying)
             {
                 audioSource.Play();

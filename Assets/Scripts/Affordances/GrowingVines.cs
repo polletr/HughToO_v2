@@ -41,6 +41,13 @@ public class GrowingVines : MonoBehaviour
 
     private float objectSize;
 
+    private enum State
+    {
+        Growing,
+        Retracting,
+        Idle
+    }
+
     private BoxCollider2D boxCollider;
 
     private Stack<GameObject> vineStack = new Stack<GameObject>();
@@ -75,6 +82,26 @@ public class GrowingVines : MonoBehaviour
         }
     }
 
+    private void SetState(State currentState)
+    {
+        switch (currentState)
+        {
+            case State.Idle:
+                break;
+            case State.Growing:
+                StopAllCoroutines();
+                StartCoroutine(GrowVines());
+                break;
+            case State.Retracting:
+                StopAllCoroutines();
+                StartCoroutine(RetractVines());
+                break;
+            default:
+                break;
+        }
+    }
+
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -87,7 +114,7 @@ public class GrowingVines : MonoBehaviour
         {
             other.transform.SetParent(transform);
 
-            StartCoroutine(GrowVines());
+            SetState(State.Growing);
         }
     }
 
@@ -96,14 +123,15 @@ public class GrowingVines : MonoBehaviour
         if (other.gameObject.CompareTag("Player")  /* && Add condition for being water*/)
         {
             other.transform.SetParent(null);
+            if (!fixedTree)
+            {
+
+                SetState(State.Retracting);
+
+            }
+
         }
 
-        if (!fixedTree)
-        {
-            
-            StartCoroutine(RetractVines());
-
-        }
 
     }
 
