@@ -72,7 +72,6 @@ public class Player : MonoBehaviour
     public void HandleMovement(Vector2 movement)
     {
         currentState?.OnMovement(movement);
-        Debug.Log("Movement");
     }
 
     public void HandleGlid()
@@ -83,7 +82,6 @@ public class Player : MonoBehaviour
     {
         ChangeState(new AttackState());
         currentState?.OnAttack();
-        Debug.Log("Attack");
     }
 
     public void HandleDash()

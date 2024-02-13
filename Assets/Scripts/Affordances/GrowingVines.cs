@@ -1,15 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class GrowingTree : MonoBehaviour
+public class GrowingVines : MonoBehaviour
 {
     [SerializeField]
+    private GameObject VinePrefab;
     public enum growthDirection
     {
-        Down,
-        Up,
         Left,
         Right
     }
@@ -22,11 +20,13 @@ public class GrowingTree : MonoBehaviour
 
     private float speed = 0f;
 
+    private SpriteRenderer spriteRenderer; 
+
     [SerializeField]
     private Transform desiredPos;
 
-    [SerializeField]
-    private Transform currentPos;
+    private Vector2
+        currentPos;
 
     private Vector2 startPos;
 
@@ -39,27 +39,27 @@ public class GrowingTree : MonoBehaviour
 
     private Animator anim;
 
+    private float objectSize;
+
     private AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
         speed = originalSpeed;
-        startPos = new Vector2(currentPos.position.x, currentPos.position.y);
+        currentPos = transform.position;
+        startPos = new Vector2(currentPos.x, currentPos.x);
+        spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponentInChildren<Animator>();
         audioSource = GetComponent<AudioSource>();
         GetVector(currentDirection);
+
+        objectSize = spriteRenderer.bounds.size.x;
     }
 
     private void GetVector(growthDirection direction)
     {
         switch (direction)
         {
-            case growthDirection.Up:
-                finalDirection = Vector2.up;
-                break;
-            case growthDirection.Down:
-                finalDirection = Vector2.down;
-                break;
             case growthDirection.Left:
                 finalDirection = Vector2.left;
                 break;
@@ -74,36 +74,14 @@ public class GrowingTree : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        timer += Time.fixedDeltaTime;
-        if (growing && currentPos.position.y < desiredPos.position.y)
-        {
-            transform.Translate(finalDirection * speed * Time.fixedDeltaTime);
-            anim.SetTrigger("Shake");
-            if (!audioSource.isPlaying)
-            {
-                audioSource.Play();
-            }
-
-        }
-        else if (!fixedTree && !growing && currentPos.position.y > startPos.y)
-        {
-            transform.Translate(finalDirection * speed * Time.fixedDeltaTime);
-            anim.SetTrigger("Shake");
-            if (!audioSource.isPlaying)
-            {
-                audioSource.Play();
-            }
-
-
-        }
 
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Player" && ClimateManager.Instance.currentState == 0)
+        if (other.gameObject.CompareTag("Player")  /* && Add condition for being water*/)
         {
-            growing = true;
+            StartCoroutine(GrowVines());
         }
     }
 
@@ -117,13 +95,24 @@ public class GrowingTree : MonoBehaviour
 
     }
 
-
-    private void OnDecrease()
+    IEnumerator GrowVines()
     {
-        if (transform.position != currentPos.position)
+        while (Vector2.Distance(currentPos, desiredPos.position) > 0.1f)
         {
-            speed = -originalSpeed;
+            transform.Translate(finalDirection * speed * Time.fixedDeltaTime);
+            currentPos = transform.position;
+            float distanceTraveled = Mathf.Abs(currentPos.x - startPos.x);
+            Debug.Log(distanceTraveled);
+            Debug.Log(objectSize);
+            if (distanceTraveled % objectSize <= 0.1f )
+            {
+
+               Instantiate(VinePrefab, startPos, Quaternion.identity, this.transform);
+                Debug.Log("Instantiate");
+            }
+            yield return null;
         }
     }
 
 }
+
