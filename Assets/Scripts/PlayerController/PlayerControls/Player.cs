@@ -84,6 +84,11 @@ public class Player : MonoBehaviour
         currentState?.OnAttack();
     }
 
+    public  void HandleJump()
+    {
+
+    }
+
     public void HandleDash()
     {
 
