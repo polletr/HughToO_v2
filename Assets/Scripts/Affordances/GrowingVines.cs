@@ -47,7 +47,7 @@ public class GrowingVines : MonoBehaviour
     {
         speed = originalSpeed;
         currentPos = transform.position;
-        startPos = new Vector2(currentPos.x, currentPos.x);
+        startPos = new Vector2(currentPos.x, currentPos.y);
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponentInChildren<Animator>();
         audioSource = GetComponent<AudioSource>();
@@ -81,12 +81,19 @@ public class GrowingVines : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player")  /* && Add condition for being water*/)
         {
+            other.transform.SetParent(transform);
+
             StartCoroutine(GrowVines());
         }
     }
 
     private void OnCollisionExit2D(Collision2D other)
     {
+        if (other.gameObject.CompareTag("Player")  /* && Add condition for being water*/)
+        {
+            other.transform.SetParent(null);
+        }
+
         if (!fixedTree)
         {
             growing = false;
@@ -102,11 +109,8 @@ public class GrowingVines : MonoBehaviour
             transform.Translate(finalDirection * speed * Time.fixedDeltaTime);
             currentPos = transform.position;
             float distanceTraveled = Mathf.Abs(currentPos.x - startPos.x);
-            Debug.Log(distanceTraveled);
-            Debug.Log(objectSize);
             if (distanceTraveled % objectSize <= 0.1f )
             {
-
                Instantiate(VinePrefab, startPos, Quaternion.identity, this.transform);
                 Debug.Log("Instantiate");
             }
