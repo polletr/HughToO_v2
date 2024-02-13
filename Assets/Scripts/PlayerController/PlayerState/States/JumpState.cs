@@ -2,15 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using HughTo0;
-using Percy;
 
-public class GroundState : PlayerState
+public class JumpState : PlayerState
 {
     private bool _jumpToConsume;
     private bool _bufferedJumpUsable;
     private bool _endedJumpEarly;
     private bool _coyoteUsable;
-    private float _timeJumpWasPressed;    
+    private float _timeJumpWasPressed;
 
     private FrameInput _frameInput;
     public Vector2 FrameInput => _frameInput.Move;
@@ -19,17 +18,11 @@ public class GroundState : PlayerState
     private float _frameLeftGrounded = float.MinValue;
 
     private bool HasBufferedJump => _bufferedJumpUsable && _time < _timeJumpWasPressed + player.currentStats.JumpBuffer;
-    private bool CanUseCoyote => _coyoteUsable && !GroundCheck() && _time < _frameLeftGrounded + player.currentStats.CoyoteTime;
+    private bool CanUseCoyote => _coyoteUsable && !player.GroundCheck() && _time < _frameLeftGrounded + player.currentStats.CoyoteTime;
 
     private void GatherInput()
     {
-        _frameInput = new FrameInput
-        {
-            JumpDown = Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.C),
-            JumpHeld = Input.GetButton("Jump") || Input.GetKey(KeyCode.C),
-        };
-
-        if (_frameInput.JumpDown)
+        if (inputManager.IsJumpHeldDown)
         {
             _jumpToConsume = true;
             _timeJumpWasPressed = _time;
@@ -39,11 +32,11 @@ public class GroundState : PlayerState
 
     private void HandleJump()
     {
-        if (!_endedJumpEarly && !GroundCheck() && !_frameInput.JumpHeld && velocity.y > 0) _endedJumpEarly = true;
+        if (!_endedJumpEarly && !player.GroundCheck() && !inputManager.IsJumpHeldDown && velocity.y > 0) _endedJumpEarly = true;
 
         if (!_jumpToConsume && !HasBufferedJump) return;
 
-        if (GroundCheck() || CanUseCoyote) ExecuteJump();
+        if (player.GroundCheck() || CanUseCoyote) ExecuteJump();
 
         _jumpToConsume = false;
     }
@@ -73,31 +66,40 @@ public class GroundState : PlayerState
 
     }
 
-   
-
     public override void StateFixedUpdate()
     {
+        base.StateFixedUpdate();
         HandleJump();
-        HandleDirection();
-        HandleGravity();
 
         ApplyMovement();
         //player.ChangeState(new InAirState());
+
     }
 
-
-    private void HandleGravity()
+    public override void HandleGravity()
     {
-        if (GroundCheck() && velocity.y <= 0f)
+        if (player.GroundCheck() && velocity.y <= 0f)
         {
-            velocity.y = player.currentStats.GroundingForce;
+            //Play landing sound
+            //Player landing animation
+            player.ChangeState(new IdleState());
         }
         else
         {
             var inAirGravity = player.currentStats.FallAcceleration;
             if (_endedJumpEarly && velocity.y > 0) inAirGravity *= player.currentStats.JumpEndEarlyGravityModifier;
             velocity.y = Mathf.MoveTowards(velocity.y, -player.currentStats.MaxFallSpeed, inAirGravity * Time.fixedDeltaTime);
+            if (velocity.y < 0)
+            {
+                //play animation of falling
+            }
+            else if (velocity.y > 0)
+            {
+                //play animation of jumping
+            }
+
         }
+
     }
 
     private void ApplyMovement() => player.Velocity = velocity;

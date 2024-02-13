@@ -2,8 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Percy
-{
+
     [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
     public class controller : MonoBehaviour, IPlayerController
     {
@@ -203,4 +202,3 @@ namespace Percy
         public event Action Jumped;
         public Vector2 FrameInput { get; }
     }
-}

@@ -11,14 +11,14 @@ public class Player : MonoBehaviour
     PlayerState currentState;
     PlayerStateType currentStateValue;
 
-    public Transform GroundCheck;
+    public Transform _groundCheckPos;
 
     public ScriptableStats[] stats;
     public ScriptableStats currentStats;
 
     public Collider2D AttackHitBox;
 
-    private InputManager InputManager;
+    private InputManager inputManager;
 
     private Vector2 _moveInput;
     public bool _isMoving, _isFalling, _isSprinting, _isJumping, _isGliding, _isAttacking, _isDashing, _isWater, _isIce, _isWind;
@@ -37,20 +37,16 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        InputManager = GetComponent<InputManager>();
-       
+        inputManager = GetComponent<InputManager>();
+
         _rb = GetComponent<Rigidbody2D>();
         _collider = GetComponent<Collider2D>();
         //_animator = GetComponent<Animator>();
         AttackHitBox.enabled = false;
-        ChangeState(new GroundState());
+        ChangeState(new IdleState());
 
     }
 
-    private void Start()
-    {
-
-    }
     private void Update()
     {
         currentState?.StateUpdate();
@@ -65,28 +61,19 @@ public class Player : MonoBehaviour
         currentState?.ExitState();
         currentState = newState;
         currentState.player = this;
+        currentState.inputManager = inputManager;
         currentState.EnterState();
     }
 
     #region Player Actions
-    public void HandleMovement(Vector2 movement)
-    {
-        currentState?.OnMovement(movement);
-    }
 
-    public void HandleGlid()
-    {
-
-    }
     public void HandleAttack()
     {
-        ChangeState(new AttackState());
-        currentState?.OnAttack();
-    }
-
-    public  void HandleJump()
-    {
-
+        if (GroundCheck())
+        {
+            ChangeState(new AttackState());
+            currentState?.OnAttack();
+        }
     }
 
     public void HandleDash()
@@ -96,20 +83,17 @@ public class Player : MonoBehaviour
 
     public void HandleWater()
     {
-       ChangeForm(ScriptableStats.Form.Water);
-        Debug.Log("Water");
+        ChangeForm(ScriptableStats.Form.Water);
     }
 
     public void HandleIce()
     {
-     ChangeForm(ScriptableStats.Form.Ice);
-        Debug.Log("Ice");
+        ChangeForm(ScriptableStats.Form.Ice);
     }
 
     public void HandleWind()
     {
-     ChangeForm(ScriptableStats.Form.Gas);
-        Debug.Log("Wind");
+        ChangeForm(ScriptableStats.Form.Gas);
     }
     #endregion
     void ChangeForm(ScriptableStats.Form newForm)
@@ -120,7 +104,13 @@ public class Player : MonoBehaviour
             {
                 currentStats = stat;
             }
-        }      
+        }
+    }
+
+
+    public bool GroundCheck()
+    {
+        return Physics2D.OverlapCircle(_groundCheckPos.position, 0.1f, LayerMask.GetMask("Ground"));
     }
 }
 

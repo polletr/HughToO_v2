@@ -4,54 +4,79 @@ namespace HughTo0
 {
     public abstract class PlayerState
     {
-        public Player player { get; set;}
+        public Player player { get; set; }
+        public InputManager inputManager { get; set; }
 
-        public Vector2 direction;
         public Vector2 velocity;
         public bool isJumping = false;
+        public bool isJumpingHeld = false;
+        bool isFacingRight = false;
 
 
         public virtual void EnterState() { }
         public virtual void ExitState() { }
-        public virtual void StateFixedUpdate() { }
+        public virtual void StateFixedUpdate()
+        {
+            OnMovement(inputManager.Movement);
+        }
         public virtual void StateUpdate() { }
 
         #region Player Actions 
 
-        public virtual void OnMovement(Vector2 movement) 
+        public virtual void OnMovement(Vector2 movement)
         {
-            direction = movement;
+
+            if (movement.x == 0)
+            {
+                var deceleration = player.GroundCheck() ? player.currentStats.GroundDeceleration : player.currentStats.AirDeceleration;
+                velocity.x = Mathf.MoveTowards(velocity.x, 0, deceleration * Time.fixedDeltaTime);
+            }
+            else
+            {
+                velocity.x = Mathf.MoveTowards(velocity.x, movement.x * player.currentStats.MaxSpeed, player.currentStats.Acceleration * Time.fixedDeltaTime);
+            }
+
+            if (isFacingRight && movement.x > 0f || !isFacingRight && movement.x < 0f)
+            {
+                isFacingRight = !isFacingRight;
+                Vector3 localScale = player.transform.localScale;
+                localScale.x *= -1f;
+                player.transform.localScale = localScale;
+            }
+            HandleGravity();
+            player.Velocity = velocity;
+
         }
         public virtual void OnGlid() { }
         public virtual void OnAttack() { }
         public virtual void OnDash() { }
         public virtual void OnFalling() { }
 
-
-        public virtual void OnWaterForm() { }
-        public virtual void OnIceForm() { }
-        public virtual void OnWindForm() { }
-
-
-        #endregion
-        #region Player Checks
-        public bool GroundCheck()
+        public virtual void HandleGravity()
         {
-            return Physics2D.OverlapCircle(player.GroundCheck.position, 0.1f, LayerMask.GetMask("Ground"));
-        }
-
-        public void HandleDirection()
-        {
-            if (direction.x == 0)
+            if (player.GroundCheck() && velocity.y <= 0f)
             {
-                var deceleration = GroundCheck()? player.currentStats.GroundDeceleration : player.currentStats.AirDeceleration;
-                velocity.x = Mathf.MoveTowards(velocity.x, 0, deceleration * Time.fixedDeltaTime);
+                velocity.y = player.currentStats.GroundingForce;
             }
             else
             {
-                velocity.x = Mathf.MoveTowards(velocity.x, direction.x * player.currentStats.MaxSpeed, player.currentStats.Acceleration * Time.fixedDeltaTime);
+                var inAirGravity = player.currentStats.FallAcceleration;
+                velocity.y = Mathf.MoveTowards(velocity.y, -player.currentStats.MaxFallSpeed, inAirGravity * Time.fixedDeltaTime);
+                if (velocity.y < 0)
+                {
+                    Debug.Log("falling ");
+                    //play animation of falling
+                }
+                else if (velocity.y > 0)
+                {
+                    //play animation of jumping
+                }
             }
         }
+
+        #endregion
+        #region Player Checks
+
 
         #endregion
     }
