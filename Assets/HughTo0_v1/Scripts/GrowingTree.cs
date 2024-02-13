@@ -9,9 +9,7 @@ public class GrowingTree : MonoBehaviour
     public enum growthDirection
     {
         Down,
-        Up,
-        Left,
-        Right
+        Up
     }
 
     public growthDirection currentDirection;
@@ -25,14 +23,10 @@ public class GrowingTree : MonoBehaviour
     [SerializeField]
     private Transform desiredPos;
 
-    [SerializeField]
     private Transform currentPos;
 
     private Vector2 startPos;
 
-    private bool growing;
-
-    private float timer;
 
     [SerializeField]
     private bool fixedTree;
@@ -44,7 +38,8 @@ public class GrowingTree : MonoBehaviour
     void Start()
     {
         speed = originalSpeed;
-        startPos = new Vector2(currentPos.position.x, currentPos.position.y);
+        currentPos = transform;
+        startPos = currentPos.position;
         anim = GetComponentInChildren<Animator>();
         audioSource = GetComponent<AudioSource>();
         GetVector(currentDirection);
@@ -60,12 +55,6 @@ public class GrowingTree : MonoBehaviour
             case growthDirection.Down:
                 finalDirection = Vector2.down;
                 break;
-            case growthDirection.Left:
-                finalDirection = Vector2.left;
-                break;
-            case growthDirection.Right:
-                finalDirection = Vector2.right;
-                break;
             default:
                 break;
         }
@@ -74,36 +63,15 @@ public class GrowingTree : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        timer += Time.fixedDeltaTime;
-        if (growing && currentPos.position.y < desiredPos.position.y)
-        {
-            transform.Translate(finalDirection * speed * Time.fixedDeltaTime);
-            anim.SetTrigger("Shake");
-            if (!audioSource.isPlaying)
-            {
-                audioSource.Play();
-            }
-
-        }
-        else if (!fixedTree && !growing && currentPos.position.y > startPos.y)
-        {
-            transform.Translate(finalDirection * speed * Time.fixedDeltaTime);
-            anim.SetTrigger("Shake");
-            if (!audioSource.isPlaying)
-            {
-                audioSource.Play();
-            }
-
-
-        }
 
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Player" && ClimateManager.Instance.currentState == 0)
+        if (other.gameObject.tag == "Player" /*&& Add Check for water form*/)
         {
-            growing = true;
+            StopAllCoroutines();
+            StartCoroutine(GrowTree());
         }
     }
 
@@ -111,11 +79,44 @@ public class GrowingTree : MonoBehaviour
     {
         if (!fixedTree)
         {
-            growing = false;
-
+            StopAllCoroutines();
+            StartCoroutine(RetractTree());
         }
 
     }
+
+    IEnumerator GrowTree()
+    {
+        while (Mathf.Abs(Vector2.Distance(currentPos.position, desiredPos.position)) > 0.01)
+        {
+            transform.Translate(finalDirection * speed * Time.fixedDeltaTime);
+            anim.SetTrigger("Shake");
+            currentPos = transform;
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+        }
+        yield return null;
+    }
+
+    IEnumerator RetractTree()
+    {
+        while (Mathf.Abs(Vector2.Distance(currentPos.position, startPos)) > 0.01)
+        {
+            transform.Translate(finalDirection * -1 * speed * Time.fixedDeltaTime);
+            anim.SetTrigger("Shake");
+            currentPos = transform;
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+
+        }
+        yield return null;
+    }
+
+
 
 
     private void OnDecrease()

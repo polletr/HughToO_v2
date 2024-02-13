@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7423449004795349826}
   - component: {fileID: 6281365309357123906}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Vine_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
