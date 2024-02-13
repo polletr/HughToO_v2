@@ -39,7 +39,7 @@ public class GrowingTree : MonoBehaviour
     {
         speed = originalSpeed;
         currentPos = transform;
-        startPos = new Vector2(currentPos.position.x, currentPos.position.y);
+        startPos = currentPos.position;
         anim = GetComponentInChildren<Animator>();
         audioSource = GetComponent<AudioSource>();
         GetVector(currentDirection);
@@ -77,7 +77,7 @@ public class GrowingTree : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        if (!fixedTree && other.gameObject.tag == "Player")
+        if (!fixedTree)
         {
             StopAllCoroutines();
             StartCoroutine(RetractTree());
@@ -87,7 +87,7 @@ public class GrowingTree : MonoBehaviour
 
     IEnumerator GrowTree()
     {
-        while (Vector2.Distance(currentPos.position, desiredPos.position) > 0.01)
+        while (Mathf.Abs(Vector2.Distance(currentPos.position, desiredPos.position)) > 0.01)
         {
             transform.Translate(finalDirection * speed * Time.fixedDeltaTime);
             anim.SetTrigger("Shake");
@@ -102,7 +102,7 @@ public class GrowingTree : MonoBehaviour
 
     IEnumerator RetractTree()
     {
-        while (Vector2.Distance(currentPos.position, startPos) > 0.01)
+        while (Mathf.Abs(Vector2.Distance(currentPos.position, startPos)) > 0.01)
         {
             transform.Translate(finalDirection * -1 * speed * Time.fixedDeltaTime);
             anim.SetTrigger("Shake");

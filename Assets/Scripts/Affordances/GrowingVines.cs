@@ -41,6 +41,10 @@ public class GrowingVines : MonoBehaviour
 
     private float objectSize;
 
+    private BoxCollider2D boxCollider;
+
+    private Stack<GameObject> vineStack = new Stack<GameObject>();
+
     private AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
@@ -52,7 +56,7 @@ public class GrowingVines : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         audioSource = GetComponent<AudioSource>();
         GetVector(currentDirection);
-
+        boxCollider = GetComponent<BoxCollider2D>();
         objectSize = spriteRenderer.bounds.size.x;
     }
 
@@ -96,7 +100,8 @@ public class GrowingVines : MonoBehaviour
 
         if (!fixedTree)
         {
-            growing = false;
+            
+            StartCoroutine(RetractVines());
 
         }
 
@@ -104,19 +109,43 @@ public class GrowingVines : MonoBehaviour
 
     IEnumerator GrowVines()
     {
-        while (Vector2.Distance(currentPos, desiredPos.position) > 0.1f)
+        while (Mathf.Abs(Vector2.Distance(currentPos, desiredPos.position)) > 0.1f)
         {
             transform.Translate(finalDirection * speed * Time.fixedDeltaTime);
             currentPos = transform.position;
             float distanceTraveled = Mathf.Abs(currentPos.x - startPos.x);
-            if (distanceTraveled % objectSize <= 0.1f )
+            if (distanceTraveled % objectSize <= 0.01f )
             {
-               Instantiate(VinePrefab, startPos, Quaternion.identity, this.transform);
-                Debug.Log("Instantiate");
+                boxCollider.size = new Vector2(distanceTraveled + objectSize, boxCollider.size.y);
+                boxCollider.offset = new Vector2(-(distanceTraveled)/2, boxCollider.offset.y);
+                GameObject vine = Instantiate(VinePrefab, startPos, Quaternion.identity, this.transform);
+                vineStack.Push(vine);
             }
             yield return null;
         }
     }
+
+    IEnumerator RetractVines()
+    {
+        boxCollider.size = new Vector2(objectSize, boxCollider.size.y);
+        boxCollider.offset = new Vector2(0f, boxCollider.offset.y);
+
+        while (Mathf.Abs(Vector2.Distance(currentPos, startPos)) > 0.1f)
+        {
+            transform.Translate(finalDirection * -1 * speed * Time.fixedDeltaTime);
+            currentPos = transform.position;
+            float distanceTraveled = Mathf.Abs(currentPos.x - startPos.x);
+            Debug.Log(distanceTraveled);
+            if (distanceTraveled % objectSize <= 0.01f)
+            {
+                Destroy(vineStack.Pop());
+                Debug.Log("Destroy");
+            }
+            yield return null;
+        }
+
+    }
+
 
 }
 
