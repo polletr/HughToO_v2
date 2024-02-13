@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b0c4d3c009323be449ef804d808f9531
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _BgMusicSpeaker: {instanceID: 0}
+  - _SFXSpeaker: {instanceID: 0}
+  - _MasterAudioMixer: {instanceID: 0}
+  - Audio: {fileID: 11400000, guid: fb36faf5e7a643540b2d27dc018d020e, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -17,17 +17,17 @@ MonoBehaviour:
     m_Bits: 64
   currentForm: 0
   damage: 0
-  SnapInput: 0
+  SnapInput: 1
   VerticalDeadZoneThreshold: 0.3
   HorizontalDeadZoneThreshold: 0.1
-  MaxSpeed: 5
-  Acceleration: 20
-  GroundDeceleration: 20
+  MaxSpeed: 6
+  Acceleration: 12
+  GroundDeceleration: 30
   AirDeceleration: 30
   GroundingForce: -1.5
   GrounderDistance: 0.05
-  JumpPower: 25
-  MaxFallSpeed: 40
+  JumpPower: 30
+  MaxFallSpeed: 24
   FallAcceleration: 110
   JumpEndEarlyGravityModifier: 3
   CoyoteTime: 0.15

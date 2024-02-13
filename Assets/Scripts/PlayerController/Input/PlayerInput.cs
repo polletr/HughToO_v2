@@ -38,12 +38,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Jump"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""66af37c3-3d32-4e15-a54a-c26bbe9b91d5"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Glid"",

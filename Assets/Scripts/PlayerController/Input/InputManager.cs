@@ -20,6 +20,9 @@ public class InputManager : MonoBehaviour
         action.Player.Movement.performed += (val) => player.HandleMovement(val.ReadValue<Vector2>());
         action.Player.Attack.performed += (val) => player.HandleAttack();
         action.Player.Dash.performed += (val) => player.HandleDash();
+       //action.Player.Jump.performed += (val) => player.HandleJump();
+
+        player._isJumping = action.Player.Jump.IsPressed();
 
         action.Player.Water.performed += (val) => player.HandleWater();
         action.Player.Ice.performed += (val) => player.HandleIce();
