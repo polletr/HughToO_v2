@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf1a746dc31c9ba46b55845102f1009a, type: 3}
   m_Name: Clips
   m_EditorClassIdentifier: 
-  BgMusicClip: {fileID: 0}
+  BgMusicClip: {fileID: 8300000, guid: e73250aaaf5f4924192cb6f9a0af9777, type: 3}
