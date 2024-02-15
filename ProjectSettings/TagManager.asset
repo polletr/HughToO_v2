@@ -6,6 +6,7 @@ TagManager:
   tags:
   - OneWayPlatform
   - Checkpoint
+  - Attack
   layers:
   - Default
   - TransparentFX

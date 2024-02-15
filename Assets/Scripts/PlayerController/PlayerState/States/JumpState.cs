@@ -11,9 +11,6 @@ public class JumpState : PlayerState
     private bool _coyoteUsable;
     private float _timeJumpWasPressed;
 
-    private FrameInput _frameInput;
-    public Vector2 FrameInput => _frameInput.Move;
-
     float _time;
     private float _frameLeftGrounded = float.MinValue;
 
@@ -68,10 +65,12 @@ public class JumpState : PlayerState
 
     public override void StateFixedUpdate()
     {
-        base.StateFixedUpdate();
         HandleJump();
-
+        OnMovement(inputManager.Movement);
         ApplyMovement();
+
+        //base.StateFixedUpdate();
+
         //player.ChangeState(new InAirState());
 
     }
@@ -101,6 +100,30 @@ public class JumpState : PlayerState
         }
 
     }
+
+    public override void OnMovement(Vector2 movement)
+    {
+        if (movement.x == 0)
+        {
+            var deceleration = player.GroundCheck() ? player.currentStats.GroundDeceleration : player.currentStats.AirDeceleration;
+            velocity.x = Mathf.MoveTowards(velocity.x, 0, deceleration * Time.fixedDeltaTime);
+        }
+        else
+        {
+            velocity.x = Mathf.MoveTowards(velocity.x, movement.x * player.currentStats.MaxSpeed, player.currentStats.Acceleration * Time.fixedDeltaTime);
+        }
+
+        if ((movement.x > 0f && player.transform.localScale.x < 0) || (movement.x < 0f && player.transform.localScale.x > 0))
+        {
+            Vector3 localScale = player.transform.localScale;
+            localScale.x *= -1f;
+            player.transform.localScale = localScale;
+        }
+
+        HandleGravity();
+
+    }
+
 
     private void ApplyMovement() => player.Velocity = velocity;
 

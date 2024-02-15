@@ -1,3 +1,4 @@
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 
 namespace HughTo0
@@ -8,9 +9,6 @@ namespace HughTo0
         public InputManager inputManager { get; set; }
 
         public Vector2 velocity;
-        public bool isJumping = false;
-        public bool isJumpingHeld = false;
-        bool isFacingRight = false;
 
 
         public virtual void EnterState() { }
@@ -25,7 +23,6 @@ namespace HughTo0
 
         public virtual void OnMovement(Vector2 movement)
         {
-
             if (movement.x == 0)
             {
                 var deceleration = player.GroundCheck() ? player.currentStats.GroundDeceleration : player.currentStats.AirDeceleration;
@@ -34,17 +31,19 @@ namespace HughTo0
             else
             {
                 velocity.x = Mathf.MoveTowards(velocity.x, movement.x * player.currentStats.MaxSpeed, player.currentStats.Acceleration * Time.fixedDeltaTime);
+
             }
 
-            if (isFacingRight && movement.x > 0f || !isFacingRight && movement.x < 0f)
+            if ((movement.x > 0f && player.transform.localScale.x < 0) || (movement.x < 0f && player.transform.localScale.x > 0))
             {
-                isFacingRight = !isFacingRight;
                 Vector3 localScale = player.transform.localScale;
                 localScale.x *= -1f;
                 player.transform.localScale = localScale;
             }
+
             HandleGravity();
             player.Velocity = velocity;
+            
 
         }
         public virtual void OnGlid() { }

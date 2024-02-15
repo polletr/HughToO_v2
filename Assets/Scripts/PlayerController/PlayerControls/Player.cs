@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     public ScriptableStats[] stats;
     public ScriptableStats currentStats;
 
-    public Collider2D AttackHitBox;
+    public GameObject AttackHitBox;
 
     private InputManager inputManager;
 
@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _collider = GetComponent<Collider2D>();
         //_animator = GetComponent<Animator>();
-        AttackHitBox.enabled = false;
+        AttackHitBox.SetActive(false);
         ChangeState(new IdleState());
 
     }
@@ -50,6 +50,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         currentState?.StateUpdate();
+        Debug.Log(currentState.ToString());
     }
     private void FixedUpdate()
     {

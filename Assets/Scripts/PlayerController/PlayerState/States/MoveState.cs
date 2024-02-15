@@ -17,8 +17,13 @@ public class MoveState : PlayerState
         if (velocity.x == 0)
         { 
             player.ChangeState(new IdleState());
-
         }
+
+        if (player.GroundCheck() && inputManager.IsJumpHeldDown)
+        {
+            player.ChangeState(new JumpState());
+        }
+
     }
 
 
