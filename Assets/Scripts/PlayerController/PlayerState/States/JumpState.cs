@@ -52,9 +52,6 @@ public class JumpState : GroundState
     public override void StateUpdate()
     {
         base.StateUpdate();
-        _time += Time.deltaTime;
-        GatherInput();
-        HandleJump();
 
     }
     public override void EnterState()
@@ -69,7 +66,11 @@ public class JumpState : GroundState
 
     public override void StateFixedUpdate()
     {
-       
+        _time += Time.fixedDeltaTime;
+        
+        GatherInput();
+        HandleJump();
+
 
         base.StateFixedUpdate();
 
