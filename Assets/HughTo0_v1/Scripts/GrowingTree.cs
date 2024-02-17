@@ -19,6 +19,8 @@ public class GrowingTree : MonoBehaviour
         Idle
     }
 
+    private State currentState;
+
     public growthDirection currentDirection;
     private Vector2 finalDirection;
 
@@ -34,6 +36,7 @@ public class GrowingTree : MonoBehaviour
 
     private Vector2 startPos;
 
+    bool playerOnCollider;
 
     [SerializeField]
     private bool fixedTree;
@@ -50,7 +53,7 @@ public class GrowingTree : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         audioSource = GetComponent<AudioSource>();
         GetVector(currentDirection);
-        
+        SetState(State.Idle);
     }
 
     private void GetVector(growthDirection direction)
@@ -68,17 +71,20 @@ public class GrowingTree : MonoBehaviour
         }
     }
 
-    private void SetState(State currentState)
+    private void SetState(State state)
     {
-        switch (currentState)
+        switch (state)
         {
             case State.Idle:
+                currentState = State.Idle;
                 break;
             case State.Growing:
+                currentState = State.Growing;
                 StopAllCoroutines();
                 StartCoroutine(GrowTree());
                 break;
             case State.Retracting:
+                currentState = State.Retracting;
                 StopAllCoroutines();
                 StartCoroutine(RetractTree());
             break;
@@ -91,12 +97,12 @@ public class GrowingTree : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-
+        Debug.Log(playerOnCollider);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Player" /*&& Add Check for water form*/)
+        if (other.gameObject.tag == "Player" && currentState != State.Growing /*&& Add Check for water form*/)
         {
             SetState(State.Growing);
         }
@@ -104,7 +110,7 @@ public class GrowingTree : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        if (!fixedTree && other.gameObject.tag == "Player")
+        if (!fixedTree && other.gameObject.tag == "Player" && currentState != State.Retracting)
         {
             SetState(State.Retracting);
         }
@@ -113,7 +119,7 @@ public class GrowingTree : MonoBehaviour
 
     IEnumerator GrowTree()
     {
-        while (Mathf.Abs(Vector2.Distance(currentPos.position, desiredPos.position)) > 0.01)
+        while (Mathf.Abs(Vector2.Distance(currentPos.position, desiredPos.position)) > 0.05f)
         {
             transform.Translate(finalDirection * speed * Time.fixedDeltaTime);
             anim.SetTrigger("Shake");
@@ -122,13 +128,15 @@ public class GrowingTree : MonoBehaviour
             {
                 audioSource.Play();
             }
+            yield return null;
         }
-        yield return null;
+
+        SetState(State.Idle);
     }
 
     IEnumerator RetractTree()
     {
-        while (Mathf.Abs(Vector2.Distance(currentPos.position, startPos)) > 0.01)
+        while (Mathf.Abs(Vector2.Distance(currentPos.position, startPos)) > 0.01f)
         {
             transform.Translate(finalDirection * -1 * speed * Time.fixedDeltaTime);
             anim.SetTrigger("Shake");
@@ -137,9 +145,8 @@ public class GrowingTree : MonoBehaviour
             {
                 audioSource.Play();
             }
-
+            yield return null;
         }
-        yield return null;
     }
 
 
