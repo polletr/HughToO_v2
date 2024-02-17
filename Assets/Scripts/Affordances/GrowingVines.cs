@@ -41,12 +41,23 @@ public class GrowingVines : MonoBehaviour
 
     private float objectSize;
 
+    [SerializeField]
+    private GameObject TopVines;
+
+    [SerializeField]
+    private Sprite HealthyVines;
+
+    [SerializeField]
+    private Sprite DeadVines;
+
     private enum State
     {
         Growing,
         Retracting,
         Idle
     }
+
+    private State currentState;
 
     private BoxCollider2D boxCollider;
 
@@ -62,9 +73,12 @@ public class GrowingVines : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponentInChildren<Animator>();
         audioSource = GetComponent<AudioSource>();
+
         GetVector(currentDirection);
         boxCollider = GetComponent<BoxCollider2D>();
         objectSize = spriteRenderer.bounds.size.x;
+
+        SetState(State.Idle);
     }
 
     private void GetVector(growthDirection direction)
@@ -82,17 +96,21 @@ public class GrowingVines : MonoBehaviour
         }
     }
 
-    private void SetState(State currentState)
+    private void SetState(State state)
     {
-        switch (currentState)
+        switch (state)
         {
             case State.Idle:
+                StopAllCoroutines();
+                currentState = State.Idle;
                 break;
             case State.Growing:
+                currentState = State.Growing;
                 StopAllCoroutines();
                 StartCoroutine(GrowVines());
                 break;
             case State.Retracting:
+                currentState = State.Retracting;
                 StopAllCoroutines();
                 StartCoroutine(RetractVines());
                 break;
@@ -110,9 +128,11 @@ public class GrowingVines : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Player")  /* && Add condition for being water*/)
+        if (other.gameObject.CompareTag("Player") && currentState != State.Growing /* && Add condition for being water*/)
         {
             other.transform.SetParent(transform);
+
+            TopVines.GetComponent<SpriteRenderer>().sprite = HealthyVines;
 
             SetState(State.Growing);
         }
@@ -120,11 +140,12 @@ public class GrowingVines : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Player")  /* && Add condition for being water*/)
+        if (other.gameObject.CompareTag("Player") && currentState != State.Retracting /* && Add condition for being water*/)
         {
             other.transform.SetParent(null);
             if (!fixedTree)
             {
+                TopVines.GetComponent<SpriteRenderer>().sprite = DeadVines;
 
                 SetState(State.Retracting);
 
@@ -163,11 +184,9 @@ public class GrowingVines : MonoBehaviour
             transform.Translate(finalDirection * -1 * speed * Time.fixedDeltaTime);
             currentPos = transform.position;
             float distanceTraveled = Mathf.Abs(currentPos.x - startPos.x);
-            Debug.Log(distanceTraveled);
             if (distanceTraveled % objectSize <= 0.01f)
             {
                 Destroy(vineStack.Pop());
-                Debug.Log("Destroy");
             }
             yield return null;
         }
