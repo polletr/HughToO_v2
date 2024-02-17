@@ -1,4 +1,3 @@
-using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 
 namespace HughTo0
@@ -8,56 +7,20 @@ namespace HughTo0
         public Player player { get; set; }
         public InputManager inputManager { get; set; }
 
-        public Vector2 velocity;
+        protected PlayerState currentState;
 
 
         public virtual void EnterState() { }
         public virtual void ExitState() { }
-        public virtual void StateFixedUpdate()
-        {
-            OnMovement(inputManager.Movement);
-        }
+        public virtual void StateFixedUpdate() { }
         public virtual void StateUpdate() { }
 
         #region Player Actions 
 
-        public virtual void OnMovement(Vector2 movement)
+
+        /*public virtual void HandleGravity()
         {
-            if (movement.x == 0)
-            {
-                var deceleration = player.GroundCheck() ? player.currentStats.GroundDeceleration : player.currentStats.AirDeceleration;
-                velocity.x = Mathf.MoveTowards(velocity.x, 0, deceleration * Time.fixedDeltaTime);
-            }
-            else
-            {
-                velocity.x = Mathf.MoveTowards(velocity.x, movement.x * player.currentStats.MaxSpeed, player.currentStats.Acceleration * Time.fixedDeltaTime);
-
-            }
-
-            if ((movement.x > 0f && player.transform.localScale.x < 0) || (movement.x < 0f && player.transform.localScale.x > 0))
-            {
-                Vector3 localScale = player.transform.localScale;
-                localScale.x *= -1f;
-                player.transform.localScale = localScale;
-            }
-
-            HandleGravity();
-            player.Velocity = velocity;
-            
-
-        }
-        public virtual void OnGlid() { }
-        public virtual void OnAttack() { }
-        public virtual void OnDash() { }
-        public virtual void OnFalling() { }
-
-        public virtual void HandleGravity()
-        {
-            if (player.GroundCheck() && velocity.y <= 0f)
-            {
-                velocity.y = player.currentStats.GroundingForce;
-            }
-            else
+            if
             {
                 var inAirGravity = player.currentStats.FallAcceleration;
                 velocity.y = Mathf.MoveTowards(velocity.y, -player.currentStats.MaxFallSpeed, inAirGravity * Time.fixedDeltaTime);
@@ -71,7 +34,7 @@ namespace HughTo0
                     //play animation of jumping
                 }
             }
-        }
+        }*/
 
         #endregion
         #region Player Checks
@@ -83,8 +46,10 @@ namespace HughTo0
     public enum PlayerStateType
     {
         Movement,
+        Grounded,
+        InAir,
         Jump,
-        Glid,
+        Glide,
         Attack,
         Dash
     }

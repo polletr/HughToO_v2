@@ -8,8 +8,7 @@ public class Player : MonoBehaviour
     public PlayerStateType StateType;
 
     private Dictionary<PlayerStateType, PlayerState> playerStates;*/
-    PlayerState currentState;
-    PlayerStateType currentStateValue;
+    public PlayerState currentState;
 
     public Transform _groundCheckPos;
 
@@ -24,15 +23,9 @@ public class Player : MonoBehaviour
     public bool _isMoving, _isFalling, _isSprinting, _isJumping, _isGliding, _isAttacking, _isDashing, _isWater, _isIce, _isWind;
 
     public Vector3 Position => transform.position;
-    public Vector2 Velocity
-    {
-        get => _rb.velocity;
-        set => _rb.velocity = value;
-    }
-
 
     private Animator _animator;
-    private Rigidbody2D _rb;
+    public Rigidbody2D _rb;
     private Collider2D _collider;
 
     private void Awake()
@@ -73,9 +66,9 @@ public class Player : MonoBehaviour
         if (GroundCheck())
         {
             ChangeState(new AttackState());
-            currentState?.OnAttack();
         }
     }
+
 
     public void HandleDash()
     {

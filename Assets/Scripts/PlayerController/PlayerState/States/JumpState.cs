@@ -1,21 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using HughTo0;
+using UnityEngine;
 
-public class JumpState : PlayerState
+public class JumpState : GroundState
 {
-    private bool _jumpToConsume;
-    private bool _bufferedJumpUsable;
-    private bool _endedJumpEarly;
-    private bool _coyoteUsable;
-    private float _timeJumpWasPressed;
+    protected bool _jumpToConsume;
+    protected bool _bufferedJumpUsable;
+    protected bool _endedJumpEarly;
+    protected bool _coyoteUsable;
+    protected float _timeJumpWasPressed;
 
-    float _time;
-    private float _frameLeftGrounded = float.MinValue;
+    protected bool CanUseCoyote;
 
+    protected float _time;
+    protected float _frameLeftGrounded = float.MinValue;
     private bool HasBufferedJump => _bufferedJumpUsable && _time < _timeJumpWasPressed + player.currentStats.JumpBuffer;
-    private bool CanUseCoyote => _coyoteUsable && !player.GroundCheck() && _time < _frameLeftGrounded + player.currentStats.CoyoteTime;
+
 
     private void GatherInput()
     {
@@ -40,92 +39,52 @@ public class JumpState : PlayerState
 
     private void ExecuteJump()
     {
+        Debug.Log("Jumping");
         _endedJumpEarly = false;
         _timeJumpWasPressed = 0;
         _bufferedJumpUsable = false;
         _coyoteUsable = false;
         velocity.y = player.currentStats.JumpPower;
+        player._rb.velocity = new Vector2(player._rb.velocity.x, player._rb.velocity.y + velocity.y);
+        Debug.Log(player._rb.velocity.y);
     }
 
     public override void StateUpdate()
     {
+        base.StateUpdate();
         _time += Time.deltaTime;
         GatherInput();
+        HandleJump();
 
     }
     public override void EnterState()
     {
-
+        base.EnterState();
     }
 
     public override void ExitState()
     {
-
+      base.ExitState();
     }
 
     public override void StateFixedUpdate()
     {
-        HandleJump();
-        OnMovement(inputManager.Movement);
-        ApplyMovement();
+       
 
-        //base.StateFixedUpdate();
+        base.StateFixedUpdate();
 
         //player.ChangeState(new InAirState());
 
     }
 
-    public override void HandleGravity()
+
+    /*public override void OnMovement(Vector2 movement)
     {
-        if (player.GroundCheck() && velocity.y <= 0f)
-        {
-            //Play landing sound
-            //Player landing animation
-            player.ChangeState(new IdleState());
-        }
-        else
-        {
-            var inAirGravity = player.currentStats.FallAcceleration;
-            if (_endedJumpEarly && velocity.y > 0) inAirGravity *= player.currentStats.JumpEndEarlyGravityModifier;
-            velocity.y = Mathf.MoveTowards(velocity.y, -player.currentStats.MaxFallSpeed, inAirGravity * Time.fixedDeltaTime);
-            if (velocity.y < 0)
-            {
-                //play animation of falling
-            }
-            else if (velocity.y > 0)
-            {
-                //play animation of jumping
-            }
+        base.OnMovement(movement);
 
-        }
+        // HandleGravity();
 
-    }
-
-    public override void OnMovement(Vector2 movement)
-    {
-        if (movement.x == 0)
-        {
-            var deceleration = player.GroundCheck() ? player.currentStats.GroundDeceleration : player.currentStats.AirDeceleration;
-            velocity.x = Mathf.MoveTowards(velocity.x, 0, deceleration * Time.fixedDeltaTime);
-        }
-        else
-        {
-            velocity.x = Mathf.MoveTowards(velocity.x, movement.x * player.currentStats.MaxSpeed, player.currentStats.Acceleration * Time.fixedDeltaTime);
-        }
-
-        if ((movement.x > 0f && player.transform.localScale.x < 0) || (movement.x < 0f && player.transform.localScale.x > 0))
-        {
-            Vector3 localScale = player.transform.localScale;
-            localScale.x *= -1f;
-            player.transform.localScale = localScale;
-        }
-
-        HandleGravity();
-
-    }
-
-
-    private void ApplyMovement() => player.Velocity = velocity;
+    }*/
 
 
 

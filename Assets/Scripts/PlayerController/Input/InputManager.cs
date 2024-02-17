@@ -42,11 +42,14 @@ public class InputManager : MonoBehaviour
     {
 
         action.Player.Movement.performed += (val) => Movement = val.ReadValue<Vector2>();
+
+
         action.Player.Attack.performed += (val) => player.HandleAttack();
         action.Player.Dash.performed += (val) => player.HandleDash();
+
+
         action.Player.Jump.performed += (val) => IsJumpHeldDown = true;
         action.Player.Jump.canceled += (val) => IsJumpHeldDown = false;
-
 
         action.Player.Water.performed += (val) => player.HandleWater();
         action.Player.Ice.performed += (val) => player.HandleIce();
@@ -59,6 +62,7 @@ public class InputManager : MonoBehaviour
     private void OnDisable()
     {
         // action.Player.Movement.performed -= (val) => Movement = val.ReadValue<Vector2>();
+        action.Player.Jump.performed -= (val) => IsJumpHeldDown = true;
         action.Player.Attack.performed -= (val) => player.HandleAttack();
         action.Player.Dash.performed -= (val) => player.HandleDash();
         action.Player.Water.performed -= (val) => player.HandleWater();

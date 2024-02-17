@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using HughTo0;
 
-public class IdleState : PlayerState
+public class IdleState : GroundState
 {
     public override void EnterState() 
     { 
@@ -11,6 +11,7 @@ public class IdleState : PlayerState
     }
 
     public override void ExitState() { }
+
     public override void StateFixedUpdate()
     {
         base.StateFixedUpdate();
@@ -24,11 +25,8 @@ public class IdleState : PlayerState
             player.ChangeState(new MoveState());
         }
 
+
     }
-
-
-
-
 
 
 }
