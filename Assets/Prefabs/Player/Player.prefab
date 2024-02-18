@@ -270,7 +270,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c530eb738d4449c4c99438f65862cc80, type: 2}
   - {fileID: 11400000, guid: 7525798a01a4ccd429fff90d1a493447, type: 2}
   currentStats: {fileID: 11400000, guid: 05e6a06c5af93134ab98ff12e2c27265, type: 2}
-  AttackHitBox: {fileID: 146109773560182077}
+  AttackHitBox: {fileID: 3214721251499899899}
   _isMoving: 0
   _isFalling: 0
   _isSprinting: 0
@@ -281,6 +281,7 @@ MonoBehaviour:
   _isWater: 0
   _isIce: 0
   _isWind: 0
+  _rb: {fileID: 7028512187088846468}
 --- !u!114 &400813590917517173
 MonoBehaviour:
   m_ObjectHideFlags: 0
