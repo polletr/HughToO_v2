@@ -1,109 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using HughTo0;
-using Percy;
+using UnityEngine;
 
 public class GroundState : PlayerState
 {
-    private bool _jumpToConsume;
-    private bool _bufferedJumpUsable;
-    private bool _endedJumpEarly;
-    private bool _coyoteUsable;
-    private float _timeJumpWasPressed;    
-
-    private FrameInput _frameInput;
-    public Vector2 FrameInput => _frameInput.Move;
-
-    float _time;
-    private float _frameLeftGrounded = float.MinValue;
-
-    private bool HasBufferedJump => _bufferedJumpUsable && _time < _timeJumpWasPressed + player.currentStats.JumpBuffer;
-    private bool CanUseCoyote => _coyoteUsable && !GroundCheck() && _time < _frameLeftGrounded + player.currentStats.CoyoteTime;
-
-    private void GatherInput()
-    {
-        _frameInput = new FrameInput
-        {
-            JumpDown = Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.C),
-            JumpHeld = Input.GetButton("Jump") || Input.GetKey(KeyCode.C),
-        };
-
-        if (_frameInput.JumpDown)
-        {
-            _jumpToConsume = true;
-            _timeJumpWasPressed = _time;
-        }
-
-    }
-
-    private void HandleJump()
-    {
-        if (!_endedJumpEarly && !GroundCheck() && !_frameInput.JumpHeld && velocity.y > 0) _endedJumpEarly = true;
-
-        if (!_jumpToConsume && !HasBufferedJump) return;
-
-        if (GroundCheck() || CanUseCoyote) ExecuteJump();
-
-        _jumpToConsume = false;
-    }
-
-    private void ExecuteJump()
-    {
-        _endedJumpEarly = false;
-        _timeJumpWasPressed = 0;
-        _bufferedJumpUsable = false;
-        _coyoteUsable = false;
-        velocity.y = player.currentStats.JumpPower;
-    }
-
-    public override void StateUpdate()
-    {
-        _time += Time.deltaTime;
-        GatherInput();
-
-    }
+    protected Vector2 velocity;
+    protected bool exitFromInAir;
     public override void EnterState()
     {
-
+        base.EnterState();
     }
 
     public override void ExitState()
     {
-
+        base.ExitState();
     }
-
-   
 
     public override void StateFixedUpdate()
     {
-        HandleJump();
-        HandleDirection();
-        HandleGravity();
+        if (player.currentState is InAirState)
+        {
+            exitFromInAir = true;
+        }
+        base.StateFixedUpdate();
+        if (player.GroundCheck() && velocity.y <= 0)
+        {
+            velocity.y = player.currentStats.GroundingForce;//fix
+        }
+        else if (player.currentState is not InAirState)// fix  
+        {
+            player.ChangeState(new InAirState());
+        }
 
-        ApplyMovement();
-        //player.ChangeState(new InAirState());
+
+        player._rb.velocity = velocity;
+
     }
 
-
-    private void HandleGravity()
+    public override void StateUpdate()
     {
-        if (GroundCheck() && velocity.y <= 0f)
-        {
-            velocity.y = player.currentStats.GroundingForce;
-        }
-        else
-        {
-            var inAirGravity = player.currentStats.FallAcceleration;
-            if (_endedJumpEarly && velocity.y > 0) inAirGravity *= player.currentStats.JumpEndEarlyGravityModifier;
-            velocity.y = Mathf.MoveTowards(velocity.y, -player.currentStats.MaxFallSpeed, inAirGravity * Time.fixedDeltaTime);
-        }
+        base.StateUpdate();
     }
-
-    private void ApplyMovement() => player.Velocity = velocity;
-
-
-
-
-
 }

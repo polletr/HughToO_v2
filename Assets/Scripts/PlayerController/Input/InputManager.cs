@@ -7,6 +7,30 @@ public class InputManager : MonoBehaviour
     PlayerInput action;
 
     Player player { get; set; }
+    bool _isJumpHeldDown;
+    public bool IsJumpHeldDown
+    {
+        get
+        {
+            return _isJumpHeldDown;
+        }
+        private set
+        {
+            _isJumpHeldDown = value;
+        }
+    }
+    Vector2 _movement;
+    public Vector2 Movement
+    {
+        get
+        {
+            return _movement;
+        }
+        private set
+        {
+            _movement = value;
+        }
+    }
 
     void Awake()
     {
@@ -14,27 +38,31 @@ public class InputManager : MonoBehaviour
         action = new PlayerInput();
     }
 
-    private void OnEnable() 
+    private void OnEnable()
     {
-       
-        action.Player.Movement.performed += (val) => player.HandleMovement(val.ReadValue<Vector2>());
+
+        action.Player.Movement.performed += (val) => Movement = val.ReadValue<Vector2>();
+
+
         action.Player.Attack.performed += (val) => player.HandleAttack();
         action.Player.Dash.performed += (val) => player.HandleDash();
-       //action.Player.Jump.performed += (val) => player.HandleJump();
 
-        player._isJumping = action.Player.Jump.IsPressed();
+
+        action.Player.Jump.performed += (val) => IsJumpHeldDown = true;
+        action.Player.Jump.canceled += (val) => IsJumpHeldDown = false;
 
         action.Player.Water.performed += (val) => player.HandleWater();
         action.Player.Ice.performed += (val) => player.HandleIce();
         action.Player.Wind.performed += (val) => player.HandleWind();
 
 
-        action.Enable(); 
+        action.Enable();
     }
 
     private void OnDisable()
     {
-        action.Player.Movement.performed -= (val) => player.HandleMovement(val.ReadValue<Vector2>());
+        // action.Player.Movement.performed -= (val) => Movement = val.ReadValue<Vector2>();
+        action.Player.Jump.performed -= (val) => IsJumpHeldDown = true;
         action.Player.Attack.performed -= (val) => player.HandleAttack();
         action.Player.Dash.performed -= (val) => player.HandleDash();
         action.Player.Water.performed -= (val) => player.HandleWater();
@@ -43,7 +71,7 @@ public class InputManager : MonoBehaviour
 
 
 
-        action.Disable(); 
+        action.Disable();
     }
 
 }
