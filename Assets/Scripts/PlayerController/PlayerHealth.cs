@@ -12,19 +12,22 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     private Sprite _emptyheart;
 
-    [Header("Max Health")]
-    [SerializeField]
-    private int maxHealth = 5;
+    private int maxHealth;
 
     [Header("Health UI")]
     [SerializeField]
     private GameObject[] _heartContainers;
 
+    [SerializeField]
+    private PlayerBaseInfo _playerData;
+
     private int _currentHealth;
 
     void Start()
     {
-        _currentHealth = maxHealth;
+        maxHealth = _playerData.Data.MaxHealth;
+        _currentHealth = _playerData.Data.CurrentHealth;
+        
         UpdateHeartUI();
     }
     void Update()
@@ -60,6 +63,10 @@ public class PlayerHealth : MonoBehaviour
                 _heartContainers[i].SetActive(false);
         }
 
+        _playerData.Data.MaxHealth = maxHealth;
+        _playerData.Data.CurrentHealth = _currentHealth;
+
+        Debug.Log(_currentHealth);
     }
 
     public void TakeDamage(int damage)

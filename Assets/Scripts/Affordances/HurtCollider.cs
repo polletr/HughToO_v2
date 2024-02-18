@@ -9,8 +9,46 @@ public class HurtCollider : MonoBehaviour, IDoDamage
 
     private int finalDamage;
     [SerializeField]
-    private DamageScriptable scriptableAffordances; 
+    private DamageScriptable scriptableAffordances;
 
+    [SerializeField]
+    private PlayerHealth playerHealth;
+
+    [SerializeField]
+    private Player player;
+
+
+    private void Start()
+    {
+        //playerHealth = playerHealth.GetComponent<PlayerHealth>();
+    }
+    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Damage Player");
+
+            if (collision.transform.position.x <= transform.position.x)
+            {
+                player.currentStats.knockFromRight = true;
+            }
+            else
+            {
+                player.currentStats.knockFromRight = false;
+            }
+
+            player.ChangeState(new KnockBackState());
+            DoDamage(collision.gameObject.GetComponent<Player>().currentStats);
+        }
+    }
+
+
+    public void DoDamage(ScriptableStats playerStats)
+    {
+        checkAffordance(scriptableAffordances, playerStats);
+        playerHealth.TakeDamage(finalDamage);
+    }
     void checkAffordance(DamageScriptable affordanceStats, ScriptableStats playerStats)
     {
         switch (playerStats.currentForm)
@@ -25,32 +63,8 @@ public class HurtCollider : MonoBehaviour, IDoDamage
                 finalDamage = affordanceStats.gasDamage;
                 break;
             default:
-                break;
-        }
-    }
-    
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("Damage Player");
-            //DoDamage(collision.GetComponent<Player>().Scriptab);
+                break; 
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("Damage Player");
-            //DoDamage(collision.GetComponent<Player>().Scriptab);
-        }
-    }
-
-
-    public void DoDamage(ScriptableStats playerStats)
-    {
-        checkAffordance(scriptableAffordances, playerStats);
-        //playerStats.health -= finalDamage;
-    }
 }

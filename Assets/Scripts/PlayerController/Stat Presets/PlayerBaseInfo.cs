@@ -7,8 +7,8 @@ public class PlayerBaseInfo : ScriptableObject
 [System.Serializable]
 public class PlayerData 
 {
-    public float CurrentHealth;
-    public float MaxHealth;
+    public int CurrentHealth;
+    public int MaxHealth;
 
     public ScriptableStats.Form Currentform;
 

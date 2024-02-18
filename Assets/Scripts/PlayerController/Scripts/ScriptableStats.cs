@@ -51,4 +51,12 @@ using UnityEngine;
 
         public float JumpBuffer = .2f;
 
+        public float KBForce = 5f;
+
+        public float KBCounter = .2f;
+
+        public bool knockFromRight;
+
+        public float KBFallAcceleration;
+
     }

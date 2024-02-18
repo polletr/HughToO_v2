@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eb1df81a26649245b4633d3461e2671, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  CurrentHealth: 2
-  MaxHealth: 5
-  Currentform: 0
-  CurrentScene: 1
-  CurrentCheckpoint: {fileID: 0}
-  HasIce: 1
-  HasWind: 1
+  Data:
+    CurrentHealth: 0
+    MaxHealth: 5
+    Currentform: 0
+    CurrentScene: 0
+    position: []
+    HasIce: 1
+    HasWind: 0

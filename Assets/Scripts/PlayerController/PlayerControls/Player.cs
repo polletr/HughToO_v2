@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     private Dictionary<PlayerStateType, PlayerState> playerStates;*/
     public PlayerState currentState;
 
+    public PlayerBaseInfo playerData;
+
     public Transform _groundCheckPos;
 
     public ScriptableStats[] stats;
@@ -82,11 +84,15 @@ public class Player : MonoBehaviour
 
     public void HandleIce()
     {
-        ChangeForm(ScriptableStats.Form.Ice);
+        if (playerData.Data.HasIce)
+            ChangeForm(ScriptableStats.Form.Ice);
+        else
+            Debug.Log("You are not chill enough");
     }
 
     public void HandleWind()
     {
+        if (playerData.Data.HasWind)
         ChangeForm(ScriptableStats.Form.Gas);
     }
     #endregion
@@ -99,6 +105,16 @@ public class Player : MonoBehaviour
                 currentStats = stat;
             }
         }
+    }
+
+    public void GetIceForm()
+    {
+        playerData.Data.HasIce = true;
+    }
+
+    public void GetWindForm()
+    {
+        playerData.Data.HasWind = true;
     }
 
 
