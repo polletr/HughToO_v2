@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eb1df81a26649245b4633d3461e2671, type: 3}
+  m_Name: PlayerData
+  m_EditorClassIdentifier: 
+  CurrentHealth: 2
+  MaxHealth: 5
+  Currentform: 0
+  CurrentScene: 1
+  CurrentCheckpoint: {fileID: 0}
+  HasIce: 1
+  HasWind: 1

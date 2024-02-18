@@ -1,71 +1,85 @@
 using UnityEngine;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 public class SaveManager : Singleton<SaveManager>
 {
-    public PlayerBaseInfo playerInfo;
-    private string saveFileName = "Save.json";
-    public string saveFolderName = "/SaveFolder";
+    public PlayerBaseInfo PlayerData;
+    public PlayerBaseInfo BasePlayerData;
 
-    private string savePath;
-    private string baseSavePath;
 
+    private string filePath;
+    private string fileName = "/SaveData.meow"; 
+    
     private void Awake()
     {
-        savePath = Path.Combine(Application.dataPath, saveFolderName, saveFileName);
-        string json = JsonUtility.ToJson(playerInfo);
-        File.WriteAllText(savePath, json);
+         filePath = Application.persistentDataPath + fileName;
+    }
 
-        if (baseSavePath == null)
+    public PlayerData LoadSave()
+    {
+        if (File.Exists(filePath))
         {
-            baseSavePath = savePath;
-            string json2 = JsonUtility.ToJson(playerInfo);
-            File.WriteAllText(baseSavePath, json2);
-            Debug.Log("Base save file created at: " + baseSavePath);
+            Debug.Log("Loading save ");
+            BinaryFormatter bf = new();
+            FileStream stream = new(filePath, FileMode.Open);
+            PlayerData data = bf.Deserialize(stream) as PlayerData;
+            stream.Close();
+            return data;
         }
         else
         {
-            Debug.LogError("Base save file already exists at: " + baseSavePath);
+            Debug.LogError("Save file not found in " + filePath);
+            return null;
         }
+    }
+    public void SaveGame(PlayerData data)
+    {
+        Debug.Log("Saving game");
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream stream = new FileStream(filePath, FileMode.Create);
+        bf.Serialize(stream, PlayerData.Data);
+        stream.Close();
+    }
+
+    private void OnApplicationQuit()
+    {
+        SaveGame(this.PlayerData.Data);
     }
 
     public void NewGame()
     {
-        if (File.Exists(baseSavePath))
-        {
-            string json = File.ReadAllText(baseSavePath);
-            playerInfo = JsonUtility.FromJson<PlayerBaseInfo>(json);
-            savePath = Path.Combine(Application.dataPath, saveFolderName, saveFileName);
-            string json2 = JsonUtility.ToJson(playerInfo);
-            File.WriteAllText(savePath, json2);
-            Debug.Log("New game started. Save file created at: " + savePath);
-        }
-        else
-        {
-            Debug.LogError("Base save file does not exist at: " + baseSavePath);
-        }
+        PlayerData = BasePlayerData;
+        SaveGame(PlayerData.Data);
     }
 
-    public void SaveGame()
+    public void SavePlayerData()
     {
-        string json = JsonUtility.ToJson(playerInfo);
-        File.WriteAllText(savePath, json);
+        SaveGame(PlayerData.Data);
     }
-
-    public void LoadSave()
+    public void LoadPlayerData()
     {
-        if (File.Exists(savePath))
-        {
-            string json = File.ReadAllText(savePath);
-            playerInfo = JsonUtility.FromJson<PlayerBaseInfo>(json);
-        }
+        PlayerData.Data = LoadSave();
     }
-
-    public void DeleteSave()
+    private void Update()
     {
-        if (File.Exists(savePath))
+        //debugging
+        /*Debug.Log("Player Health = " + PlayerData.Data.CurrentHealth);
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            File.Delete(savePath);
+            SaveGame(PlayerData.Data);
         }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            LoadPlayerData();
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            PlayerData.Data.CurrentHealth = 100;
+        }
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            PlayerData.Data.CurrentHealth = 0;
+        }*/
     }
 }
