@@ -1871,7 +1871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentDirection: 1
-  originalSpeed: 2.5
+  originalSpeed: 2
   desiredPos: {fileID: 3960912459168663423}
   fixedTree: 0
 --- !u!61 &5166152598872401328

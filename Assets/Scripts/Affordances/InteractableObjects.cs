@@ -4,55 +4,27 @@ using UnityEngine;
 
 public class InteractableObjects : MonoBehaviour
 {
-    public enum Type
+    public enum ObjectType
     {
         Fire,
         BreakableWall,
         Enemy
     }
 
-    public Type currentType;
+    public ObjectType currentType;
 
-
-    void Check(ScriptableStats stats)
+    private void Start()
     {
-        switch (currentType)
-        {
-            case Type.Fire:
-                if (stats.currentForm == ScriptableStats.Form.Water)//Check if the State is Water
-                {
-                 //Play fire animation dissipating
-                 //Destroy this gameobject after animation
-                }
+        
+    }
 
-                break;
-            case Type.BreakableWall:
-                if (stats.currentForm == ScriptableStats.Form.Ice) //Check if the State is Ice
-                {
-                 //Play wall animation breaking
-                 //Destroy this gameobject after animation
-                }
-                break;
-            case Type.Enemy:
-                //Play Enemy got hit animation
-                this.gameObject.GetComponent<EnemyBase>().TakeDamage(stats.damage);
-                if (stats.currentForm == ScriptableStats.Form.Gas)
-                {
-                    //push enemy
-                }
-                break;
-            default:
-                break;
-        }
+    public void DestroyObject()
+    {
+        //Play Animation
+        //Play Sound
+        Destroy(gameObject, 1f);
     }
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Attack"))
-        {
-            Check(collision.GetComponentInParent<Player>().currentStats);// We need to get the current stats
-        }
-    }
 
 }
