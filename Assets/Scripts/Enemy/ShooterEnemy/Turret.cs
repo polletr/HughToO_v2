@@ -2,25 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Turret : MonoBehaviour
+public class Turret : EnemyBase
 {
     [SerializeField]
     GameObject spikePrefab; // Reference to the spike GameObject
     [SerializeField]
     Transform spawnPoint; // Point where spikes will spawn
 
-    float time;
     [SerializeField]
     float interval = 10f;
 
-    private void Start()
+    public override void Start()
     {
-        time = 0;
+        base.Start();
     }
-    void Update()
+    public override void Update()
     {
-        time += Time.deltaTime;
-        if (time >= interval) 
+        base.Update();
+        if (time >= interval && !isStunned) 
         {
             time = 0;
             ShootSpike();

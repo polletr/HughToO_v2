@@ -499,11 +499,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 216492122}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &255983316 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8607287556964640575, guid: 808c88f7f20849542a0294ac05d4496b, type: 3}
-  m_PrefabInstance: {fileID: 1262337829}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &258927311
 GameObject:
   m_ObjectHideFlags: 0
@@ -886,7 +881,7 @@ Transform:
   m_GameObject: {fileID: 491978060}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.6186013, y: 1.8299999, z: -10}
+  m_LocalPosition: {x: 7.623915, y: 1.8299999, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1433,33 +1428,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7417084121001624142, guid: 808c88f7f20849542a0294ac05d4496b, type: 3}
   m_PrefabInstance: {fileID: 1262337829}
   m_PrefabAsset: {fileID: 0}
---- !u!50 &1030581646
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 255983316}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!1001 &1165103824
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1624,10 +1592,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8607287556964640575, guid: 808c88f7f20849542a0294ac05d4496b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1030581646}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 808c88f7f20849542a0294ac05d4496b, type: 3}
 --- !u!1 &1374443020
 GameObject:

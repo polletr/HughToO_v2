@@ -29,8 +29,7 @@ public class Attack : MonoBehaviour
             case InteractableObjects.ObjectType.Fire:
                 if (stats.currentForm == ScriptableStats.Form.Water)//Check if the State is Water
                 {
-                    //Play fire animation dissipating
-                    //Destroy this gameobject after animation
+                    interactableObj.GetComponent<InteractableObjects>().KillObj();
                 }
                 else if (stats.currentForm == ScriptableStats.Form.Ice)
                 {
@@ -39,27 +38,23 @@ public class Attack : MonoBehaviour
                 }
                 else if (stats.currentForm == ScriptableStats.Form.Gas)
                 {
-                    //Play Fire blowing animation
-                    //Play Sound
+                    interactableObj.GetComponent<InteractableObjects>().InteractObj();
                 }
                 break;
             case InteractableObjects.ObjectType.BreakableWall:
                 if (stats.currentForm == ScriptableStats.Form.Ice) //Check if the State is Ice
                 {
-                    //Play wall animation breaking
-                    //Destroy this gameobject after animation
+                    interactableObj.GetComponent<InteractableObjects>().KillObj();
                 }
                 break;
             case InteractableObjects.ObjectType.Enemy:
-                //Play Enemy got hit animation
-                this.gameObject.GetComponent<EnemyBase>().TakeDamage(stats.damage);
                 if (stats.currentForm == ScriptableStats.Form.Gas)
                 {
-                    //push enemy
+                    interactableObj.GetComponent<EnemyBase>().Stun();
                 }
                 else
                 {
-                    //Do Damage to Enemy
+                    interactableObj.GetComponent<EnemyBase>().TakeDamage(stats.damage);
                 }
                 break;
             default:
