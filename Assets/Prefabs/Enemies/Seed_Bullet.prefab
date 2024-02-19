@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6067686304205959113}
   - component: {fileID: 6472069678615938201}
   - component: {fileID: 8770881108315281852}
+  - component: {fileID: 7600496483031343670}
   m_Layer: 0
   m_Name: Seed_Bullet
   m_TagString: Untagged
@@ -98,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb0424238308b7a4393775c84bda673f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scriptableAffordances: {fileID: 11400000, guid: c9dae85738fe7ce4db5581985a02073c, type: 2}
+  scriptableAffordances: {fileID: 11400000, guid: 4bd41d6a8f740dd46b6c04a4f382e19d, type: 2}
 --- !u!114 &8770881108315281852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,3 +114,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   timeToDestorySelf: 10
+--- !u!58 &7600496483031343670
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9221462964761808257}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5

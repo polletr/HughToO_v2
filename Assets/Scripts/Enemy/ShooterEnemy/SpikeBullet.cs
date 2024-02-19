@@ -6,21 +6,16 @@ public class SpikeBullet : MonoBehaviour
     private float speed = 2f;
     [SerializeField]
     private float timeToDestorySelf = 10f;
-    // Start is called before the first frame update
+
+
     void Awake()
     {
         Destroy(gameObject, timeToDestorySelf);
     }
     private void FixedUpdate()
     {
-       // transform.position  * speed * Time.fixedDeltaTime;
+        transform.Translate(Vector3.right * speed * Time.fixedDeltaTime);
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.TryGetComponent(out PlayerHealth player))
-        {
-            //take damage from player
-        }
-    }
+    private void OnCollisionEnter2D() => Destroy(gameObject, 0.1f);
 }
 
