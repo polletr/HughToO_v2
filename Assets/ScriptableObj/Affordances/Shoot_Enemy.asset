@@ -9,14 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5eb1df81a26649245b4633d3461e2671, type: 3}
-  m_Name: PlayerData
+  m_Script: {fileID: 11500000, guid: e95b4084468ad9747b62951bb5a0b1b1, type: 3}
+  m_Name: Shoot_Enemy
   m_EditorClassIdentifier: 
-  Data:
-    CurrentHealth: 0
-    MaxHealth: 5
-    Currentform: 1
-    CurrentScene: 0
-    position: []
-    HasIce: 1
-    HasWind: 0
+  AffordanceLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  iceDamage: 0
+  waterDamage: 0
+  gasDamage: 0
