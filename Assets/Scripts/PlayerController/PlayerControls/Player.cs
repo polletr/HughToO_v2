@@ -105,6 +105,7 @@ public class Player : MonoBehaviour
                 currentStats = stat;
             }
         }
+        playerData.Data.Currentform = newForm;
     }
 
     public void GetIceForm()

@@ -55,7 +55,8 @@ using UnityEngine;
 
         public float KBCounter = .2f;
 
-        public bool knockFromRight;
+        [HideInInspector]
+        public bool knockFromRight;//hide in inspector
 
         public float KBFallAcceleration;
 

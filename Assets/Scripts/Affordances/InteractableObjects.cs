@@ -24,6 +24,7 @@ public class InteractableObjects : MonoBehaviour
                  //Play fire animation dissipating
                  //Destroy this gameobject after animation
                 }
+
                 break;
             case Type.BreakableWall:
                 if (stats.currentForm == ScriptableStats.Form.Ice) //Check if the State is Ice
@@ -50,7 +51,7 @@ public class InteractableObjects : MonoBehaviour
     {
         if (collision.CompareTag("Attack"))
         {
-            //Check(collision.GetComponentInParent<PlayerController>().stats); We need to get the current stats
+            Check(collision.GetComponentInParent<Player>().currentStats);// We need to get the current stats
         }
     }
 
