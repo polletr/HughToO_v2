@@ -121,7 +121,7 @@ public class GrowingTree : MonoBehaviour
     {
         while (Mathf.Abs(Vector2.Distance(currentPos.position, desiredPos.position)) > 0.05f)
         {
-            transform.Translate(finalDirection * speed * Time.fixedDeltaTime);
+            transform.Translate(finalDirection * speed * Time.deltaTime);
             anim.SetTrigger("Shake");
             currentPos.position = transform.position;
             if (!audioSource.isPlaying)
@@ -136,9 +136,9 @@ public class GrowingTree : MonoBehaviour
 
     IEnumerator RetractTree()
     {
-        while (Mathf.Abs(Vector2.Distance(currentPos.position, startPos)) > 0.01f)
+        while (Mathf.Abs(Vector2.Distance(currentPos.position, startPos)) > 0.05f)
         {
-            transform.Translate(finalDirection * -1 * speed * Time.fixedDeltaTime);
+            transform.Translate(finalDirection * -1 * speed * Time.deltaTime);
             anim.SetTrigger("Shake");
             currentPos.position = transform.position;
             if (!audioSource.isPlaying)
