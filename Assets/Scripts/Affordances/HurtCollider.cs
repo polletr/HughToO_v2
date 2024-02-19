@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class HurtCollider : MonoBehaviour, IDoDamage
@@ -11,22 +7,17 @@ public class HurtCollider : MonoBehaviour, IDoDamage
     [SerializeField]
     private DamageScriptable scriptableAffordances;
 
-    [SerializeField]
     private PlayerHealth playerHealth;
-
-    [SerializeField]
     private Player player;
 
-
-    private void Start()
-    {
-        //playerHealth = playerHealth.GetComponent<PlayerHealth>();
-    }
-    
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            player = collision.gameObject.GetComponent<Player>();
+            playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
+
+
             Debug.Log("Damage Player");
 
             if (collision.transform.position.x <= transform.position.x)
@@ -63,7 +54,7 @@ public class HurtCollider : MonoBehaviour, IDoDamage
                 finalDamage = affordanceStats.gasDamage;
                 break;
             default:
-                break; 
+                break;
         }
     }
 
