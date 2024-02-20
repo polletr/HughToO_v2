@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Wind : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject player;
 
     [SerializeField]
     private float windForce;
@@ -20,9 +18,7 @@ public class Wind : MonoBehaviour
     private enum Direction
     {
         Right,
-        Left, 
-        Up, 
-        Down
+        Left
     }
 
     private void Awake()
@@ -46,18 +42,6 @@ public class Wind : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0f, 0f, 0f);
 
                 break;
-            case Direction.Up:
-                forceDirection = Vector2.up;
-                sprite.flipX = false;
-                transform.rotation = Quaternion.Euler(0f, 0f, 90f);
-
-                break;
-            case Direction.Down:
-                forceDirection = Vector2.down;
-                sprite.flipX = false;
-                transform.rotation = Quaternion.Euler(0f, 0f, -90f);
-
-                break;
         }
 
     }
@@ -65,9 +49,15 @@ public class Wind : MonoBehaviour
     void OnTriggerStay2D(Collider2D other)
     {
 
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.CompareTag("Player"))
         {
-            player.GetComponent<Rigidbody2D>().AddForce(forceDirection * windForce * Time.deltaTime);
+            Player player = other.GetComponent<Player>();
+            if (player.currentStats.currentForm == ScriptableStats.Form.Gas)
+            {
+                Vector2 velocity = new Vector2(forceDirection.x * windForce, player._rb.velocity.y);
+                player._rb.velocity = velocity;
+                //other.GetComponent<Rigidbody2D>().AddForce(forceDirection * windForce * Time.deltaTime);
+            }
         }
         // Set the force direction based on the selected enum value
 

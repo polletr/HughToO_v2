@@ -7,7 +7,8 @@ public class BlindEnemy : EnemyBase
     private enum State
     {
         Idle,
-        Patrolling
+        Patrolling,
+        Stunned
     }
 
     private State currentState; //this keeps track of the current state
@@ -28,6 +29,9 @@ public class BlindEnemy : EnemyBase
 
     private bool facingLeft;
 
+    [SerializeField]
+    private float waitTime;
+
     public override void Start()
     {
         base.Start();
@@ -36,6 +40,15 @@ public class BlindEnemy : EnemyBase
         if (this.gameObject != null)
         {
             SetState(State.Idle);
+        }
+    }
+
+    public override void Update()
+    {
+        base.Update();
+        if (currentState != State.Stunned && isStunned)
+        {
+            SetState(State.Stunned);
         }
     }
     private void Flip()
@@ -80,6 +93,10 @@ public class BlindEnemy : EnemyBase
                 StartCoroutine(OnPatrolling());
                 //do some work
                 break;
+            case State.Stunned:
+                StartCoroutine(OnStunned());
+                //do some work
+                break;
             default:
                 break;
         }
@@ -101,7 +118,7 @@ public class BlindEnemy : EnemyBase
                 currentPoint = pointA;
             }
 
-            yield return new WaitForSecondsRealtime(2f);
+            yield return new WaitForSecondsRealtime(waitTime);
         }
 
 
@@ -113,7 +130,7 @@ public class BlindEnemy : EnemyBase
     {
        // animator.SetBool("Walking", true);
 
-        while (currentPoint != null && isAlive)
+        while (currentPoint != null && isAlive && !isStunned)
         {
             Vector3 direction = (currentPoint.position - transform.position).normalized;
             rb.velocity = new Vector2(direction.x, 0f) * moveSpeed;
@@ -133,6 +150,22 @@ public class BlindEnemy : EnemyBase
         SetState(State.Idle);
 
     }
+
+    private IEnumerator OnStunned()
+    {
+        // animator.SetBool("Walking", true);
+
+        while (isAlive && isStunned)
+        {
+            Debug.Log("Stunned");
+            if (!isStunned)
+                SetState(State.Idle);
+            yield return null;
+
+        }
+
+    }
+
 
     private void OnDrawGizmos()
     {
