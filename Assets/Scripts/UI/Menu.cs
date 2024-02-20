@@ -5,7 +5,7 @@ public class Menu : MonoBehaviour
 
     [Header("Menu Game Objects")]
     [SerializeField]
-    private GameObject _currentMenu;
+    protected GameObject _currentMenu;
     [SerializeField]
     private GameObject _creditsMenu;
     [SerializeField]
@@ -22,7 +22,7 @@ public class Menu : MonoBehaviour
     }
 
     //Screen Management
-    private void DisableScreens()
+    protected void DisableScreens()
     {
         _currentMenu?.SetActive(_startActive);
         _creditsMenu?.SetActive(false);
