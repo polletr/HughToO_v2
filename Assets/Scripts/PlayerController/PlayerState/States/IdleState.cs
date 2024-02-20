@@ -12,13 +12,20 @@ public class IdleState : GroundState
 
     public override void ExitState() { }
 
-    public override void StateFixedUpdate()
+    public override void HandleJump()
     {
-        base.StateFixedUpdate();
-        if (player.GroundCheck() && inputManager.IsJumpHeldDown)
+        if (player.GroundCheck())
         {
             player.ChangeState(new JumpState());
         }
+    }
+    public override void StateFixedUpdate()
+    {
+        base.StateFixedUpdate();
+        //if (player.GroundCheck() && inputManager.IsJumpHeldDown)
+        //{
+        //    player.ChangeState(new JumpState());
+        //}
 
         if (inputManager.Movement.x != 0 )
         {

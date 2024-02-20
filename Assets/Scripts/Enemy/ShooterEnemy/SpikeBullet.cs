@@ -1,5 +1,5 @@
 using UnityEngine;
-
+[RequireComponent (typeof(Rigidbody2D))]
 public class SpikeBullet : MonoBehaviour
 {
     [SerializeField]
@@ -7,14 +7,17 @@ public class SpikeBullet : MonoBehaviour
     [SerializeField]
     private float timeToDestorySelf = 10f;
 
-
+    Rigidbody2D _rb;
     void Awake()
     {
-        Destroy(gameObject, timeToDestorySelf);
+        _rb = GetComponent<Rigidbody2D>();
+        _rb.bodyType = RigidbodyType2D.Dynamic;
+        _rb.gravityScale = 0f;
+        //Destroy(gameObject, timeToDestorySelf);
     }
     private void FixedUpdate()
     {
-        transform.Translate(Vector3.right * speed * Time.fixedDeltaTime);
+        _rb.velocity = -Vector3.right * speed;
     }
     private void OnCollisionEnter2D() => Destroy(gameObject, 0.1f);
 }

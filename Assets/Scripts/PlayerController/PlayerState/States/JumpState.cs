@@ -13,7 +13,8 @@ public class JumpState : GroundState
 
     protected float _time;
     protected float _frameLeftGrounded = float.MinValue;
-    private bool HasBufferedJump => _bufferedJumpUsable && _time < _timeJumpWasPressed + player.currentStats.JumpBuffer;
+    private bool HasBufferedJump => Time.time - inputManager.JumpButtonPressedLast < player.currentStats.JumpBuffer;//_bufferedJumpUsable && _time < _timeJumpWasPressed + player.currentStats.JumpBuffer;
+    
 
 
     private void GatherInput()
@@ -30,7 +31,7 @@ public class JumpState : GroundState
     {
         if (!_endedJumpEarly && !player.GroundCheck() && !inputManager.IsJumpHeldDown && velocity.y > 0) _endedJumpEarly = true;
 
-        if (!_jumpToConsume && !HasBufferedJump) return;
+        if (!_jumpToConsume || !HasBufferedJump) return;
 
         if (player.GroundCheck() || CanUseCoyote) ExecuteJump();
 
@@ -41,7 +42,7 @@ public class JumpState : GroundState
     {
         Debug.Log("Jumping");
         _endedJumpEarly = false;
-        _timeJumpWasPressed = 0;
+        _timeJumpWasPressed = Time.time;
         _bufferedJumpUsable = false;
         _coyoteUsable = false;
         velocity.y = player.currentStats.JumpPower;
@@ -57,6 +58,7 @@ public class JumpState : GroundState
     public override void EnterState()
     {
         base.EnterState();
+        ExecuteJump();
     }
 
     public override void ExitState()

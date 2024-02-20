@@ -64,7 +64,8 @@ public class InAirState : JumpState
         {
 
             var inAirGravity = player.currentStats.FallAcceleration;
-            if (_endedJumpEarly && player._rb.velocity.y > 0) inAirGravity *= player.currentStats.JumpEndEarlyGravityModifier;
+            if (_endedJumpEarly && player._rb.velocity.y > 0) 
+                inAirGravity *= player.currentStats.JumpEndEarlyGravityModifier;
 
             velocity.y = Mathf.MoveTowards(player._rb.velocity.y, -player.currentStats.MaxFallSpeed, inAirGravity * Time.fixedDeltaTime);
 

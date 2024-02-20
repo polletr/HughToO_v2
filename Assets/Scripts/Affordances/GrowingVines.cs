@@ -128,7 +128,7 @@ public class GrowingVines : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Player") && currentState != State.Growing && other.gameObject.GetComponent<Player>()?.currentStats.currentForm != ScriptableStats.Form.Water)
+        if (currentState != State.Growing && other.gameObject.GetComponent<Player>()?.currentStats.currentForm == ScriptableStats.Form.Water)
         {
             other.transform.SetParent(transform);
             TopVines.GetComponent<SpriteRenderer>().sprite = HealthyVines;
@@ -143,7 +143,7 @@ public class GrowingVines : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Player") && currentState != State.Retracting /* && Add condition for being water*/)
+        if (other.gameObject.CompareTag("Player") && currentState != State.Retracting)
         {
             if(this.gameObject.activeSelf == true)
             other.transform.SetParent(null);

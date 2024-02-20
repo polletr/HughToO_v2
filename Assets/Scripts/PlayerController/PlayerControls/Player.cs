@@ -75,7 +75,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         currentState?.StateUpdate();
-        Debug.Log(currentState.ToString());
+      //  Debug.Log(currentState.ToString());
 
         if (canDash)
         {
@@ -105,7 +105,10 @@ public class Player : MonoBehaviour
     }
 
     #region Player Actions
-
+    public void HandleJump()
+    {
+        currentState?.HandleJump();
+    }
     public void HandleAttack()
     {
         if (GroundCheck())

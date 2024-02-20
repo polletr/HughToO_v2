@@ -14,6 +14,10 @@ namespace HughTo0
         public virtual void ExitState() { }
         public virtual void StateFixedUpdate() { }
         public virtual void StateUpdate() { }
+        public virtual void HandleMovement(Vector2 move) { }
+        public virtual void HandleJump()
+        {
+        }
 
         #region Player Actions 
 

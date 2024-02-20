@@ -5,16 +5,20 @@ using UnityEngine.Events;
 
 public class Water : MonoBehaviour
 {
-    [SerializeField] LayerMask playerLayer;
+    protected Transform respawnPos;
 
     public UnityEvent playerDrowned;
 
+    [SerializeField]
+    private int damage;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if ((playerLayer.value & 1 << collision.gameObject.layer) != 0)
+        if (collision.CompareTag("Player"))
         {
-            playerDrowned.Invoke();
+            playerDrowned?.Invoke();
+            collision.gameObject.transform.position = respawnPos.position;
+            collision.GetComponent<PlayerHealth>().TakeDamage(damage);
         }
-
     }
 }

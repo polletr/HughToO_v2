@@ -44,6 +44,10 @@ public class InputManager : MonoBehaviour
             _isGliding = value;
         }
     }
+    public float JumpButtonPressedLast
+    {
+        get; private set;
+    }
 
     void Awake()
     {
@@ -56,7 +60,6 @@ public class InputManager : MonoBehaviour
 
         action.Player.Movement.performed += (val) => Movement = val.ReadValue<Vector2>();
 
-
         action.Player.Attack.performed += (val) => player.HandleAttack();
         action.Player.Dash.performed += (val) => player.HandleDash();
 
@@ -64,7 +67,12 @@ public class InputManager : MonoBehaviour
         action.Player.Glid.canceled += (val) => IsGliding = false;
 
 
-        action.Player.Jump.performed += (val) => IsJumpHeldDown = true;
+        action.Player.Jump.performed += (val) =>
+        {
+            JumpButtonPressedLast = Time.time;
+            player.HandleJump();
+            IsJumpHeldDown = true;
+        };
         action.Player.Jump.canceled += (val) => IsJumpHeldDown = false;
 
         action.Player.Water.performed += (val) => player.HandleWater();
