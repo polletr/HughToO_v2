@@ -38,7 +38,7 @@ namespace Weather
             player.GetComponent<Player>().HandlePotatoState(_teleportDelay);
 
         }
-        private void OnTriggerEnter2D(Collider2D collision)
+        public void Teleport(Collider2D collision)
         {
             if (collision.CompareTag("Player"))
             {
@@ -57,7 +57,7 @@ namespace Weather
 
         public void CheckPointTeleport(GameObject player)
         {
-            _teleportPosition = player.GetComponent<Player>().LastCheckPoint.position;
+            //_teleportPosition = player.GetComponent<Player>().LastCheckPoint.position;
             player.transform.position = _teleportPosition;
             player.GetComponent<Player>().HandlePotatoState(_teleportDelay);
         }

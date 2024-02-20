@@ -6,6 +6,7 @@ public class SpikeBullet : MonoBehaviour
     private float speed = 2f;
     [SerializeField]
     private float timeToDestorySelf = 10f;
+    
 
     Rigidbody2D _rb;
     void Awake()
@@ -14,10 +15,11 @@ public class SpikeBullet : MonoBehaviour
         _rb.bodyType = RigidbodyType2D.Dynamic;
         _rb.gravityScale = 0f;
         //Destroy(gameObject, timeToDestorySelf);
+        _rb.velocity = -Vector3.right * speed;
     }
     private void FixedUpdate()
     {
-        _rb.velocity = -Vector3.right * speed;
+      ;
     }
     private void OnCollisionEnter2D() => Destroy(gameObject, 0.1f);
 }

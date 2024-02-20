@@ -5,7 +5,6 @@ using UnityEngine.Events;
 
 public class Water : MonoBehaviour
 {
-    protected Transform respawnPos;
 
     public UnityEvent playerDrowned;
 
@@ -17,7 +16,6 @@ public class Water : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             playerDrowned?.Invoke();
-            collision.gameObject.transform.position = respawnPos.position;
             collision.GetComponent<PlayerHealth>().TakeDamage(damage);
         }
     }
