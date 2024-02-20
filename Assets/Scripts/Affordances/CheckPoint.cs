@@ -1,27 +1,31 @@
 using UnityEngine;
-[RequireComponent(typeof(Collider2D))]
+
 public class CheckPoint : MonoBehaviour
 {
-    private void Awake()
+    [SerializeField] private AudioClip _teleportOutClip, _teleportInClip;
+    [SerializeField] private GameObject _teleportParticlePrefab;
+    [SerializeField] private float _teleportDelay = 0.5f;
+
+    [SerializeField] private PlayerBaseInfo PlayerData;
+    [SerializeField] private GameObject _blackScreen;
+
+    Player player;
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        GetComponent<Collider2D>().isTrigger = true;
-    }
-    [SerializeField]
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
+            player = collision.GetComponent<Player>();
+            GetComponentInParent<Water>()._teleportPosition = this.transform.position;
+        }
+    }
 
-            //Player particles and sound
-
-           // other.GetComponent<PlayerHealth>().HealToFull();
-            Debug.Log("Checkpoint reached");
-            Player player = other.GetComponent<Player>();
-            player.playerData.Data.position[0] = transform.position.x;
-            player.playerData.Data.position[1] = transform.position.y;
-            player.playerData.Data.position[2] = transform.position.z;
-
-            SaveManager.Instance.SavePlayerData();
+    public void CheckPointTeleport(Vector3 _teleportPosition)
+    {
+        if(_teleportPosition == this.transform.position)
+        {
+            player.transform.position = _teleportPosition;
+            player.GetComponent<Player>().HandlePotatoState(_teleportDelay);
         }
     }
 
