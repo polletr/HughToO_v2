@@ -97,24 +97,19 @@ public class GrowingTree : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Debug.Log(playerOnCollider);
+
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Player" && currentState != State.Growing /*&& Add Check for water form*/)
-        {
-            SetState(State.Growing);
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D other)
-    {
-        if (!fixedTree && other.gameObject.tag == "Player" && currentState != State.Retracting)
+        if (currentState != State.Retracting && other.gameObject.GetComponent<Player>()?.currentStats.currentForm != ScriptableStats.Form.Water)
         {
             SetState(State.Retracting);
         }
-
+        else if (currentState != State.Growing && other.gameObject.GetComponent<Player>()?.currentStats.currentForm == ScriptableStats.Form.Water)
+        {
+            SetState(State.Growing);
+        }
     }
 
     IEnumerator GrowTree()
@@ -130,8 +125,6 @@ public class GrowingTree : MonoBehaviour
             }
             yield return null;
         }
-
-        SetState(State.Idle);
     }
 
     IEnumerator RetractTree()
@@ -149,15 +142,5 @@ public class GrowingTree : MonoBehaviour
         }
     }
 
-
-
-
-    private void OnDecrease()
-    {
-        if (transform.position != currentPos.position)
-        {
-            speed = -originalSpeed;
-        }
-    }
 
 }

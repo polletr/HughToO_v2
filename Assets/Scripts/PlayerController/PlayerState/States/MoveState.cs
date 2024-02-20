@@ -19,7 +19,6 @@ public class MoveState : GroundState
         {
             var deceleration = player.currentStats.GroundDeceleration ;
             velocity.x = Mathf.MoveTowards(player._rb.velocity.x, 0, deceleration * Time.fixedDeltaTime);
-            Debug.Log("Wrong one called");
         }
         else
         {
