@@ -134,6 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptableAffordance: {fileID: 11400000, guid: 4c08ed8f8501f1d4d92e7ff82a1c2efb, type: 2}
   enemyStats: {fileID: 11400000, guid: c63864fa79047ae46a05b3c5147f4404, type: 2}
+  stunTime: 2
   spikePrefab: {fileID: 9221462964761808257, guid: 4acbbdce7bcad6f449b38e8419a6d564, type: 3}
   spawnPoint: {fileID: 3263778456493091616}
   interval: 2
@@ -260,6 +261,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  InteractObject:
+    m_PersistentCalls:
+      m_Calls: []
   currentType: 2
 --- !u!1 &4759864354980031421
 GameObject:
