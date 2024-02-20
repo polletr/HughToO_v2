@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7400586586424747408}
   - component: {fileID: 2389517394719495897}
+  - component: {fileID: 6282889401956810003}
   m_Layer: 3
   m_Name: PositionB
   m_TagString: Untagged
@@ -77,6 +78,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.18856588, y: 5.2677927}
   m_EdgeRadius: 0
+--- !u!114 &6282889401956810003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2416939020234596445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea4f738ea0d5c864f8c9bed89ffdb4d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _teleportOutClip: {fileID: 0}
+  _teleportInClip: {fileID: 0}
+  _teleportParticlePrefab: {fileID: 0}
+  _teleportDelay: 0.5
+  PlayerData: {fileID: 0}
+  _blackScreen: {fileID: 0}
 --- !u!1 &2875401888921339194
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,7 +455,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  SpawnPos:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2610895282772266575}
+        m_TargetAssemblyTypeName: CheckPoint, Assembly-CSharp
+        m_MethodName: CheckPointTeleport
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6282889401956810003}
+        m_TargetAssemblyTypeName: CheckPoint, Assembly-CSharp
+        m_MethodName: CheckPointTeleport
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   damage: 1
+  _teleportPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &5061195210953816235
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,6 +494,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2026248483231335284}
   - component: {fileID: 3197931567763647190}
+  - component: {fileID: 2610895282772266575}
   m_Layer: 3
   m_Name: PositionA
   m_TagString: Untagged
@@ -514,6 +562,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.18856588, y: 5.1064057}
   m_EdgeRadius: 0
+--- !u!114 &2610895282772266575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5061195210953816235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea4f738ea0d5c864f8c9bed89ffdb4d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _teleportOutClip: {fileID: 0}
+  _teleportInClip: {fileID: 0}
+  _teleportParticlePrefab: {fileID: 0}
+  _teleportDelay: 0.5
+  PlayerData: {fileID: 0}
+  _blackScreen: {fileID: 0}
 --- !u!1 &5567760084523253753
 GameObject:
   m_ObjectHideFlags: 0
