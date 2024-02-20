@@ -17,6 +17,9 @@ MonoBehaviour:
     MaxHealth: 5
     Currentform: 2
     CurrentScene: 0
-    position: []
+    position:
+    - 0
+    - 0
+    - 0
     HasIce: 1
     HasWind: 1
