@@ -14,9 +14,9 @@ public class EnemyBase : MonoBehaviour
     protected Rigidbody2D rb;
 
     protected bool isStunned;
-
-
     protected float time;
+
+    protected InteractableObjects interactableObj;
 
     [SerializeField]
     private float stunTime;
@@ -31,6 +31,7 @@ public class EnemyBase : MonoBehaviour
         enemyStats.currentHealth = enemyStats.maxHealth;
 
         rb = GetComponent<Rigidbody2D>();
+        interactableObj = GetComponent<InteractableObjects>();
         time = 0;
 
     }
@@ -47,9 +48,9 @@ public class EnemyBase : MonoBehaviour
     {
         time += Time.deltaTime;
 
-        if (time >= stunTime)
+        if (time >= stunTime && isStunned)
         {
-            isStunned = true;
+            isStunned = false;
             time = 0;
         }
     }
@@ -66,6 +67,8 @@ public class EnemyBase : MonoBehaviour
 
         rb.constraints = RigidbodyConstraints2D.FreezePosition;
         GetComponent<Collider2D>().enabled = false;
+
+        interactableObj.KillObj();
 
         //animator.SetBool("IsAlive", false);
         //animator.SetTrigger("Death");
