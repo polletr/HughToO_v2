@@ -74,7 +74,10 @@ public class Player : MonoBehaviour
 
     public void HandleDash()
     {
-
+        if (GroundCheck())
+        {
+            ChangeState(new DashState());
+        }
     }
 
     public void HandleWater()
