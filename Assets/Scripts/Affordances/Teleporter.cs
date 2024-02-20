@@ -8,6 +8,7 @@ namespace Weather
         [SerializeField] private AudioClip _teleportOutClip,_teleportInClip;
         [SerializeField] private GameObject _teleportParticlePrefab;
         [SerializeField] private float _teleportDelay = 0.5f;
+        [SerializeField] private bool _isSavePoint;
 
         [SerializeField] private PlayerBaseInfo PlayerData;
         [SerializeField] private GameObject _blackScreen;
@@ -24,7 +25,7 @@ namespace Weather
                 
         }
 
-        private void TeleportPlayer(GameObject player)
+        private void SavePointTeleport(GameObject player)
         {
             if (PlayerData != null)
             {
@@ -32,7 +33,6 @@ namespace Weather
                _teleportPosition.y = PlayerData.Data.position[1] ;
                _teleportPosition.z = PlayerData.Data.position[2] ;
             }
-            //player.enabled = true;
 
             player.transform.position = _teleportPosition;
             player.GetComponent<Player>().HandlePotatoState(_teleportDelay);
@@ -42,15 +42,24 @@ namespace Weather
         {
             if (collision.CompareTag("Player"))
             {
-                TeleportPlayer(collision.gameObject);
+                GameObject player = collision.gameObject;
+                if (_isSavePoint)
+                {
+                    SavePointTeleport(player);
+                }
+                else
+                {
+                    CheckPointTeleport(player);
+                }
+                
             }
-            
-            //Instantiate(_teleportParticlePrefab, collision.transform.position, Quaternion.identity);
+        }
 
-
-           // AudioSource.PlayClipAtPoint(_teleportInClip, _teleportPosition);
-
-            //StartCoroutine(ActivatePlayer(player));
+        public void CheckPointTeleport(GameObject player)
+        {
+            _teleportPosition = player.GetComponent<Player>().LastCheckPoint.position;
+            player.transform.position = _teleportPosition;
+            player.GetComponent<Player>().HandlePotatoState(_teleportDelay);
         }
 
         void FadeInOutScreen()
@@ -63,11 +72,5 @@ namespace Weather
             }
         }
 
-        private void OnDrawGizmosSelected()
-        {
-            Gizmos.color = Color.cyan;
-            Gizmos.DrawLine(transform.position, _teleportPosition);
-            Gizmos.DrawSphere(_teleportPosition, 0.2f);
-        }
     }
 }

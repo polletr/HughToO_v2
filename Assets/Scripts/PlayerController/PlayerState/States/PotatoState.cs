@@ -27,7 +27,7 @@ public class PotatoState : PlayerState
 
     public override void StateFixedUpdate()
     {
-        
+        player._rb.velocity = Vector2.zero;
     }
 
     public void ChangeTime(float time)
