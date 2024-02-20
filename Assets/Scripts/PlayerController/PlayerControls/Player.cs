@@ -59,6 +59,9 @@ public class Player : MonoBehaviour
 
         }
 
+        playerData.Data.position[0] = transform.position.x;
+        playerData.Data.position[1] = transform.position.y;
+        playerData.Data.position[2] = transform.position.z;
 
         anim = GetComponent<Animator>();
 
