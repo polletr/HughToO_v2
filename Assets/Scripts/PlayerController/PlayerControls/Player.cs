@@ -125,7 +125,12 @@ public class Player : MonoBehaviour
             ChangeState(new DashState());
         }
     }
-
+    public void HandlePotatoState(float time)
+    {
+        ChangeState(new PotatoState());
+        if (currentState is PotatoState state)
+        state._potatoTime = time;
+    }
     public void HandleWater()
     {
         canDash = false;

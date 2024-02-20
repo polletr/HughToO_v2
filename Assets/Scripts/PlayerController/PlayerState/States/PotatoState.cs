@@ -6,7 +6,7 @@ using HughTo0;
 public class PotatoState : PlayerState
 {
     float _potatoTimer = 0;
-    float _potatoTime;
+    public float _potatoTime;
     public override void EnterState()
     {
         _potatoTimer = 0;
@@ -30,9 +30,8 @@ public class PotatoState : PlayerState
         
     }
 
-    public void EnterPotatoState(float time)
+    public void ChangeTime(float time)
     {
-        player.ChangeState(new PotatoState());
         _potatoTime = time;
     }
 

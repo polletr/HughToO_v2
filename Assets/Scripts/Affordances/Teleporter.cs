@@ -35,7 +35,7 @@ namespace Weather
             //player.enabled = true;
 
             player.transform.position = _teleportPosition;
-            StartCoroutine(ActivatePlayer(player));
+            player.GetComponent<Player>().HandlePotatoState(_teleportDelay);
 
         }
         private void OnTriggerEnter2D(Collider2D collision)
@@ -61,15 +61,6 @@ namespace Weather
 
                 
             }
-        }
-
-        private IEnumerator ActivatePlayer(GameObject player)
-        {
-            yield return new WaitForSeconds(_teleportDelay);
-
-           // player.enabled = true;
-           // Instantiate(_teleportParticlePrefab, _teleportPosition, Quaternion.identity);
-           // AudioSource.PlayClipAtPoint(_teleportOutClip, _teleportPosition);
         }
 
         private void OnDrawGizmosSelected()
