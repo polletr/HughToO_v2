@@ -89,6 +89,13 @@ public class PlayerHealth : MonoBehaviour
         UpdateHeartUI();
 
     }
+    public void HealToFull()
+    {
+        _currentHealth = maxHealth;
+        _playerData.Data.MaxHealth = maxHealth;
+        _playerData.Data.CurrentHealth = _currentHealth;
+        UpdateHeartUI();
+    }
     public void IncreaseMaxHealth(int newMaxHealth)
     {
         if (maxHealth + newMaxHealth > _heartContainers.Length)

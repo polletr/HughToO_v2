@@ -59,6 +59,9 @@ public class Player : MonoBehaviour
 
         }
 
+        playerData.Data.position[0] = transform.position.x;
+        playerData.Data.position[1] = transform.position.y;
+        playerData.Data.position[2] = transform.position.z;
 
         anim = GetComponent<Animator>();
 
@@ -125,7 +128,12 @@ public class Player : MonoBehaviour
             ChangeState(new DashState());
         }
     }
-
+    public void HandlePotatoState(float time)
+    {
+        ChangeState(new PotatoState());
+        if (currentState is PotatoState state)
+        state._potatoTime = time;
+    }
     public void HandleWater()
     {
         canDash = false;
