@@ -17,6 +17,9 @@ public class ScriptableStats : ScriptableObject
     [Header("FORM")]
     public Form currentForm;
 
+    [Header("ANIMATOR")]
+    public RuntimeAnimatorController formAnimator;
+
     [Header("COMBAT")]
     public int damage;
 

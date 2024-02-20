@@ -1,4 +1,5 @@
 using HughTo0;
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D), typeof(InputManager))]
@@ -26,7 +27,6 @@ public class Player : MonoBehaviour
 
     public Vector3 Position => transform.position;
 
-    private Animator _animator;
     public Rigidbody2D _rb;
     private Collider2D _collider;
 
@@ -35,9 +35,33 @@ public class Player : MonoBehaviour
     public float dashCooldown = 10f;
     public float dashTimer= 0f;
 
+    Dictionary<string, RuntimeAnimatorController> animControllers = new Dictionary<string, RuntimeAnimatorController>();
+    private Animator anim;
+
+
 
     private void Awake()
     {
+        for (int i = 0; i < stats.Length; i++)
+        {
+            if (stats[i].currentForm.ToString() == "Water")
+            {
+                animControllers.Add("Water", stats[i].formAnimator);
+            }
+            else if (stats[i].currentForm.ToString() == "Ice")
+            {
+                animControllers.Add("Ice", stats[i].formAnimator);
+            }
+            else if (stats[i].currentForm.ToString() == "Gas")
+            {
+                animControllers.Add("Gas", stats[i].formAnimator);
+            }
+
+        }
+
+
+        anim = GetComponent<Animator>();
+
         inputManager = GetComponent<InputManager>();
 
         _rb = GetComponent<Rigidbody2D>();
@@ -110,15 +134,13 @@ public class Player : MonoBehaviour
         canDash = false;
         if (playerData.Data.HasIce)
             ChangeForm(ScriptableStats.Form.Ice);
-        else
-            Debug.Log("You are not chill enough");
     }
 
     public void HandleWind()
     {
         canDash = true;
         if (playerData.Data.HasWind)
-        ChangeForm(ScriptableStats.Form.Gas);
+            ChangeForm(ScriptableStats.Form.Gas);
     }
     #endregion
     void ChangeForm(ScriptableStats.Form newForm)
@@ -128,6 +150,7 @@ public class Player : MonoBehaviour
             if (stat.currentForm == newForm)
             {
                 currentStats = stat;
+                anim.runtimeAnimatorController = animControllers[newForm.ToString()];
             }
         }
         playerData.Data.Currentform = newForm;

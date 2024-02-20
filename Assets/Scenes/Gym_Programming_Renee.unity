@@ -9127,6 +9127,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 600166526329404446, guid: 56137cc48b10da548b3c15d199de2b89, type: 3}
+      propertyPath: m_Size.x
+      value: 0.78453636
+      objectReference: {fileID: 0}
+    - target: {fileID: 600166526329404446, guid: 56137cc48b10da548b3c15d199de2b89, type: 3}
+      propertyPath: m_Size.y
+      value: 1.6942728
+      objectReference: {fileID: 0}
+    - target: {fileID: 600166526329404446, guid: 56137cc48b10da548b3c15d199de2b89, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.023940563
+      objectReference: {fileID: 0}
+    - target: {fileID: 600166526329404446, guid: 56137cc48b10da548b3c15d199de2b89, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.2872852
+      objectReference: {fileID: 0}
     - target: {fileID: 3214721251499899899, guid: 56137cc48b10da548b3c15d199de2b89, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -9187,6 +9203,10 @@ PrefabInstance:
       propertyPath: _heartContainers.Array.data[8]
       value: 
       objectReference: {fileID: 170500298}
+    - target: {fileID: 5399201437610538522, guid: 56137cc48b10da548b3c15d199de2b89, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: c220dd80f7cb1eb4386efd0cf9a7f51e, type: 2}
     - target: {fileID: 8586639862063367437, guid: 56137cc48b10da548b3c15d199de2b89, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.69
@@ -9228,7 +9248,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5961585031005616041, guid: 56137cc48b10da548b3c15d199de2b89, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56137cc48b10da548b3c15d199de2b89, type: 3}
