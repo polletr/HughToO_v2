@@ -37,10 +37,6 @@ namespace HughTo0
         }*/
 
         #endregion
-        #region Player Checks
-
-
-        #endregion
     }
 
     public enum PlayerStateType

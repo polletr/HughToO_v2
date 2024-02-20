@@ -1,10 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using HughTo0;
-using System.Runtime.CompilerServices;
-using UnityEditor.VersionControl;
 
 public class AttackState : GroundState
 {
@@ -12,6 +6,7 @@ public class AttackState : GroundState
     float timer;
     public override void EnterState()
     {
+        player.canDash = false;
         //PlayAnimation
         hitBox = player.AttackHitBox;
         hitBox.SetActive(true);
@@ -33,8 +28,10 @@ public class AttackState : GroundState
             player.ChangeState(new IdleState());
         }
     }
-    public override void ExitState() 
+    public override void ExitState()
     {
+        if(player.currentStats.currentForm == ScriptableStats.Form.Gas)
+            player.canDash = true;
         hitBox.SetActive(false);
     }
 }

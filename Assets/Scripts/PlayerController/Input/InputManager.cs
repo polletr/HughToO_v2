@@ -32,6 +32,19 @@ public class InputManager : MonoBehaviour
         }
     }
 
+    bool _isGliding;
+    public bool IsGliding
+    {
+        get
+        {
+            return _isGliding;
+        }
+        private set
+        {
+            _isGliding = value;
+        }
+    }
+
     void Awake()
     {
         player = GetComponent<Player>();
@@ -46,6 +59,9 @@ public class InputManager : MonoBehaviour
 
         action.Player.Attack.performed += (val) => player.HandleAttack();
         action.Player.Dash.performed += (val) => player.HandleDash();
+
+        action.Player.Glid.performed += (val) => IsGliding = true;
+        action.Player.Glid.canceled += (val) => IsGliding = false;
 
 
         action.Player.Jump.performed += (val) => IsJumpHeldDown = true;

@@ -30,6 +30,12 @@ public class Player : MonoBehaviour
     public Rigidbody2D _rb;
     private Collider2D _collider;
 
+    public bool canDash = false;
+    public bool isDashing = false;  
+    public float dashCooldown = 10f;
+    public float dashTimer= 0f;
+
+
     private void Awake()
     {
         inputManager = GetComponent<InputManager>();
@@ -46,6 +52,19 @@ public class Player : MonoBehaviour
     {
         currentState?.StateUpdate();
         Debug.Log(currentState.ToString());
+
+        if (canDash)
+        {
+            canDash = false;
+            isDashing = true;
+            dashTimer = 0f;
+            if(dashTimer >= dashCooldown)
+            {
+                canDash = true;
+                isDashing = false;
+            }
+        }
+        dashTimer += Time.deltaTime;
     }
     private void FixedUpdate()
     {
@@ -74,7 +93,7 @@ public class Player : MonoBehaviour
 
     public void HandleDash()
     {
-        if (GroundCheck())
+        if (canDash)
         {
             ChangeState(new DashState());
         }
@@ -82,11 +101,13 @@ public class Player : MonoBehaviour
 
     public void HandleWater()
     {
+        canDash = false;
         ChangeForm(ScriptableStats.Form.Water);
     }
 
     public void HandleIce()
     {
+        canDash = false;
         if (playerData.Data.HasIce)
             ChangeForm(ScriptableStats.Form.Ice);
         else
@@ -95,6 +116,7 @@ public class Player : MonoBehaviour
 
     public void HandleWind()
     {
+        canDash = true;
         if (playerData.Data.HasWind)
         ChangeForm(ScriptableStats.Form.Gas);
     }
