@@ -126,15 +126,18 @@ public class GrowingVines : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Player") && currentState != State.Growing /* && Add condition for being water*/)
+        if (other.gameObject.CompareTag("Player") && currentState != State.Growing && other.gameObject.GetComponent<Player>()?.currentStats.currentForm != ScriptableStats.Form.Water)
         {
             other.transform.SetParent(transform);
-
             TopVines.GetComponent<SpriteRenderer>().sprite = HealthyVines;
-
             SetState(State.Growing);
+        }
+        else if (currentState != State.Retracting && other.gameObject.GetComponent<Player>()?.currentStats.currentForm != ScriptableStats.Form.Water)
+        {
+            TopVines.GetComponent<SpriteRenderer>().sprite = DeadVines;
+            SetState(State.Retracting);
         }
     }
 
@@ -142,6 +145,7 @@ public class GrowingVines : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && currentState != State.Retracting /* && Add condition for being water*/)
         {
+            if(this.gameObject.activeSelf == true)
             other.transform.SetParent(null);
             if (!fixedTree)
             {
@@ -150,10 +154,7 @@ public class GrowingVines : MonoBehaviour
                 SetState(State.Retracting);
 
             }
-
         }
-
-
     }
 
     IEnumerator GrowVines()

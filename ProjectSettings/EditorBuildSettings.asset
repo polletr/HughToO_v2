@@ -6,37 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/HughTo0_v1/Scenes/MainMenu.unity
-    guid: 5ed3916f052b5994e95b17434ad3fcec
+    path: Assets/Scenes/01_MasterScene.unity
+    guid: 4aacf57e975a00a4b916ca4fc67e686f
   - enabled: 1
-    path: Assets/HughTo0_v1/Scenes/Level1.unity
-    guid: 3499de0fdfdad1242803cfe55fe75c20
+    path: Assets/Scenes/02_MainMenu.unity
+    guid: c4d0198f95754a84fadd624a8b59e4ed
   - enabled: 1
-    path: Assets/HughTo0_v1/Scenes/Level2.unity
-    guid: 3dd00d164962b7b48922fb073ed9a0a1
-  - enabled: 1
-    path: Assets/HughTo0_v1/Scenes/Level3.unity
-    guid: e77470d6eaa31b9469cb790079886c9d
-  - enabled: 0
-    path: Assets/HughTo0_v1/Scenes/Level4.unity
-    guid: 9e1a8d728d897ad49be040cb5f51c09a
-  - enabled: 0
-    path: Assets/HughTo0_v1/Scenes/Gym.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
-    path: Assets/HughTo0_v1/Scenes/How To Play.unity
-    guid: 93653e8459b41f643beac44087e685a7
-  - enabled: 0
-    path: Assets/HughTo0_v1/Scenes/Pause Scene.unity
-    guid: ab4f4415ee0ea144883fb314abd55e2a
-  - enabled: 0
-    path: Assets/HughTo0_v1/Scenes/3STARResultScene.unity
-    guid: 505e7ae4a7cb1e24ba2d0b8211bf785e
-  - enabled: 1
-    path: Assets/HughTo0_v1/Scenes/Credit.unity
-    guid: 3b733a3c4fb4f9049be5a01e1e9fdaed
-  - enabled: 1
-    path: Assets/HughTo0_v1/Scenes/VictoryScene.unity
-    guid: 6acfec7c065d97e429102c41febe4489
+    path: Assets/Scenes/03_Scene_Part1.unity
+    guid: 8a7e905cd1fc7a045bbbdbe93499412a
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 4b80886e20e21c44c86b6d0e542c1ee8, type: 2}

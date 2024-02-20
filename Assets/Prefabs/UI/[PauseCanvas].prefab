@@ -4135,6 +4135,7 @@ MonoBehaviour:
   _creditsMenu: {fileID: 1808957780484088737}
   _controlsMenu: {fileID: 6764793154341337035}
   _startActive: 0
+  _SettingsMenu: {fileID: 2958548973908472362}
 --- !u!1 &7704206522130735782
 GameObject:
   m_ObjectHideFlags: 0

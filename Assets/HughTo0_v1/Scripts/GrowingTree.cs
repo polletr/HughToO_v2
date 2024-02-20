@@ -112,9 +112,22 @@ public class GrowingTree : MonoBehaviour
         }
     }
 
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player") && currentState != State.Retracting)
+        {
+            if (this.gameObject.activeSelf == true)
+            if (!fixedTree)
+            {
+                SetState(State.Retracting);
+            }
+        }
+    }
+
+
     IEnumerator GrowTree()
     {
-        while (Mathf.Abs(Vector2.Distance(currentPos.position, desiredPos.position)) > 0.05f)
+        while (Mathf.Abs(Vector2.Distance(currentPos.position, desiredPos.position)) > 0.1f)
         {
             transform.Translate(finalDirection * speed * Time.deltaTime);
             anim.SetTrigger("Shake");
@@ -129,7 +142,7 @@ public class GrowingTree : MonoBehaviour
 
     IEnumerator RetractTree()
     {
-        while (Mathf.Abs(Vector2.Distance(currentPos.position, startPos)) > 0.05f)
+        while (Mathf.Abs(Vector2.Distance(currentPos.position, startPos)) > 0.1f)
         {
             transform.Translate(finalDirection * -1 * speed * Time.deltaTime);
             anim.SetTrigger("Shake");

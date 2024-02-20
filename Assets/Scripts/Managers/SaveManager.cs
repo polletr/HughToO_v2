@@ -41,11 +41,11 @@ public class SaveManager : Singleton<SaveManager>
         bf.Serialize(stream, PlayerData.Data);
         stream.Close();
     }
-
+/*
     private void OnApplicationQuit()
     {
         SaveGame(this.PlayerData.Data);
-    }
+    }*/
 
     public void NewGame()
     {

@@ -9,14 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5eb1df81a26649245b4633d3461e2671, type: 3}
-  m_Name: PlayerData
+  m_Script: {fileID: 11500000, guid: 40cd828d7d4204744bb11b064e5a7ba7, type: 3}
+  m_Name: Heal
   m_EditorClassIdentifier: 
-  Data:
-    CurrentHealth: 3
-    MaxHealth: 5
-    Currentform: 2
-    CurrentScene: 0
-    position: []
-    HasIce: 1
-    HasWind: 1
+  Heals:
+  - collectible: {fileID: 0}
+    isCollected: 0
+  - collectible: {fileID: 0}
+    isCollected: 0
+  power:
+    collectible: {fileID: 0}
+    isCollected: 0
