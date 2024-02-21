@@ -18,7 +18,7 @@ public class IceDetectorBox : MonoBehaviour
 
         private void OnTriggerStay2D(Collider2D other)
         {
-            if (other.GetComponent<Player>().currentStats.currentForm == ScriptableStats.Form.Ice)
+            if (other.GetComponent<Player>()?.currentStats.currentForm == ScriptableStats.Form.Ice)
             {
                 if (_iceBox != null)
                     _iceBox.SetActive(true);
