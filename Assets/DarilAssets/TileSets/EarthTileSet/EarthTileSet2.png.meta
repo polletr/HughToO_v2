@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 18
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -121,7 +121,553 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: EarthTileSet2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 59
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eed0e439956eccf4a87ea27331f44fd0
+      internalID: -1887144474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EarthTileSet2_1
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 59
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec57aaa95f58e78488419762c486caa8
+      internalID: 174178095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EarthTileSet2_2
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 59
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1b59d77d1e0baf4fbb60a35f1cf695c
+      internalID: -1363181846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EarthTileSet2_3
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 59
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 632a8fe1691e79147bd1b4f793bd2a2c
+      internalID: -1913194486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EarthTileSet2_4
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 59
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d7f884cc9d1e06469019deb688f4d8f
+      internalID: 1042883612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EarthTileSet2_5
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 59
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaaea7d8eae8e194fa6bc7cbac6a9f29
+      internalID: 147368157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EarthTileSet2_6
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 59
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a6a23817594e7344a6713418da6467c
+      internalID: 1070447419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EarthTileSet2_7
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 59
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62d6886cbcefcd2488f97f517a38babf
+      internalID: 625988082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EarthTileSet2_8
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 59
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5548d8fe6d7ad344c88d9a618faf11be
+      internalID: -466298349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EarthTileSet2_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 41
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bc030c03d9ef9f43902e917e5630b73
+      internalID: -2052329422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EarthTileSet2_10
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 41
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ab96ead5eb15654488db0a01eeaf257
+      internalID: 576146705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EarthTileSet2_11
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 41
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac0ff19c2db833b48b9826178e68af00
+      internalID: 1471508768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EarthTileSet2_12
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 41
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0c5773575658494e9f84d55c60670e8
+      internalID: 893272510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EarthTileSet2_13
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 41
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f746cc3cce49f1a40865adc37b4830d0
+      internalID: 1646522688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EarthTileSet2_14
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 41
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4ae6f6418ab2b744b05076d6dafb005
+      internalID: -913907444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EarthTileSet2_15
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 41
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f531f36d313e3d74ca3d6312a571430e
+      internalID: 1382828966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EarthTileSet2_16
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 41
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: deb30a77a6fdc5d48b9e449eb22aec1a
+      internalID: 1558441496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EarthTileSet2_17
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 41
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 825a1ae5c5285ad4d9a83eb91b9bd8d2
+      internalID: -897240012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EarthTileSet2_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 23
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ec3277eddc793c44aa41e564b8b7b3a
+      internalID: -1724209354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EarthTileSet2_19
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 23
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9c1bdd3585dbb84fa67f4d7aff9bf85
+      internalID: 1746409160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EarthTileSet2_20
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 23
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16a8e0a534f53bc41845cadbd29c826a
+      internalID: 1648509510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EarthTileSet2_21
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 23
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fedebe56bbbb7d642bf82acd41f0ddc0
+      internalID: -526534890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EarthTileSet2_22
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 23
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c6a889805b50444d9e79bf999f0ab32
+      internalID: -15299880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EarthTileSet2_23
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 23
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ad08bcbcebca3640be50f10db023aed
+      internalID: -67334847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EarthTileSet2_24
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 5
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d24f620acae784e48940844ee0f07c51
+      internalID: -1934233493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EarthTileSet2_25
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 5
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e16cffb98a9199146932185c5a176890
+      internalID: -1100494491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +678,33 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      EarthTileSet2_0: -1887144474
+      EarthTileSet2_1: 174178095
+      EarthTileSet2_10: 576146705
+      EarthTileSet2_11: 1471508768
+      EarthTileSet2_12: 893272510
+      EarthTileSet2_13: 1646522688
+      EarthTileSet2_14: -913907444
+      EarthTileSet2_15: 1382828966
+      EarthTileSet2_16: 1558441496
+      EarthTileSet2_17: -897240012
+      EarthTileSet2_18: -1724209354
+      EarthTileSet2_19: 1746409160
+      EarthTileSet2_2: -1363181846
+      EarthTileSet2_20: 1648509510
+      EarthTileSet2_21: -526534890
+      EarthTileSet2_22: -15299880
+      EarthTileSet2_23: -67334847
+      EarthTileSet2_24: -1934233493
+      EarthTileSet2_25: -1100494491
+      EarthTileSet2_3: -1913194486
+      EarthTileSet2_4: 1042883612
+      EarthTileSet2_5: 147368157
+      EarthTileSet2_6: 1070447419
+      EarthTileSet2_7: 625988082
+      EarthTileSet2_8: -466298349
+      EarthTileSet2_9: -2052329422
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -12,6 +12,7 @@ public class Water : MonoBehaviour
 
     [SerializeField]
     private int damage;
+    [HideInInspector]
     public Vector3 _teleportPosition;
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -8,9 +8,53 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8296028784103081907, guid: b5674fee76ecd1e4b9a432eec8cedd79, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8296028784103081907, guid: b5674fee76ecd1e4b9a432eec8cedd79, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8296028784103081907, guid: b5674fee76ecd1e4b9a432eec8cedd79, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8296028784103081907, guid: b5674fee76ecd1e4b9a432eec8cedd79, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8296028784103081907, guid: b5674fee76ecd1e4b9a432eec8cedd79, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.44
+      objectReference: {fileID: 0}
+    - target: {fileID: -8296028784103081907, guid: b5674fee76ecd1e4b9a432eec8cedd79, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 2952927159275993584, guid: b5674fee76ecd1e4b9a432eec8cedd79, type: 3}
+      propertyPath: m_Size.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2952927159275993584, guid: b5674fee76ecd1e4b9a432eec8cedd79, type: 3}
+      propertyPath: m_Size.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2952927159275993584, guid: b5674fee76ecd1e4b9a432eec8cedd79, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2013628574, guid: 2267fcbda120e5a4bb450b55eb16ab99, type: 3}
+    - target: {fileID: 2952927159275993584, guid: b5674fee76ecd1e4b9a432eec8cedd79, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267589121694346138, guid: b5674fee76ecd1e4b9a432eec8cedd79, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: 9aed4568ef1027f498b9dc13a7c4a074, type: 2}
     - target: {fileID: 7203637749657388130, guid: b5674fee76ecd1e4b9a432eec8cedd79, type: 3}
       propertyPath: m_Name
-      value: Collectible
+      value: IceFormPickUp
       objectReference: {fileID: 0}
     - target: {fileID: 8200342217096875754, guid: b5674fee76ecd1e4b9a432eec8cedd79, type: 3}
       propertyPath: m_LocalPosition.x

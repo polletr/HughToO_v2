@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 18
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -121,7 +121,553 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: DeepCavernTileSet2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 62
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f682228e2b6a5304b8b771dd8fb8bc47
+      internalID: -1288271450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeepCavernTileSet2_1
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 62
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92ffe45dcd0e524419bbb8dd8a14e87e
+      internalID: 321183740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeepCavernTileSet2_2
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 62
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af9394d385e6cf043b3f8ad25970aae1
+      internalID: 150489864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeepCavernTileSet2_3
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 62
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb259a8b6c417e6479af36d20dd75392
+      internalID: -1414723330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeepCavernTileSet2_4
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 62
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03726e1f4a294214183f2ee6d6fe8d7c
+      internalID: -1370569620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeepCavernTileSet2_5
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 62
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 929fb3d8be39ed749890bc95d3b39ed3
+      internalID: 378680990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeepCavernTileSet2_6
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 62
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7de05679e3eaf8246a8bfe84158ab2e7
+      internalID: -1893255974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeepCavernTileSet2_7
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 62
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a91b91bf34bbb0c44a75fdb1f637ead0
+      internalID: 816858570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeepCavernTileSet2_8
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 62
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbb1c811561af7247b9070fb09fe3513
+      internalID: -832050895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeepCavernTileSet2_9
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 62
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1199589259182094985d8dd441fdfc70
+      internalID: 1488966073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeepCavernTileSet2_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 44
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98db48457c785d94b9b6920eac7063e0
+      internalID: -1639719401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeepCavernTileSet2_11
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 44
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2cbe62a574ca714da9053869decbc6d
+      internalID: -581436357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeepCavernTileSet2_12
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 44
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 450d66d82ae246649a79a15e92259999
+      internalID: 231610354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeepCavernTileSet2_13
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 44
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9ef33502529c234e814ba631aaa7197
+      internalID: 1309285722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeepCavernTileSet2_14
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 44
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79015c06e2ade644eb166bd461b0aa1c
+      internalID: 107780581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeepCavernTileSet2_15
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 44
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 345047c34204a1d438ad20767d0f2f1d
+      internalID: 1228205379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeepCavernTileSet2_16
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 44
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93be1020c36782a489d3277a9b4b44d5
+      internalID: -940551744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeepCavernTileSet2_17
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 44
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4f9e11c93995674ea795580aef8f3e4
+      internalID: -173525684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeepCavernTileSet2_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 26
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db2eff97ef81e4341b41c9a9c67ed94c
+      internalID: -526860178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeepCavernTileSet2_19
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 26
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6590fd0686d5fb844b85eae7b19d8566
+      internalID: -285444967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeepCavernTileSet2_20
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 26
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2ead22f82a1adb4e8dfc8ee916831a6
+      internalID: 1021405393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeepCavernTileSet2_21
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 26
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 293daabeabd239d4ab720d4b1bd0feba
+      internalID: -1426685037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeepCavernTileSet2_22
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 26
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c5a879c40625ac48a2c0b7ddeb8e504
+      internalID: 1464635477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeepCavernTileSet2_23
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 26
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f85198b45cc27914a9c4e9169fb44ca4
+      internalID: 832004157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeepCavernTileSet2_24
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 8
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47f570a2bf0cd3844990979c34715800
+      internalID: 11471640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeepCavernTileSet2_25
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 8
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cac32a991fa165b47a9422743cce2eb2
+      internalID: -715571787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +678,33 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      DeepCavernTileSet2_0: -1288271450
+      DeepCavernTileSet2_1: 321183740
+      DeepCavernTileSet2_10: -1639719401
+      DeepCavernTileSet2_11: -581436357
+      DeepCavernTileSet2_12: 231610354
+      DeepCavernTileSet2_13: 1309285722
+      DeepCavernTileSet2_14: 107780581
+      DeepCavernTileSet2_15: 1228205379
+      DeepCavernTileSet2_16: -940551744
+      DeepCavernTileSet2_17: -173525684
+      DeepCavernTileSet2_18: -526860178
+      DeepCavernTileSet2_19: -285444967
+      DeepCavernTileSet2_2: 150489864
+      DeepCavernTileSet2_20: 1021405393
+      DeepCavernTileSet2_21: -1426685037
+      DeepCavernTileSet2_22: 1464635477
+      DeepCavernTileSet2_23: 832004157
+      DeepCavernTileSet2_24: 11471640
+      DeepCavernTileSet2_25: -715571787
+      DeepCavernTileSet2_3: -1414723330
+      DeepCavernTileSet2_4: -1370569620
+      DeepCavernTileSet2_5: 378680990
+      DeepCavernTileSet2_6: -1893255974
+      DeepCavernTileSet2_7: 816858570
+      DeepCavernTileSet2_8: -832050895
+      DeepCavernTileSet2_9: 1488966073
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
