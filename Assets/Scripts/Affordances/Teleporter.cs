@@ -3,7 +3,7 @@ using UnityEngine;
 
     public class Teleporter : MonoBehaviour
     {
-        [SerializeField] private AudioClip _teleportOutClip,_teleportInClip;
+      /*  [SerializeField] private AudioClip _teleportOutClip,_teleportInClip;
         [SerializeField] private GameObject _teleportParticlePrefab;
         [SerializeField] private float _teleportDelay = 0.5f;
 
@@ -20,5 +20,5 @@ using UnityEngine;
         {
             GetComponent<Collider2D>().isTrigger = true;
         }
-
+*/
     }

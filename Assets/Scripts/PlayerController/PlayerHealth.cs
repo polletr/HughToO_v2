@@ -69,7 +69,6 @@ public class PlayerHealth : MonoBehaviour
         _playerData.Data.MaxHealth = maxHealth;
         _playerData.Data.CurrentHealth = _currentHealth;
 
-        Debug.Log(_currentHealth);
     }
 
     public void TakeDamage(int damage)

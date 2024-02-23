@@ -85,13 +85,26 @@ public class InputManager : MonoBehaviour
 
     private void OnDisable()
     {
-        // action.Player.Movement.performed -= (val) => Movement = val.ReadValue<Vector2>();
-        action.Player.Jump.performed -= (val) => IsJumpHeldDown = true;
+        action.Player.Movement.performed -= (val) => Movement = val.ReadValue<Vector2>();
+
         action.Player.Attack.performed -= (val) => player.HandleAttack();
         action.Player.Dash.performed -= (val) => player.HandleDash();
+
+        action.Player.Glid.performed -= (val) => IsGliding = true;
+        action.Player.Glid.canceled -= (val) => IsGliding = false;
+
+        action.Player.Jump.performed -= (val) =>
+        {
+            JumpButtonPressedLast = Time.time;
+            player.HandleJump();
+            IsJumpHeldDown = true;
+        };
+        action.Player.Jump.canceled -= (val) => IsJumpHeldDown = false;
+
         action.Player.Water.performed -= (val) => player.HandleWater();
         action.Player.Ice.performed -= (val) => player.HandleIce();
         action.Player.Wind.performed -= (val) => player.HandleWind();
+
 
 
 

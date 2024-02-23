@@ -38,3 +38,5 @@ MonoBehaviour:
   KBCounter: 0.3
   knockFromRight: 0
   KBFallAcceleration: 30
+  FallDamage: 0
+  GlideFallAcceleration: 55

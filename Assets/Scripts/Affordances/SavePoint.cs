@@ -4,7 +4,7 @@ public class SavePoint : MonoBehaviour
 {
     [SerializeField] private AudioClip _teleportOutClip, _teleportInClip;
     [SerializeField] private GameObject _teleportParticlePrefab;
-    [SerializeField] private float _teleportDelay = 0.5f;
+   // [SerializeField] private float _teleportDelay = 0.5f;
 
     [SerializeField] private PlayerBaseInfo PlayerData;
     [SerializeField] private GameObject _blackScreen;

@@ -14,7 +14,7 @@ public class SpikeBullet : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _rb.bodyType = RigidbodyType2D.Dynamic;
         _rb.gravityScale = 0f;
-        //Destroy(gameObject, timeToDestorySelf);
+        Destroy(gameObject, timeToDestorySelf);
         _rb.velocity = -Vector3.right * speed;
     }
     private void FixedUpdate()

@@ -27,7 +27,7 @@ public class JumpState : GroundState
 
     }
 
-    private void HandleJump()
+    private void HandleJumpp()
     {
         if (!_endedJumpEarly && !player.GroundCheck() && !inputManager.IsJumpHeldDown && velocity.y > 0) _endedJumpEarly = true;
 
@@ -40,14 +40,12 @@ public class JumpState : GroundState
 
     private void ExecuteJump()
     {
-        Debug.Log("Jumping");
         _endedJumpEarly = false;
         _timeJumpWasPressed = Time.time;
         _bufferedJumpUsable = false;
         _coyoteUsable = false;
         velocity.y = player.currentStats.JumpPower;
         player._rb.velocity = new Vector2(player._rb.velocity.x, player._rb.velocity.y + velocity.y);
-        Debug.Log(player._rb.velocity.y);
     }
 
     public override void StateUpdate()
@@ -71,7 +69,7 @@ public class JumpState : GroundState
         _time += Time.fixedDeltaTime;
         
         GatherInput();
-        HandleJump();
+        HandleJumpp();
 
 
         base.StateFixedUpdate();

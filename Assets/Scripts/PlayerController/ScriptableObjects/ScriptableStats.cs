@@ -65,4 +65,8 @@ public class ScriptableStats : ScriptableObject
 
     public float KBFallAcceleration;
 
+    public int FallDamage = 0;
+
+    public float GlideFallAcceleration = 110;
+
 }

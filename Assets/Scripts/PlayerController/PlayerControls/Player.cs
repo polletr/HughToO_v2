@@ -30,10 +30,14 @@ public class Player : MonoBehaviour
     public Rigidbody2D _rb;
     private Collider2D _collider;
 
+    [SerializeField]
+    private float MaxFallingTime = 0.5f;
+    private float falltimer;
+
     public bool canDash = false;
-    public bool isDashing = false;  
+    public bool isDashing = false;
     public float dashCooldown = 10f;
-    public float dashTimer= 0f;
+    public float dashTimer = 0f;
 
     Dictionary<string, RuntimeAnimatorController> animControllers = new Dictionary<string, RuntimeAnimatorController>();
     private Animator anim;
@@ -78,20 +82,20 @@ public class Player : MonoBehaviour
     private void Update()
     {
         currentState?.StateUpdate();
-      //  Debug.Log(currentState.ToString());
-
+       // Debug.Log(currentState.ToString());
         if (canDash)
         {
             canDash = false;
             isDashing = true;
             dashTimer = 0f;
-            if(dashTimer >= dashCooldown)
+            if (dashTimer >= dashCooldown)
             {
                 canDash = true;
                 isDashing = false;
             }
         }
         dashTimer += Time.deltaTime;
+        FallDamageCheck();
     }
     private void FixedUpdate()
     {
@@ -132,7 +136,7 @@ public class Player : MonoBehaviour
     {
         ChangeState(new PotatoState());
         if (currentState is PotatoState state)
-        state._potatoTime = time;
+            state._potatoTime = time;
     }
     public void HandleWater()
     {
@@ -177,7 +181,26 @@ public class Player : MonoBehaviour
         playerData.Data.HasWind = true;
     }
 
+    void FallDamageCheck()
+    {
+        bool isGrounded = GroundCheck();
+        bool isFallingToDamage = MaxFallingTime < falltimer ;
 
+        if (!isGrounded)
+        {
+            falltimer += Time.deltaTime;
+            //Debug.Log("InAirTime: " + falltimer);
+        }
+        else if (isGrounded)
+        {
+            if (isFallingToDamage && currentStats.currentForm == ScriptableStats.Form.Ice)
+            {
+                GetComponent<PlayerHealth>()?.TakeDamage(Mathf.RoundToInt(falltimer/MaxFallingTime));
+               // Debug.Log("FallDamage" + Mathf.RoundToInt(falltimer / MaxFallingTime));
+            }
+            falltimer = 0;
+        }
+    }
     public bool GroundCheck()
     {
         return Physics2D.OverlapCircle(_groundCheckPos.position, 0.1f, LayerMask.GetMask("Ground"));

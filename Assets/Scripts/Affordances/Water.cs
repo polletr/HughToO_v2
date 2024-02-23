@@ -19,9 +19,15 @@ public class Water : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             playerDrowned?.Invoke();
-            SpawnPos?.Invoke(_teleportPosition);
+            StartCoroutine(StartTeleporting());
             collision.GetComponent<PlayerHealth>().TakeDamage(damage);
 
         }
+    }
+
+    IEnumerator StartTeleporting()
+    {
+        yield return new WaitForSeconds(2f);
+        SpawnPos?.Invoke(_teleportPosition);
     }
 }

@@ -8,10 +8,15 @@ public class InAirState : JumpState
     }
     public override void StateUpdate()
     {
+        if (inputManager.IsGliding && player.currentStats.currentForm == ScriptableStats.Form.Gas && player._rb.velocity.y < 0)
+        {
+            player.ChangeState(new GlideState());
+        }
 
     }
     public override void ExitState()
     {
+        //Stop animation of falling 
     }
 
     public override void StateFixedUpdate()
@@ -44,7 +49,7 @@ public class InAirState : JumpState
     }
 
 
-    protected void HandleGravity()
+    protected virtual void HandleGravity()
     {
         if (player.GroundCheck())
         {
@@ -64,7 +69,7 @@ public class InAirState : JumpState
         {
 
             var inAirGravity = player.currentStats.FallAcceleration;
-            if (_endedJumpEarly && player._rb.velocity.y > 0) 
+            if (_endedJumpEarly && player._rb.velocity.y > 0)
                 inAirGravity *= player.currentStats.JumpEndEarlyGravityModifier;
 
             velocity.y = Mathf.MoveTowards(player._rb.velocity.y, -player.currentStats.MaxFallSpeed, inAirGravity * Time.fixedDeltaTime);
