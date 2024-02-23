@@ -1,24 +1,37 @@
 using System.Collections;
 using UnityEngine;
 
-    public class Teleporter : MonoBehaviour
+public class Teleporter : MonoBehaviour
+{
+    [SerializeField] private AudioClip _teleportOutClip, _teleportInClip;
+    [SerializeField] private GameObject _teleportParticlePrefab;
+    [SerializeField] private float _teleportDelay = 1f;
+
+    [SerializeField] private Transform TeleportPos; // empty obj inside teleporter
+
+    Player player;
+
+    private void Awake()
     {
-      /*  [SerializeField] private AudioClip _teleportOutClip,_teleportInClip;
-        [SerializeField] private GameObject _teleportParticlePrefab;
-        [SerializeField] private float _teleportDelay = 0.5f;
-
-        [SerializeField] private PlayerBaseInfo PlayerData;
-        [SerializeField] private GameObject _blackScreen;
-
-        [SerializeField] private Transform PosA;
-        [SerializeField] private Transform PosB;
-
-
-     
-
-        private void Awake()
-        {
-            GetComponent<Collider2D>().isTrigger = true;
-        }
-*/
+        GetComponent<Collider2D>().isTrigger = true;
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            player = other.GetComponent<Player>();
+            TransitionManager.Instance.FadeIn();
+            StartCoroutine(TP());
+        }
+    }
+
+    private IEnumerator TP()
+    {
+        yield return new WaitForSeconds(_teleportDelay);
+        player.transform.position = TeleportPos.position;
+        player.GetComponent<Player>().HandlePotatoState(_teleportDelay);
+        TransitionManager.Instance.FadeOut();
+    }
+
+}

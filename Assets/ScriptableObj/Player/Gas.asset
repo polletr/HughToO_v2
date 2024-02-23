@@ -36,7 +36,7 @@ MonoBehaviour:
   JumpBuffer: 0.2
   KBForce: 3
   KBCounter: 0.3
-  knockFromRight: 0
+  knockFromRight: 1
   KBFallAcceleration: 30
   FallDamage: 0
-  GlideFallAcceleration: 55
+  GlideFallAcceleration: 10
