@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 6990536610575110083}
   - component: {fileID: 9133061212085601821}
   - component: {fileID: 8123266842391753380}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: IceDetector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -357,7 +357,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerDrowned:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: HandlePotatoState
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 2
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   SpawnPos:
     m_PersistentCalls:
       m_Calls:
@@ -970,7 +982,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7078369838888529164, guid: aa38deec4eef3f04ab4456d260b1ae71, type: 3}
       propertyPath: m_SortingLayer
-      value: 0
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7078369838888529164, guid: aa38deec4eef3f04ab4456d260b1ae71, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1353414693
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

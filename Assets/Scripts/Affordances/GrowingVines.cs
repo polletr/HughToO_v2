@@ -164,7 +164,7 @@ public class GrowingVines : MonoBehaviour
             transform.Translate(finalDirection * speed * Time.fixedDeltaTime);
             currentPos = transform.position;
             float distanceTraveled = Mathf.Abs(currentPos.x - startPos.x);
-            if (distanceTraveled % objectSize <= 0.01f )
+            if (distanceTraveled % objectSize <= 0.02f )
             {
                 boxCollider.size = new Vector2(distanceTraveled + objectSize, boxCollider.size.y);
                 boxCollider.offset = new Vector2(-(distanceTraveled)/2, boxCollider.offset.y);
@@ -180,12 +180,12 @@ public class GrowingVines : MonoBehaviour
         boxCollider.size = new Vector2(objectSize, boxCollider.size.y);
         boxCollider.offset = new Vector2(0f, boxCollider.offset.y);
 
-        while (Mathf.Abs(Vector2.Distance(currentPos, startPos)) > 0.1f)
+        while (Mathf.Abs(Vector2.Distance(currentPos, startPos)) > 0.2f)
         {
             transform.Translate(finalDirection * -1 * speed * Time.fixedDeltaTime);
             currentPos = transform.position;
             float distanceTraveled = Mathf.Abs(currentPos.x - startPos.x);
-            if (distanceTraveled % objectSize <= 0.01f)
+            if (distanceTraveled % objectSize <= 0.02f)
             {
                 Destroy(vineStack.Pop());
             }

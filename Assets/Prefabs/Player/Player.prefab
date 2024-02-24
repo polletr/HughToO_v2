@@ -43,9 +43,9 @@ GameObject:
   - component: {fileID: 6320827157873130720}
   - component: {fileID: 146109773560182077}
   - component: {fileID: 4005846902932302049}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AttackHitBox
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,7 +149,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.06658298, y: -1.3006871}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -160,7 +160,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.133166, y: 3.6013737}
   m_EdgeRadius: 0
 --- !u!114 &4005846902932302049
 MonoBehaviour:
@@ -252,8 +252,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -623037819
+  m_SortingLayer: 9
   m_SortingOrder: 0
   m_Sprite: {fileID: -649926474, guid: 65f8d6a739ca8bd42a69312023787fa4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -323,7 +323,7 @@ MonoBehaviour:
   _isIce: 0
   _isWind: 0
   _rb: {fileID: 7028512187088846468}
-  MaxFallingTime: 0.35
+  MaxFallingTime: 0.4
   canDash: 0
   isDashing: 0
   dashCooldown: 10
@@ -399,8 +399,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 0.99999994}
+  m_Offset: {x: -0.03032732, y: -0.37621692}
+  m_Size: {x: 0.87395096, y: 2.4597178}
   m_Direction: 0
 --- !u!95 &5399201437610538522
 Animator:

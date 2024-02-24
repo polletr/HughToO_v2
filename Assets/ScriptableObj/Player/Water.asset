@@ -16,7 +16,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   currentForm: 0
-  formAnimator: {fileID: 9100000, guid: 9ca16f5dff97efd4198d954a0636f012, type: 2}
+  formAnimator: {fileID: 9100000, guid: c1b121279c277c64ab7a198dc5ae9e91, type: 2}
   damage: 0
   SnapInput: 1
   VerticalDeadZoneThreshold: 0.3
@@ -38,3 +38,5 @@ MonoBehaviour:
   KBCounter: 0.2
   knockFromRight: 1
   KBFallAcceleration: 80
+  FallDamage: 0
+  GlideFallAcceleration: 110

@@ -27,7 +27,11 @@ public class PotatoState : PlayerState
 
     public override void StateFixedUpdate()
     {
-        player._rb.velocity = Vector2.zero;
+        var inAirGravity = player.currentStats.FallAcceleration/5f;
+
+        float yVelocity = Mathf.MoveTowards(player._rb.velocity.y, -player.currentStats.MaxFallSpeed/2f, inAirGravity * Time.fixedDeltaTime);
+
+        player._rb.velocity = new Vector2(0, yVelocity);
     }
 
     public void ChangeTime(float time)

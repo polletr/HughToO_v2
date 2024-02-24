@@ -9,6 +9,9 @@ public class Teleporter : MonoBehaviour
 
     [SerializeField] private Transform TeleportPos; // empty obj inside teleporter
 
+    [SerializeField] private GameObject currentBackground; // empty obj inside teleporter
+    [SerializeField] private GameObject newBackground;
+
     Player player;
 
     private void Awake()
@@ -31,6 +34,8 @@ public class Teleporter : MonoBehaviour
         yield return new WaitForSeconds(_teleportDelay);
         player.transform.position = TeleportPos.position;
         player.GetComponent<Player>().HandlePotatoState(_teleportDelay);
+        currentBackground.SetActive(false);
+        newBackground.SetActive(true);
         TransitionManager.Instance.FadeOut();
     }
 
