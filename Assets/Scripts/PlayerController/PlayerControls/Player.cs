@@ -40,6 +40,7 @@ public class Player : MonoBehaviour
     public float dashTimer = 0f;
 
     Dictionary<string, RuntimeAnimatorController> animControllers = new Dictionary<string, RuntimeAnimatorController>();
+    [HideInInspector]
     public Animator anim;
 
 

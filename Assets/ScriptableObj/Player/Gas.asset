@@ -16,7 +16,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   currentForm: 2
-  formAnimator: {fileID: 9100000, guid: 33627796d621575468a6b2975426d83d, type: 2}
+  formAnimator: {fileID: 22100000, guid: 96a9cb790957cbe46885d8bee028cd71, type: 2}
   damage: 0
   SnapInput: 1
   VerticalDeadZoneThreshold: 0.3

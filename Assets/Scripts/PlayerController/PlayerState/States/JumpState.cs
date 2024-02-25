@@ -27,7 +27,7 @@ public class JumpState : GroundState
 
     }
 
-    private void HandleJumpp()
+    public override void HandleJump()
     {
         if (!_endedJumpEarly && !player.GroundCheck() && !inputManager.IsJumpHeldDown && velocity.y > 0) _endedJumpEarly = true;
 
@@ -70,7 +70,7 @@ public class JumpState : GroundState
         _time += Time.fixedDeltaTime;
         
         GatherInput();
-        HandleJumpp();
+        HandleJump();
 
 
         base.StateFixedUpdate();

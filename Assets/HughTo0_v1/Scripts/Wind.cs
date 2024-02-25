@@ -18,7 +18,9 @@ public class Wind : MonoBehaviour
     private enum Direction
     {
         Right,
-        Left
+        Left,
+        Up,
+        Down
     }
 
     private void Awake()
@@ -42,6 +44,18 @@ public class Wind : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0f, 0f, 0f);
 
                 break;
+            case Direction.Up:
+                forceDirection = Vector2.up;
+                sprite.flipX = false;
+                transform.rotation = Quaternion.Euler(0f, 0f, 90f);
+
+                break;
+            case Direction.Down:
+                forceDirection = Vector2.down;
+                sprite.flipX = false;
+                transform.rotation = Quaternion.Euler(0f, 0f, -90f);
+
+                break;
         }
 
     }
@@ -54,8 +68,19 @@ public class Wind : MonoBehaviour
             Player player = other.GetComponent<Player>();
             if (player.currentStats.currentForm == ScriptableStats.Form.Gas)
             {
-                Vector2 velocity = new Vector2(forceDirection.x * windForce, player._rb.velocity.y);
-                player._rb.velocity = velocity;
+                if (windDirection == Direction.Right || windDirection == Direction.Left)
+                {
+                    Vector2 velocity = new Vector2(forceDirection.x * windForce, player._rb.velocity.y);
+                    player._rb.velocity = velocity;
+
+                }
+                else
+                {
+                    Vector2 velocity = new Vector2(player._rb.velocity.x, forceDirection.y * windForce);
+                    player._rb.velocity = velocity;
+
+                }
+
                 //other.GetComponent<Rigidbody2D>().AddForce(forceDirection * windForce * Time.deltaTime);
             }
         }

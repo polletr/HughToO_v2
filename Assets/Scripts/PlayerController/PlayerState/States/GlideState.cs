@@ -5,7 +5,7 @@ public class GlideState : InAirState
 
     public override void EnterState()
     {
-
+        player.anim.SetBool("gliding", true);
     }
     public override void StateUpdate()
     {
@@ -17,7 +17,7 @@ public class GlideState : InAirState
     }
     public override void ExitState()
     {
-        base.ExitState();
+        player.anim.SetBool("gliding", false);
     }
     protected override void HandleGravity()
     {
