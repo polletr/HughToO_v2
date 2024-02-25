@@ -157,7 +157,7 @@ public class Player : MonoBehaviour
             ChangeForm(ScriptableStats.Form.Gas);
     }
     #endregion
-    void ChangeForm(ScriptableStats.Form newForm)
+    public void ChangeForm(ScriptableStats.Form newForm)
     {
         foreach (ScriptableStats stat in stats)
         {
