@@ -77,6 +77,8 @@ public class GrowingTree : MonoBehaviour
         {
             case State.Idle:
                 currentState = State.Idle;
+                GetComponent<BoxCollider2D>().isTrigger = false;
+
                 break;
             case State.Growing:
                 currentState = State.Growing;
@@ -109,6 +111,7 @@ public class GrowingTree : MonoBehaviour
         else if (currentState != State.Growing && other.gameObject.GetComponent<Player>()?.currentStats.currentForm == ScriptableStats.Form.Water)
         {
             SetState(State.Growing);
+
         }
     }
 
@@ -119,6 +122,7 @@ public class GrowingTree : MonoBehaviour
             if (this.gameObject.activeSelf == true)
             if (!fixedTree)
             {
+                GetComponent<BoxCollider2D>().isTrigger = true;
                 SetState(State.Retracting);
             }
         }
@@ -153,6 +157,7 @@ public class GrowingTree : MonoBehaviour
             }
             yield return null;
         }
+        SetState(State.Idle);
     }
 
 

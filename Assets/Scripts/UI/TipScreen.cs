@@ -31,6 +31,8 @@ public class TipScreen : MonoBehaviour
         {
             if (tip != null)
                 tip.SetActive(false);
+
+            Destroy(this.gameObject);
         }
     }
            

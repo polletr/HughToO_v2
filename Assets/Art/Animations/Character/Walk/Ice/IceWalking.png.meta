@@ -126,10 +126,10 @@ TextureImporter:
       name: IceWalking_0
       rect:
         serializedVersion: 2
-        x: 27
+        x: 0
         y: 0
-        width: 54
-        height: 99
+        width: 112
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,10 +147,10 @@ TextureImporter:
       name: IceWalking_1
       rect:
         serializedVersion: 2
-        x: 141
+        x: 112
         y: 0
-        width: 50
-        height: 99
+        width: 112
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,10 +168,10 @@ TextureImporter:
       name: IceWalking_2
       rect:
         serializedVersion: 2
-        x: 255
+        x: 224
         y: 0
-        width: 46
-        height: 99
+        width: 112
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,10 +189,10 @@ TextureImporter:
       name: IceWalking_3
       rect:
         serializedVersion: 2
-        x: 365
+        x: 336
         y: 0
-        width: 50
-        height: 99
+        width: 112
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,10 +210,10 @@ TextureImporter:
       name: IceWalking_4
       rect:
         serializedVersion: 2
-        x: 475
+        x: 448
         y: 0
-        width: 55
-        height: 99
+        width: 112
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

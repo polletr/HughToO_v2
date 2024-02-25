@@ -229,7 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VinePrefab: {fileID: 8185767806644384261, guid: 92782d5049bba9249819983cad11ee03, type: 3}
   currentDirection: 1
-  originalSpeed: 1
+  originalSpeed: 2
   desiredPos: {fileID: 3334473072643987833}
   fixedTree: 0
   TopVines: {fileID: 991719896193158202}

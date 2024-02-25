@@ -143,4 +143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81f11194d076ce9488713ce3f6b87478, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerData: {fileID: 11400000, guid: d7d67c896e969dc4886c2db9a5e822d1, type: 2}
+  _teleportOutClip: {fileID: 0}
+  _teleportInClip: {fileID: 0}
+  _teleportParticlePrefab: {fileID: 0}
+  PlayerData: {fileID: 11400000, guid: d7d67c896e969dc4886c2db9a5e822d1, type: 2}
+  _blackScreen: {fileID: 0}
