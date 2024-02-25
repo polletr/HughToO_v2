@@ -18,10 +18,15 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     private GameObject[] _heartContainers;
 
-    [SerializeField]
-    private PlayerBaseInfo _playerData;
+    public PlayerBaseInfo _playerData;
+
+    [HideInInspector]
+    public bool isDead = false;
 
     private int _currentHealth;
+
+    [SerializeField]
+    private int _deathCooldown = 10;
 
     [SerializeField] 
     private float _teleportDelay = 0.5f;
@@ -77,6 +82,9 @@ public class PlayerHealth : MonoBehaviour
         if (_currentHealth <= 0)
         {
             _currentHealth = 0;
+            if (GetComponent<Player>().currentStats.currentForm != ScriptableStats.Form.Water)
+                GetComponent<Player>().ChangeForm(ScriptableStats.Form.Water);
+            isDead = true;
             Debug.Log("Player is dead"); // Add death logic here
             GetComponent<Player>().anim.SetBool("isAlive", false);
             SavePointTeleport();
@@ -115,7 +123,12 @@ public class PlayerHealth : MonoBehaviour
         Vector3 _teleportPosition = new Vector3(_playerData.Data.position[0], _playerData.Data.position[1], _playerData.Data.position[2]);
         this.transform.position = _teleportPosition;
         GetComponent<Player>().HandlePotatoState(_teleportDelay);
-
+        Invoke("ComeBackToLife", _deathCooldown);
+        HealToFull();
+    }
+    void ComeBackToLife()
+    {
+        isDead = false;
     }
 
 }

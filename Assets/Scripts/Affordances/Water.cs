@@ -14,20 +14,30 @@ public class Water : MonoBehaviour
     private int damage;
     [HideInInspector]
     public Vector3 _teleportPosition;
+
+    PlayerHealth player;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            playerDrowned?.Invoke();
-            StartCoroutine(StartTeleporting());
-            collision.GetComponent<PlayerHealth>().TakeDamage(damage);
+            player = collision.GetComponent<PlayerHealth>();
 
+            if (player != null)
+            {
+                playerDrowned?.Invoke();
+                StartCoroutine(StartTeleporting());
+                player.TakeDamage(damage);
+
+            }
         }
     }
 
     IEnumerator StartTeleporting()
     {
         yield return new WaitForSeconds(2f);
-        SpawnPos?.Invoke(_teleportPosition);
+        if (!player.isDead)
+        {
+            SpawnPos?.Invoke(_teleportPosition);
+        }
     }
 }
