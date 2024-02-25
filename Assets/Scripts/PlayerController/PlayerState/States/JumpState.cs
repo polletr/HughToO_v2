@@ -56,6 +56,7 @@ public class JumpState : GroundState
     public override void EnterState()
     {
         base.EnterState();
+        player.anim.SetTrigger("jumping");
         ExecuteJump();
     }
 

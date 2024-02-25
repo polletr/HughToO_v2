@@ -7,7 +7,7 @@ public class AttackState : GroundState
     public override void EnterState()
     {
         player.canDash = false;
-        //PlayAnimation
+        player.anim.SetTrigger("attacking");
         hitBox = player.AttackHitBox;
         hitBox.SetActive(true);
 

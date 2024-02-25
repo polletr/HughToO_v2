@@ -4,7 +4,7 @@ public class InAirState : JumpState
 {
     public override void EnterState()
     {
-
+        player.anim.SetBool("falling", true);
     }
     public override void StateUpdate()
     {
@@ -16,7 +16,7 @@ public class InAirState : JumpState
     }
     public override void ExitState()
     {
-        //Stop animation of falling 
+        player.anim.SetBool("falling", false);
     }
 
     public override void StateFixedUpdate()

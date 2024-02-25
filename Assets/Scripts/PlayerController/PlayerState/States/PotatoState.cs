@@ -10,10 +10,12 @@ public class PotatoState : PlayerState
     public override void EnterState()
     {
         _potatoTimer = 0;
+        player.anim.SetBool("isAlive", false);
     }
     public override void ExitState()
     {
-       
+        player.anim.SetBool("isAlive", true);
+
     }
     public override void StateUpdate()
     {

@@ -6,11 +6,14 @@ using HughTo0;
 public class MoveState : GroundState
 {
     public override void EnterState() 
-    { 
-    //PlayAnimation
+    {
+        player.anim.SetBool("moving", true);
     }
 
-    public override void ExitState() { } 
+    public override void ExitState() 
+    {
+        player.anim.SetBool("moving", false);
+    }
 
     public override void StateFixedUpdate()
     {

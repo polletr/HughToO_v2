@@ -9,6 +9,8 @@ public class KnockBackState : GroundState
     public override void EnterState()
     {
         KBCount = player.currentStats.KBCounter;
+        player.anim.SetTrigger("getHit");
+
         base.EnterState();
     }
 

@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
     public float dashTimer = 0f;
 
     Dictionary<string, RuntimeAnimatorController> animControllers = new Dictionary<string, RuntimeAnimatorController>();
-    private Animator anim;
+    public Animator anim;
 
 
 
@@ -73,7 +73,6 @@ public class Player : MonoBehaviour
 
         _rb = GetComponent<Rigidbody2D>();
         _collider = GetComponent<Collider2D>();
-        //_animator = GetComponent<Animator>();
         AttackHitBox.SetActive(false);
         ChangeState(new IdleState());
 

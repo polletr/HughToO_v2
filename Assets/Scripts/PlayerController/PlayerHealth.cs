@@ -36,7 +36,7 @@ public class PlayerHealth : MonoBehaviour
     void Update()
     {
         //testing controls
-        if (Input.GetKeyDown(KeyCode.Q))
+/*        if (Input.GetKeyDown(KeyCode.Q))
         {
             TakeDamage(1);
         }
@@ -48,7 +48,7 @@ public class PlayerHealth : MonoBehaviour
         {
             IncreaseMaxHealth(1);
         }
-    }
+*/    }
     private void UpdateHeartUI()
     {
         for (int i = 0; i < _heartContainers.Length; i++)
@@ -78,6 +78,7 @@ public class PlayerHealth : MonoBehaviour
         {
             _currentHealth = 0;
             Debug.Log("Player is dead"); // Add death logic here
+            GetComponent<Player>().anim.SetBool("isAlive", false);
             SavePointTeleport();
         }
         UpdateHeartUI();
@@ -114,6 +115,7 @@ public class PlayerHealth : MonoBehaviour
         Vector3 _teleportPosition = new Vector3(_playerData.Data.position[0], _playerData.Data.position[1], _playerData.Data.position[2]);
         this.transform.position = _teleportPosition;
         GetComponent<Player>().HandlePotatoState(_teleportDelay);
+
     }
 
 }
