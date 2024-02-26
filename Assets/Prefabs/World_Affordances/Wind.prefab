@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebda450cce30ef04497d0c2f8d5313d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windForce: 10
+  windForce: 100
   windDirection: 1
 --- !u!212 &4316304679118983455
 SpriteRenderer:

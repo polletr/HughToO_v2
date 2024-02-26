@@ -70,6 +70,8 @@ public class Wind : MonoBehaviour
             {
                 if (windDirection == Direction.Right || windDirection == Direction.Left)
                 {
+                    //other.GetComponent<Rigidbody2D>().AddForce(forceDirection * windForce * Time.deltaTime);
+
                     Vector2 velocity = new Vector2(forceDirection.x * windForce, player._rb.velocity.y);
                     player._rb.velocity = velocity;
 
@@ -81,7 +83,6 @@ public class Wind : MonoBehaviour
 
                 }
 
-                //other.GetComponent<Rigidbody2D>().AddForce(forceDirection * windForce * Time.deltaTime);
             }
         }
         // Set the force direction based on the selected enum value

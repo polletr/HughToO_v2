@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 22100000, guid: 13de6f366e488af46b78b75366c33f86, type: 2}
     - target: {fileID: 3951918565175821586, guid: b5674fee76ecd1e4b9a432eec8cedd79, type: 3}
       propertyPath: OnCollected.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: GetWindForm
       objectReference: {fileID: 0}
     - target: {fileID: 7203637749657388130, guid: b5674fee76ecd1e4b9a432eec8cedd79, type: 3}
       propertyPath: m_Name

@@ -9,7 +9,6 @@ public class GlideState : InAirState
     }
     public override void StateUpdate()
     {
-        base.StateUpdate();
         if (!inputManager.IsGliding)
         {
             player.ChangeState(new InAirState());
