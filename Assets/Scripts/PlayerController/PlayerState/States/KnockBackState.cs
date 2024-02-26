@@ -17,6 +17,9 @@ public class KnockBackState : GroundState
     public override void ExitState()
     {
         base.ExitState();
+
+        player.GetComponent<SpriteRenderer>().enabled = true;
+        player.GetComponent<SpriteRenderer>().color = Color.white;
     }
 
     public override void StateFixedUpdate()
