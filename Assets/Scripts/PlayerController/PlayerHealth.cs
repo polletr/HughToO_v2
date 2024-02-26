@@ -87,9 +87,7 @@ public class PlayerHealth : MonoBehaviour
         if (_currentHealth <= 0)
         {
             _currentHealth = 0;
-            if (GetComponent<Player>().currentStats.currentForm != ScriptableStats.Form.Water)
-                GetComponent<Player>().ChangeForm(ScriptableStats.Form.Water);
-            isDead = true;
+             isDead = true;
             Debug.Log("Player is dead"); // Add death logic here
                                          //Player death animation
 
@@ -139,6 +137,9 @@ public class PlayerHealth : MonoBehaviour
         GetComponent<Player>().HandlePotatoState(_teleportDelay);
         Invoke("ComeBackToLife", _deathCooldown);
         HealToFull();
+        if (GetComponent<Player>().currentStats.currentForm != ScriptableStats.Form.Water)
+            GetComponent<Player>().ChangeForm(ScriptableStats.Form.Water);
+
     }
     void ComeBackToLife()
     {

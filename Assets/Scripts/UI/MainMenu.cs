@@ -1,3 +1,5 @@
+using UnityEngine;
+using UnityEngine.SceneManagement;
 public class MainMenu : Menu
 {
 
@@ -7,7 +9,7 @@ public class MainMenu : Menu
     }
     public void OnPlayGame()
     {
-        //SceneManager.LoadScene( SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("01_MainScene");
     }
 
 }
