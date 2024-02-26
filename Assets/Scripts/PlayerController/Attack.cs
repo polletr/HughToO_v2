@@ -33,7 +33,7 @@ public class Attack : MonoBehaviour
                 }
                 else if (stats.currentForm == ScriptableStats.Form.Ice)
                 {
-                    interactableObj.GetComponent<HurtCollider>().DoDamage(stats);
+                    interactableObj.GetComponent<HurtCollider>().DoDamage(stats, player.GetComponent<PlayerHealth>()) ;
                     player.ChangeState(new KnockBackState());
                 }
                 else if (stats.currentForm == ScriptableStats.Form.Gas)

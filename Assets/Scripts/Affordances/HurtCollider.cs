@@ -30,16 +30,18 @@ public class HurtCollider : MonoBehaviour, IDoDamage
             }
 
             player.ChangeState(new KnockBackState());
-            DoDamage(collision.gameObject.GetComponent<Player>().currentStats);
+
+            DoDamage(collision.gameObject.GetComponent<Player>().currentStats, playerHealth);
         }
     }
 
 
-    public void DoDamage(ScriptableStats playerStats)
+    public void DoDamage(ScriptableStats playerStats, PlayerHealth health)
     {
         checkAffordance(scriptableAffordances, playerStats);
-        playerHealth.TakeDamage(finalDamage);
+        health?.TakeDamage(finalDamage);
     }
+
     void checkAffordance(DamageScriptable affordanceStats, ScriptableStats playerStats)
     {
         switch (playerStats.currentForm)

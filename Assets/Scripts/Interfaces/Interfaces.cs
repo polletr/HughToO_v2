@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IDoDamage
 {
-    void DoDamage(ScriptableStats form);
+    void DoDamage(ScriptableStats form, PlayerHealth health);
 }
