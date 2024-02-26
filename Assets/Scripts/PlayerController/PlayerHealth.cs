@@ -28,13 +28,18 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     private int _deathCooldown = 10;
 
+    private float _deathAnimationTime;
+
     [SerializeField] 
     private float _teleportDelay = 0.5f;
+
+    Animator anim;
 
     void Start()
     {
         maxHealth = _playerData.Data.MaxHealth;
         _currentHealth = _playerData.Data.CurrentHealth;
+
         
         UpdateHeartUI();
     }
@@ -86,8 +91,17 @@ public class PlayerHealth : MonoBehaviour
                 GetComponent<Player>().ChangeForm(ScriptableStats.Form.Water);
             isDead = true;
             Debug.Log("Player is dead"); // Add death logic here
+                                         //Player death animation
+
+            anim = GetComponent<Animator>();
+            float clipLength;
+            if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
+            {
+                 clipLength = anim.GetCurrentAnimatorClipInfo(0)[0].clip.length;
+                Invoke("SavePointTeleport", clipLength * 1.5f);
+            }
+            //Player death sound
             GetComponent<Player>().anim.SetBool("isAlive", false);
-            SavePointTeleport();
         }
         UpdateHeartUI();
     }
