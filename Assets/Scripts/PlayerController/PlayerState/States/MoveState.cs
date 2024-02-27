@@ -7,12 +7,30 @@ public class MoveState : GroundState
 {
     public override void EnterState() 
     {
+        base.EnterState();
+
+        Debug.Log("Enter Move State");
         player.anim.SetBool("moving", true);
+        if (HasBufferedJump)
+        {
+            HandleJump();
+        }
+
     }
 
     public override void ExitState() 
     {
         player.anim.SetBool("moving", false);
+    }
+
+
+    public override void HandleJump()
+    {
+        if (!_endedJumpEarly && !player.GroundCheck() && !inputManager.IsJumpHeldDown && velocity.y > 0)
+            _endedJumpEarly = true;
+
+        player.ChangeState(new JumpState());
+
     }
 
     public override void StateFixedUpdate()
@@ -50,11 +68,11 @@ public class MoveState : GroundState
         { 
             player.ChangeState(new IdleState());
         }
-
-        if (player.GroundCheck() && inputManager.IsJumpHeldDown)
+        else if (!player.GroundCheck())
         {
-            player.ChangeState(new JumpState());
+            player.ChangeState(new InAirState());
         }
+
 
         base.StateFixedUpdate();
     }

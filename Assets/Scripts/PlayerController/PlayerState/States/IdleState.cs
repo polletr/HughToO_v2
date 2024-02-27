@@ -7,6 +7,11 @@ public class IdleState : GroundState
 {
     public override void EnterState() 
     { 
+        base.EnterState();
+        if (HasBufferedJump)
+        {
+            HandleJump();
+        }
     //PlayAnimation
     }
 
@@ -14,11 +19,13 @@ public class IdleState : GroundState
 
     public override void HandleJump()
     {
-        if (player.GroundCheck())
-        {
+        if (!_endedJumpEarly && !player.GroundCheck() && !inputManager.IsJumpHeldDown && velocity.y > 0)
+            _endedJumpEarly = true;
+
             player.ChangeState(new JumpState());
-        }
+
     }
+
     public override void StateFixedUpdate()
     {
         base.StateFixedUpdate();
@@ -30,6 +37,10 @@ public class IdleState : GroundState
         if (inputManager.Movement.x != 0 )
         {
             player.ChangeState(new MoveState());
+        }
+        else if (!player.GroundCheck())
+        {
+            player.ChangeState(new InAirState());
         }
 
 

@@ -1,9 +1,11 @@
+using HughTo0;
 using UnityEngine;
 
-public class InAirState : JumpState
+public class InAirState : PlayerState
 {
     public override void EnterState()
     {
+        Debug.Log("Enter InAir State");
         player.anim.SetBool("falling", true);
     }
     public override void StateUpdate()
@@ -21,12 +23,9 @@ public class InAirState : JumpState
 
     public override void StateFixedUpdate()
     {
-        CanUseCoyote = _coyoteUsable && !player.GroundCheck() && _time < _frameLeftGrounded + player.currentStats.CoyoteTime;
+        //CanUseCoyote = _coyoteUsable && !player.GroundCheck() && _time < _frameLeftGrounded + player.currentStats.CoyoteTime;
         HandleGravity();
-        if (player._rb.velocity.y < 0)
-        {
-            //play animation of falling
-        }
+        Debug.Log("Fixed Update In Air");
 
         if (inputManager.Movement.x == 0)
         {
@@ -51,7 +50,7 @@ public class InAirState : JumpState
 
     protected virtual void HandleGravity()
     {
-        if (player.GroundCheck())
+/*        if (player.GroundCheck())
         {
             //Play landing sound
             //Player landing animation
@@ -65,15 +64,15 @@ public class InAirState : JumpState
             }
 
         }
-        else
+*/      if (true)
         {
 
             var inAirGravity = player.currentStats.FallAcceleration;
             if (_endedJumpEarly && player._rb.velocity.y > 0)
                 inAirGravity *= player.currentStats.JumpEndEarlyGravityModifier;
 
-            velocity.y = Mathf.MoveTowards(player._rb.velocity.y, -player.currentStats.MaxFallSpeed, inAirGravity * Time.fixedDeltaTime);
-
+            velocity.y = Mathf.MoveTowards(velocity.y, -player.currentStats.MaxFallSpeed, inAirGravity * Time.fixedDeltaTime);
+            Debug.Log(velocity.y);
 
         }
 

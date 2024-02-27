@@ -1,37 +1,11 @@
 using HughTo0;
 using UnityEngine;
 
-public class JumpState : GroundState
+public class JumpState : PlayerState
 {
-    protected bool _jumpToConsume;
-    protected bool _bufferedJumpUsable;
-    protected bool _endedJumpEarly;
-    protected bool _coyoteUsable;
-    protected float _timeJumpWasPressed;
-
-    protected bool CanUseCoyote;
 
     protected float _time;
     protected float _frameLeftGrounded = float.MinValue;
-    private bool HasBufferedJump => Time.time - inputManager.JumpButtonPressedLast < player.currentStats.JumpBuffer;//_bufferedJumpUsable && _time < _timeJumpWasPressed + player.currentStats.JumpBuffer;
-    
-
-
-    public override void HandleJump()
-    {
-        if (!_endedJumpEarly && !player.GroundCheck() && !inputManager.IsJumpHeldDown && velocity.y > 0) 
-            _endedJumpEarly = true;
-
-        if (!_jumpToConsume || !HasBufferedJump)
-        {
-            return;
-        }
-
-        if (player.GroundCheck() || CanUseCoyote) 
-            ExecuteJump();
-
-        _jumpToConsume = false;
-    }
 
     private void ExecuteJump()
     {
@@ -40,7 +14,8 @@ public class JumpState : GroundState
         _bufferedJumpUsable = false;
         _coyoteUsable = false;
         velocity.y = player.currentStats.JumpPower;
-        player._rb.velocity = new Vector2(player._rb.velocity.x, player._rb.velocity.y + velocity.y);
+        player._rb.velocity = new Vector2(player._rb.velocity.x, velocity.y);
+        player.ChangeState(new InAirState());
     }
 
     public override void StateUpdate()
@@ -50,7 +25,7 @@ public class JumpState : GroundState
     }
     public override void EnterState()
     {
-        base.EnterState();
+        Debug.Log("Enter Jump State");
         player.anim.SetTrigger("jumping");
         ExecuteJump();
     }

@@ -3,11 +3,13 @@ using UnityEngine;
 
 public class GroundState : PlayerState
 {
-    protected Vector2 velocity;
     protected bool exitFromInAir;
+
     public override void EnterState()
     {
         base.EnterState();
+        velocity.y = player.currentStats.GroundingForce;//fix
+
     }
 
     public override void ExitState()
@@ -22,17 +24,8 @@ public class GroundState : PlayerState
             exitFromInAir = true;
         }
         base.StateFixedUpdate();
-        if (player.GroundCheck() && velocity.y <= 0)
-        {
-            velocity.y = player.currentStats.GroundingForce;//fix
-        }
-        else if (player.currentState is not InAirState)// fix  
-        {
-            player.ChangeState(new InAirState());
-        }
 
 
-        player._rb.velocity = velocity + player.ParentVelocity;
 
     }
 

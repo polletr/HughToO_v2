@@ -1,4 +1,5 @@
 using HughTo0;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -44,6 +45,9 @@ public class Player : MonoBehaviour
     public Animator anim;
     public Vector2 ParentVelocity { get; set; }
 
+    [SerializeField]
+    private ParticleSystem changeFormParticle;
+
 
     private void Awake()
     {
@@ -75,6 +79,7 @@ public class Player : MonoBehaviour
 
         _rb = GetComponent<Rigidbody2D>();
         _collider = GetComponent<Collider2D>();
+
         AttackHitBox.SetActive(false);
         ChangeState(new InAirState());
 
@@ -105,11 +110,19 @@ public class Player : MonoBehaviour
 
     public void ChangeState(PlayerState newState)
     {
+        StartCoroutine(WaitFixedFrame(newState));
+    }
+
+    private IEnumerator WaitFixedFrame(PlayerState newState)
+    {
+
+        yield return new WaitForFixedUpdate();
         currentState?.ExitState();
         currentState = newState;
         currentState.player = this;
         currentState.inputManager = inputManager;
         currentState.EnterState();
+
     }
 
     #region Player Actions
@@ -163,10 +176,11 @@ public class Player : MonoBehaviour
     {
         foreach (ScriptableStats stat in stats)
         {
-            if (stat.currentForm == newForm)
+            if (stat.currentForm == newForm )
             {
                 currentStats = stat;
                 anim.runtimeAnimatorController = animControllers[newForm.ToString()];
+                changeFormParticle.Play();
             }
         }
         playerData.Data.Currentform = newForm;
@@ -204,8 +218,10 @@ public class Player : MonoBehaviour
     }
     public bool GroundCheck()
     {
-        return Physics2D.OverlapCircle(_groundCheckPos.position, 0.1f, LayerMask.GetMask("Ground"));
+        return Physics2D.OverlapCircle(_groundCheckPos.position, 0.1f, LayerMask.GetMask("Ground")) && (Time.time - inputManager.JumpButtonPressedLast) > 0.1f;
     }
+
+    
 }
 
 
