@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using HughTo0;
+using UnityEngine.InputSystem.Utilities;
 
 public class InputManager : MonoBehaviour
 {
@@ -53,6 +54,25 @@ public class InputManager : MonoBehaviour
     {
         player = GetComponent<Player>();
         action = new PlayerInput();
+    }
+
+    private void Update()
+    {
+        var devices = InputSystem.devices;
+
+        foreach (var device in devices)
+        {
+            // Check if the device is active
+            if (device == Gamepad.current)
+            {
+                Debug.Log("Gamepad is active");
+            }
+            else if (device == Keyboard.current)
+            {
+                Debug.Log("Keyboard is active");
+            }
+        }
+
     }
 
     private void OnEnable()
