@@ -60,7 +60,7 @@ public class Wind : MonoBehaviour
 
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
 
         if (other.gameObject.CompareTag("Player"))
@@ -68,20 +68,10 @@ public class Wind : MonoBehaviour
             Player player = other.GetComponent<Player>();
             if (player.currentStats.currentForm == ScriptableStats.Form.Gas)
             {
-                if (windDirection == Direction.Right || windDirection == Direction.Left)
-                {
-                    //other.GetComponent<Rigidbody2D>().AddForce(forceDirection * windForce * Time.deltaTime);
+                other.GetComponent<Rigidbody2D>().AddForce(forceDirection * windForce * Time.deltaTime);
 
-                    Vector2 velocity = new Vector2(forceDirection.x * windForce, player._rb.velocity.y);
-                    player._rb.velocity = velocity;
-
-                }
-                else
-                {
-                    Vector2 velocity = new Vector2(player._rb.velocity.x, forceDirection.y * windForce);
-                    player._rb.velocity = velocity;
-
-                }
+                //Vector2 velocity = new Vector2(player._rb.velocity.x + forceDirection.x * windForce, player._rb.velocity.y);
+                //player._rb.velocity = velocity;
 
             }
         }
