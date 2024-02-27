@@ -32,7 +32,7 @@ public class GroundState : PlayerState
         }
 
 
-        player._rb.velocity = velocity;
+        player._rb.velocity = velocity + player.ParentVelocity;
 
     }
 

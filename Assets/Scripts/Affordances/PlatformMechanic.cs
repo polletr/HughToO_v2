@@ -6,6 +6,7 @@ public class PlatformMechanic : MonoBehaviour
 {
     private GameObject currentOneWayPlatform;
     private Collider2D playerCollider;
+    private Player player;
 
     void Update()
     {
