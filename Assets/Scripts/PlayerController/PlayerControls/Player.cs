@@ -42,11 +42,12 @@ public class Player : MonoBehaviour
     Dictionary<string, RuntimeAnimatorController> animControllers = new Dictionary<string, RuntimeAnimatorController>();
     [HideInInspector]
     public Animator anim;
-
+    public Vector2 ParentVelocity { get; set; }
 
 
     private void Awake()
     {
+        this.ParentVelocity = new Vector2();
         for (int i = 0; i < stats.Length; i++)
         {
             if (stats[i].currentForm.ToString() == "Water")

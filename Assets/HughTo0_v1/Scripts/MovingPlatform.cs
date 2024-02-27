@@ -10,7 +10,7 @@ public class MovingPlatform : MonoBehaviour
         Idle,
         Moving
     }
-
+    private Player player;
     [SerializeField]
     private Transform pointA;
     [SerializeField]
@@ -89,7 +89,7 @@ public class MovingPlatform : MonoBehaviour
         {
             Vector2 direction = (currentPoint.position - transform.position).normalized;
             //rb.velocity = new Vector2(direction.x, 0f) * moveSpeed;
-
+            Vector2 velocity = new Vector2();
             if (transform.position.x < currentPoint.position.x)
             {
                 moveRight = true;
@@ -102,12 +102,20 @@ public class MovingPlatform : MonoBehaviour
             if (moveRight)
             {
                 transform.position = new Vector2(transform.position.x + moveSpeed * Time.deltaTime, transform.position.y);
+                velocity = new Vector2(moveSpeed * Time.fixedDeltaTime, 0);
             }
             else
             {
+                velocity = new Vector2(-moveSpeed * Time.fixedDeltaTime, 0);
                 transform.position = new Vector2(transform.position.x - moveSpeed * Time.deltaTime, transform.position.y);
             }
-
+            if (player)
+            {
+                player.ParentVelocity = velocity;
+                Debug.LogFormat("Set parent velocity to {0}", velocity.x);
+            }
+                
+            
 
             if (Vector2.Distance(transform.position, currentPoint.position) <= 0.05f)
             {
@@ -115,17 +123,18 @@ public class MovingPlatform : MonoBehaviour
                 currentPoint = null;
             }
 
-            yield return null;
+            yield return new WaitForFixedUpdate();
         }
 
         SetState(State.Idle);
 
     }
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
             collision.transform.SetParent(transform);
+            player = collision.gameObject.GetComponent<Player>();
 
         }
 
@@ -136,6 +145,9 @@ public class MovingPlatform : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             collision.transform.SetParent(null);
+            if(player != null)
+                player.ParentVelocity = new Vector2();
+            player = null;// collision.gameObject.GetComponent<Player>();
         }
 
     }
