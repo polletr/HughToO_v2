@@ -110,6 +110,7 @@ public class Player : MonoBehaviour
 
     public void ChangeState(PlayerState newState)
     {
+        Debug.LogFormat("Changing state to {0}", newState.GetType().ToString());
         StartCoroutine(WaitFixedFrame(newState));
     }
 
@@ -117,6 +118,7 @@ public class Player : MonoBehaviour
     {
 
         yield return new WaitForFixedUpdate();
+       // yield return new WaitForFixedUpdate();
         currentState?.ExitState();
         currentState = newState;
         currentState.player = this;

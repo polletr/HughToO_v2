@@ -14,6 +14,7 @@ public class JumpState : PlayerState
         _bufferedJumpUsable = false;
         _coyoteUsable = false;
         velocity.y = player.currentStats.JumpPower;
+        Debug.LogFormat("Current velocity when executing a jump is {0}", velocity.y);
         player._rb.velocity = new Vector2(player._rb.velocity.x, velocity.y);
         player.ChangeState(new InAirState());
     }
@@ -25,7 +26,8 @@ public class JumpState : PlayerState
     }
     public override void EnterState()
     {
-        Debug.Log("Enter Jump State");
+        base.EnterState();
+        Debug.LogFormat("Enter Jump State with a velocity of {0}", player._rb.velocity.y);
         player.anim.SetTrigger("jumping");
         ExecuteJump();
     }

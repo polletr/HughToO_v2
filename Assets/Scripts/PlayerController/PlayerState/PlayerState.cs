@@ -16,14 +16,17 @@ namespace HughTo0
 
         protected bool CanUseCoyote;
 
-        protected Vector2 velocity;
+        protected Vector2 velocity = new Vector2();
 
         protected bool HasBufferedJump => (Time.time - inputManager.JumpButtonPressedLast < player.currentStats.JumpBuffer && inputManager.IsJumpHeldDown);//_bufferedJumpUsable && _time < _timeJumpWasPressed + player.currentStats.JumpBuffer;
 
-        public virtual void EnterState() { }
+        public virtual void EnterState() {
+            velocity = player._rb.velocity;
+        }
         public virtual void ExitState() { }
         public virtual void StateFixedUpdate() 
         {
+            //Debug.LogFormat("The velocity is {0}, {1}", velocity.x, velocity.y);
             player._rb.velocity = velocity + player.ParentVelocity;
 
         }

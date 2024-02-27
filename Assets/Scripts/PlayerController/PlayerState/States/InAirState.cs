@@ -3,9 +3,13 @@ using UnityEngine;
 
 public class InAirState : PlayerState
 {
+    //change this later
+    [SerializeField]
+    float jumpReleasedAcceleration = 1.5f;
     public override void EnterState()
     {
-        Debug.Log("Enter InAir State");
+        base.EnterState();
+        Debug.LogFormat("Enter InAir State with a rb velocity of {0}, and velocity {1}", player._rb.velocity.y, velocity.y);
         player.anim.SetBool("falling", true);
     }
     public override void StateUpdate()
@@ -50,7 +54,7 @@ public class InAirState : PlayerState
 
     protected virtual void HandleGravity()
     {
-/*        if (player.GroundCheck())
+        if (player.GroundCheck())
         {
             //Play landing sound
             //Player landing animation
@@ -64,15 +68,15 @@ public class InAirState : PlayerState
             }
 
         }
-*/      if (true)
+        else
         {
 
-            var inAirGravity = player.currentStats.FallAcceleration;
+            var inAirGravity = player.currentStats.FallAcceleration * (inputManager.IsJumpHeldDown ? 1.0f : jumpReleasedAcceleration);
             if (_endedJumpEarly && player._rb.velocity.y > 0)
                 inAirGravity *= player.currentStats.JumpEndEarlyGravityModifier;
 
             velocity.y = Mathf.MoveTowards(velocity.y, -player.currentStats.MaxFallSpeed, inAirGravity * Time.fixedDeltaTime);
-            Debug.Log(velocity.y);
+            //Debug.Log(velocity.y);
 
         }
 
