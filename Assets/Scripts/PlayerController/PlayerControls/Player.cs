@@ -75,7 +75,7 @@ public class Player : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _collider = GetComponent<Collider2D>();
         AttackHitBox.SetActive(false);
-        ChangeState(new IdleState());
+        ChangeState(new InAirState());
 
     }
 

@@ -17,23 +17,18 @@ public class JumpState : GroundState
     
 
 
-    private void GatherInput()
-    {
-        if (inputManager.IsJumpHeldDown)
-        {
-            _jumpToConsume = true;
-            _timeJumpWasPressed = _time;
-        }
-
-    }
-
     public override void HandleJump()
     {
-        if (!_endedJumpEarly && !player.GroundCheck() && !inputManager.IsJumpHeldDown && velocity.y > 0) _endedJumpEarly = true;
+        if (!_endedJumpEarly && !player.GroundCheck() && !inputManager.IsJumpHeldDown && velocity.y > 0) 
+            _endedJumpEarly = true;
 
-        if (!_jumpToConsume || !HasBufferedJump) return;
+        if (!_jumpToConsume || !HasBufferedJump)
+        {
+            return;
+        }
 
-        if (player.GroundCheck() || CanUseCoyote) ExecuteJump();
+        if (player.GroundCheck() || CanUseCoyote) 
+            ExecuteJump();
 
         _jumpToConsume = false;
     }
@@ -69,24 +64,12 @@ public class JumpState : GroundState
     {
         _time += Time.fixedDeltaTime;
         
-        GatherInput();
-        HandleJump();
-
 
         base.StateFixedUpdate();
 
-        //player.ChangeState(new InAirState());
 
     }
 
-
-    /*public override void OnMovement(Vector2 movement)
-    {
-        base.OnMovement(movement);
-
-        // HandleGravity();
-
-    }*/
 
 
 
