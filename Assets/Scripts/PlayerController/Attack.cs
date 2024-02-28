@@ -14,7 +14,7 @@ public class Attack : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Interactable"))
+        if (collision.gameObject.GetComponent<InteractableObjects>())
         {
             ScriptableStats currentStats = player.currentStats;
             Check(currentStats, collision.gameObject);// We need to get the current stats

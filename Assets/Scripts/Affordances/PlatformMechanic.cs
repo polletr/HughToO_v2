@@ -5,8 +5,6 @@ using UnityEngine;
 public class PlatformMechanic : MonoBehaviour
 {
     private GameObject currentOneWayPlatform;
-    private Collider2D playerCollider;
-    private Player player;
 
     void Update()
     {
@@ -14,8 +12,6 @@ public class PlatformMechanic : MonoBehaviour
         {
             if (currentOneWayPlatform != null)
             {
-                Debug.Log("down");
-
                 StartCoroutine(DisableCollision());
             }
         }
@@ -25,7 +21,6 @@ public class PlatformMechanic : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("OneWayPlatform"))
         {
-            Debug.Log("Collided");
             currentOneWayPlatform = collision.gameObject;
         }
     }

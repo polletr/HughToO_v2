@@ -173,8 +173,6 @@ public class GrowingVines : MonoBehaviour
 
     IEnumerator RetractVines()
     {
-        boxCollider.size = new Vector2(objectSize, boxCollider.size.y);
-        boxCollider.offset = new Vector2(0f, boxCollider.offset.y);
         TopVines.GetComponent<SpriteRenderer>().sprite = DeadVines;
 
 
@@ -185,10 +183,16 @@ public class GrowingVines : MonoBehaviour
             float distanceTraveled = Mathf.Abs(currentPos.x - startPos.x);
             if (distanceTraveled % objectSize <= 0.02f)
             {
+                Debug.Log(distanceTraveled);
+                boxCollider.size = new Vector2(boxCollider.size.x - objectSize, boxCollider.size.y);
+                boxCollider.offset = new Vector2(-(distanceTraveled) / 2, boxCollider.offset.y);
+
                 Destroy(vineStack.Pop());
             }
             yield return null;
         }
+        SetState(State.Idle);
+
 
     }
 

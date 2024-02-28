@@ -87,8 +87,6 @@ public class GrowingTree : MonoBehaviour
         {
             case State.Idle:
                 currentState = State.Idle;
-                GetComponent<BoxCollider2D>().isTrigger = false;
-
                 break;
             case State.Growing:
                 currentState = State.Growing;
@@ -116,20 +114,6 @@ public class GrowingTree : MonoBehaviour
         }
     }
 
-/*    private void OnCollisionExit2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Player") && currentState != State.Retracting)
-        {
-            if (this.gameObject.activeSelf == true)
-            if (!fixedTree)
-            {
-                GetComponent<BoxCollider2D>().isTrigger = true;
-                SetState(State.Retracting);
-            }
-        }
-    }
-*/
-
     IEnumerator GrowTree()
     {
         anim.SetTrigger("Shake");
@@ -150,7 +134,10 @@ public class GrowingTree : MonoBehaviour
     private void CallRetract()
     {
         if (!fixedTree)
-        SetState(State.Retracting);
+        {
+            SetState(State.Retracting);
+        }
+
     }
 
     IEnumerator RetractTree()
