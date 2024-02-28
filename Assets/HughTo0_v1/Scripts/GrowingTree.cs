@@ -43,6 +43,16 @@ public class GrowingTree : MonoBehaviour
 
     private Animator anim;
 
+    [SerializeField]
+    private GameObject TopVines;
+
+    [SerializeField]
+    private Sprite HealthyVines;
+
+    [SerializeField]
+    private Sprite DeadVines;
+
+
     private AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
@@ -96,26 +106,17 @@ public class GrowingTree : MonoBehaviour
     }
 
 
-    // Update is called once per frame
-    void FixedUpdate()
+    public void OnInteracted()
     {
-
-    }
-
-    private void OnCollisionStay2D(Collision2D other)
-    {
-        if (currentState != State.Retracting && other.gameObject.GetComponent<Player>()?.currentStats.currentForm != ScriptableStats.Form.Water)
+        if (currentState == State.Idle)
         {
-            SetState(State.Retracting);
-        }
-        else if (currentState != State.Growing && other.gameObject.GetComponent<Player>()?.currentStats.currentForm == ScriptableStats.Form.Water)
-        {
+            TopVines.GetComponent<SpriteRenderer>().sprite = HealthyVines;
             SetState(State.Growing);
 
         }
     }
 
-    private void OnCollisionExit2D(Collision2D other)
+/*    private void OnCollisionExit2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player") && currentState != State.Retracting)
         {
@@ -127,14 +128,15 @@ public class GrowingTree : MonoBehaviour
             }
         }
     }
-
+*/
 
     IEnumerator GrowTree()
     {
+        anim.SetTrigger("Shake");
+
         while (Mathf.Abs(Vector2.Distance(currentPos.position, desiredPos.position)) > 0.1f)
         {
             transform.Translate(finalDirection * speed * Time.deltaTime);
-            anim.SetTrigger("Shake");
             currentPos.position = transform.position;
             if (!audioSource.isPlaying)
             {
@@ -142,14 +144,24 @@ public class GrowingTree : MonoBehaviour
             }
             yield return null;
         }
+        Invoke("CallRetract", 4f);
+    }
+
+    private void CallRetract()
+    {
+        if (!fixedTree)
+        SetState(State.Retracting);
     }
 
     IEnumerator RetractTree()
     {
+        TopVines.GetComponent<SpriteRenderer>().sprite = DeadVines;
+        anim.SetTrigger("Shake");
+
+
         while (Mathf.Abs(Vector2.Distance(currentPos.position, startPos)) > 0.1f)
         {
             transform.Translate(finalDirection * -1 * speed * Time.deltaTime);
-            anim.SetTrigger("Shake");
             currentPos.position = transform.position;
             if (!audioSource.isPlaying)
             {

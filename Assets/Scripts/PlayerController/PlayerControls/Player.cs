@@ -110,7 +110,6 @@ public class Player : MonoBehaviour
 
     public void ChangeState(PlayerState newState)
     {
-        Debug.LogFormat("Changing state to {0}", newState.GetType().ToString());
         StartCoroutine(WaitFixedFrame(newState));
     }
 
@@ -220,7 +219,7 @@ public class Player : MonoBehaviour
     }
     public bool GroundCheck()
     {
-        return Physics2D.OverlapCircle(_groundCheckPos.position, 0.1f, LayerMask.GetMask("Ground")) && (Time.time - inputManager.JumpButtonPressedLast) > 0.1f;
+        return Physics2D.OverlapCircle(_groundCheckPos.position, 0.2f, LayerMask.GetMask("Ground")) && (Time.time - inputManager.JumpButtonPressedLast) > 0.05f;
     }
 
     

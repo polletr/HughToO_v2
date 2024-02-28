@@ -36,7 +36,7 @@ public class MoveState : GroundState
     public override void StateFixedUpdate()
     {
 
-        if (inputManager.Movement.x == 0 && !exitFromInAir)
+        if (inputManager.Movement.x == 0)
         {
             var deceleration = player.currentStats.GroundDeceleration ;
             velocity.x = Mathf.MoveTowards(player._rb.velocity.x, 0, deceleration * Time.fixedDeltaTime);

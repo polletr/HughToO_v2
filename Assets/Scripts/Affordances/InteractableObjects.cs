@@ -12,7 +12,9 @@ public class InteractableObjects : MonoBehaviour
     {
         Fire,
         BreakableWall,
-        Enemy
+        Enemy,
+        Mushroom,
+        Vine
     }
 
     public ObjectType currentType;

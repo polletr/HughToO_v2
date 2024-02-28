@@ -9,7 +9,6 @@ public class InAirState : PlayerState
     public override void EnterState()
     {
         base.EnterState();
-        Debug.LogFormat("Enter InAir State with a rb velocity of {0}, and velocity {1}", player._rb.velocity.y, velocity.y);
         player.anim.SetBool("falling", true);
     }
     public override void StateUpdate()
@@ -23,13 +22,14 @@ public class InAirState : PlayerState
     public override void ExitState()
     {
         player.anim.SetBool("falling", false);
+        exitFromInAir = true;
+
     }
 
     public override void StateFixedUpdate()
     {
         //CanUseCoyote = _coyoteUsable && !player.GroundCheck() && _time < _frameLeftGrounded + player.currentStats.CoyoteTime;
         HandleGravity();
-        Debug.Log("Fixed Update In Air");
 
         if (inputManager.Movement.x == 0)
         {

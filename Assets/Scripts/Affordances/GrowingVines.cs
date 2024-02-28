@@ -119,43 +119,38 @@ public class GrowingVines : MonoBehaviour
         }
     }
 
-
-    // Update is called once per frame
-    void FixedUpdate()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-
+        if (collision.gameObject.GetComponent<Player>())
+        {
+            collision.transform.SetParent(transform);
+        }
     }
 
-    private void OnCollisionStay2D(Collision2D other)
+    public void OnInteracted()
     {
-        if (currentState != State.Growing && other.gameObject.GetComponent<Player>()?.currentStats.currentForm == ScriptableStats.Form.Water)
+        if (currentState == State.Idle)
         {
-            other.transform.SetParent(transform);
             TopVines.GetComponent<SpriteRenderer>().sprite = HealthyVines;
             SetState(State.Growing);
-        }
-        else if (currentState != State.Retracting && other.gameObject.GetComponent<Player>()?.currentStats.currentForm != ScriptableStats.Form.Water)
-        {
-            TopVines.GetComponent<SpriteRenderer>().sprite = DeadVines;
-            SetState(State.Retracting);
         }
     }
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Player") && currentState != State.Retracting)
+        if (other.gameObject.CompareTag("Player"))
         {
             if(this.gameObject.activeSelf == true)
             other.transform.SetParent(null);
-            if (!fixedTree)
-            {
-                TopVines.GetComponent<SpriteRenderer>().sprite = DeadVines;
-
-                SetState(State.Retracting);
-
-            }
         }
     }
+
+    private void CallRetract()
+    {
+        if (!fixedTree)
+            SetState(State.Retracting);
+    }
+
 
     IEnumerator GrowVines()
     {
@@ -173,14 +168,17 @@ public class GrowingVines : MonoBehaviour
             }
             yield return null;
         }
+        Invoke("CallRetract", 4f);
     }
 
     IEnumerator RetractVines()
     {
         boxCollider.size = new Vector2(objectSize, boxCollider.size.y);
         boxCollider.offset = new Vector2(0f, boxCollider.offset.y);
+        TopVines.GetComponent<SpriteRenderer>().sprite = DeadVines;
 
-        while (Mathf.Abs(Vector2.Distance(currentPos, startPos)) > 0.2f)
+
+        while (Mathf.Abs(Vector2.Distance(currentPos, startPos)) > 0.1f)
         {
             transform.Translate(finalDirection * -1 * speed * Time.fixedDeltaTime);
             currentPos = transform.position;

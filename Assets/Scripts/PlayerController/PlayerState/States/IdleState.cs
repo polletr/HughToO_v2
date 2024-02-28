@@ -34,6 +34,10 @@ public class IdleState : GroundState
         //    player.ChangeState(new JumpState());
         //}
 
+        var deceleration = player.currentStats.GroundDeceleration;
+        velocity.x = Mathf.MoveTowards(player._rb.velocity.x, 0, deceleration * Time.fixedDeltaTime);
+
+
         if (inputManager.Movement.x != 0 )
         {
             player.ChangeState(new MoveState());

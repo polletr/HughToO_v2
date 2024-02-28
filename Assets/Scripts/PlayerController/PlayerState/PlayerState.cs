@@ -14,6 +14,8 @@ namespace HughTo0
         protected bool _coyoteUsable;
         protected float _timeJumpWasPressed;
 
+        protected bool exitFromInAir;
+
         protected bool CanUseCoyote;
 
         protected Vector2 velocity = new Vector2();
@@ -26,7 +28,6 @@ namespace HughTo0
         public virtual void ExitState() { }
         public virtual void StateFixedUpdate() 
         {
-            //Debug.LogFormat("The velocity is {0}, {1}", velocity.x, velocity.y);
             player._rb.velocity = velocity + player.ParentVelocity;
 
         }
@@ -37,28 +38,6 @@ namespace HughTo0
 
         }
 
-        #region Player Actions 
-
-
-        /*public virtual void HandleGravity()
-        {
-            if
-            {
-                var inAirGravity = player.currentStats.FallAcceleration;
-                velocity.y = Mathf.MoveTowards(velocity.y, -player.currentStats.MaxFallSpeed, inAirGravity * Time.fixedDeltaTime);
-                if (velocity.y < 0)
-                {
-                    Debug.Log("falling ");
-                    //play animation of falling
-                }
-                else if (velocity.y > 0)
-                {
-                    //play animation of jumping
-                }
-            }
-        }*/
-
-        #endregion
     }
 
     public enum PlayerStateType

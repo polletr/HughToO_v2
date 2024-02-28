@@ -57,6 +57,21 @@ public class Attack : MonoBehaviour
                     interactableObj.GetComponent<EnemyBase>().TakeDamage(stats.damage);
                 }
                 break;
+            case InteractableObjects.ObjectType.Mushroom:
+                if (stats.currentForm == ScriptableStats.Form.Water)
+                {
+                    interactableObj.GetComponent<GrowingTree>().OnInteracted();
+                    interactableObj.GetComponent<InteractableObjects>().InteractObj();
+                }
+                break;
+            case InteractableObjects.ObjectType.Vine:
+                if (stats.currentForm == ScriptableStats.Form.Water)
+                {
+                    interactableObj.GetComponent<GrowingVines>().OnInteracted();
+                    interactableObj.GetComponent<InteractableObjects>().InteractObj();
+
+                }
+                break;
             default:
                 break;
         }

@@ -10,14 +10,20 @@ AnimatorOverrideController:
   m_Controller: {fileID: 9100000, guid: 9ca16f5dff97efd4198d954a0636f012, type: 2}
   m_Clips:
   - m_OriginalClip: {fileID: 7400000, guid: b4bb104982b09f840a7852cafa02af6c, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: a155bf4088a2bd147966bc38508929d4, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a95d259acf2684d4ebd9c5f4f62e62de, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 893c714f3d652e743b9f85408802996d, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: a155bf4088a2bd147966bc38508929d4, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5b268999c2f226d4d997908d1a78161e, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 3738207f57ac16242aa33b49ecf96812, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: a155bf4088a2bd147966bc38508929d4, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: d0668a5a488e7324b9759dd883b98b92, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: a155bf4088a2bd147966bc38508929d4, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 813c7f174f62482478217b7591a08c79, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 0218e8353964a014cbeddb082c0a51f2, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: e782616cf14a67d4790ab57b18b0fa34, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: a155bf4088a2bd147966bc38508929d4, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: a155bf4088a2bd147966bc38508929d4, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 9deeed8eda8d56e48b319d77d20df5a8, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: f6b6d5996262a4648bb75967eeb0641b, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 9deeed8eda8d56e48b319d77d20df5a8, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: dec3017606fcbb9419c059b1db94bf81, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 9deeed8eda8d56e48b319d77d20df5a8, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 35b937a5eb0941741adc1ce66d09dd80, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 4c041f9e744d0294aaacf7fb43a25306, type: 2}
