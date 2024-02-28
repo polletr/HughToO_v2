@@ -65,14 +65,11 @@ public class InputManager : MonoBehaviour
             // Check if the device is active
             if (device is Gamepad gamepad && gamepad.leftStick.ReadValue() != Vector2.zero)
             {
-                Debug.Log("Gamepad is actively used.");
-                return;
+                UIGameControlsManager.Instance.SetToGamePadUI();
             }
-
-            if (device is Keyboard keyboard && (keyboard.anyKey.isPressed || keyboard.anyKey.wasPressedThisFrame))
+            else if (device is Keyboard keyboard && (keyboard.anyKey.isPressed || keyboard.anyKey.wasPressedThisFrame))
             {
-                Debug.Log("Keyboard is actively used.");
-                return;
+               UIGameControlsManager.Instance.SetToKeyBoardUI();
             }
         }
 
