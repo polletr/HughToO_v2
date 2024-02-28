@@ -178,7 +178,7 @@ public class Player : MonoBehaviour
     {
         foreach (ScriptableStats stat in stats)
         {
-            if (stat.currentForm == newForm )
+            if (stat.currentForm == newForm && currentStats.currentForm != newForm)
             {
                 currentStats = stat;
                 anim.runtimeAnimatorController = animControllers[newForm.ToString()];

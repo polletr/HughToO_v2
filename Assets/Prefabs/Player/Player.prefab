@@ -5159,7 +5159,7 @@ MonoBehaviour:
   _isIce: 0
   _isWind: 0
   _rb: {fileID: 7028512187088846468}
-  MaxFallingTime: 0.4
+  MaxFallingTime: 0.5
   canDash: 0
   isDashing: 0
   dashCooldown: 10
