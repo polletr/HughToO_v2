@@ -68,10 +68,18 @@ public class Player : MonoBehaviour
             }
 
         }
+        if (playerData != null && playerData.Data.position != null && playerData.Data.position.Length > 0)
+        {
+            Vector3 SpawnPos = new Vector3(playerData.Data.position[0], playerData.Data.position[1], playerData.Data.position[2]);
+            if (SpawnPos != Vector3.zero)
+            {
+                transform.position = SpawnPos;
+            }
+        }
 
-        playerData.Data.position[0] = transform.position.x;
-        playerData.Data.position[1] = transform.position.y;
-        playerData.Data.position[2] = transform.position.z;
+        /* playerData.Data.position[0] = transform.position.x;
+         playerData.Data.position[1] = transform.position.y;
+         playerData.Data.position[2] = transform.position.z;*/
 
         anim = GetComponent<Animator>();
 
@@ -84,7 +92,6 @@ public class Player : MonoBehaviour
         ChangeState(new InAirState());
 
     }
-
     private void Update()
     {
         currentState?.StateUpdate();

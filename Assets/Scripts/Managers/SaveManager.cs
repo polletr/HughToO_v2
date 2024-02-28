@@ -14,6 +14,7 @@ public class SaveManager : Singleton<SaveManager>
     private void Awake()
     {
          filePath = Application.persistentDataPath + fileName;
+        LoadSave();
     }
 
     public PlayerData LoadSave()
@@ -47,10 +48,11 @@ public class SaveManager : Singleton<SaveManager>
         SaveGame(this.PlayerData.Data);
     }*/
 
-    public void NewGame()
+    public void NewPlayerData()
     {
         PlayerData = BasePlayerData;
         SaveGame(PlayerData.Data);
+        LoadPlayerData();
     }
 
     public void SavePlayerData()

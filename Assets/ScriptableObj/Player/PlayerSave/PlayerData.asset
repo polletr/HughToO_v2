@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Data:
     CurrentHealth: 2
-    MaxHealth: 9
-    Currentform: 2
+    MaxHealth: 3
+    Currentform: 0
     CurrentScene: 0
     position:
-    - 43.2
-    - 29.8
-    - 5
-    HasIce: 1
-    HasWind: 1
+    - 138.51
+    - 20.77
+    - 0
+    HasIce: 0
+    HasWind: 0

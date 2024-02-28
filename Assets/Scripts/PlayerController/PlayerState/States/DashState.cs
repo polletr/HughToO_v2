@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 
 public class DashState : PlayerState
 {
-   private Vector2 velocity;
+   //private Vector2 velocity;
    public override void  EnterState()
    {
 
