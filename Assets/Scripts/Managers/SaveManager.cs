@@ -4,7 +4,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public class SaveManager : Singleton<SaveManager>
 {
-    public PlayerBaseInfo PlayerData;
+    public PlayerBaseInfo playerData;
     public PlayerBaseInfo BasePlayerData;
 
 
@@ -21,7 +21,7 @@ public class SaveManager : Singleton<SaveManager>
     {
         if (File.Exists(filePath))
         {
-            Debug.Log("Loading save ");
+           // Debug.Log("Loading save ");
             BinaryFormatter bf = new();
             FileStream stream = new(filePath, FileMode.Open);
             PlayerData data = bf.Deserialize(stream) as PlayerData;
@@ -30,16 +30,16 @@ public class SaveManager : Singleton<SaveManager>
         }
         else
         {
-            Debug.LogError("Save file not found in " + filePath);
+            //Debug.LogError("Save file not found in " + filePath);
             return null;
         }
     }
     public void SaveGame(PlayerData data)
     {
-        Debug.Log("Saving game");
+       // Debug.Log("Saving game");
         BinaryFormatter bf = new BinaryFormatter();
         FileStream stream = new FileStream(filePath, FileMode.Create);
-        bf.Serialize(stream, PlayerData.Data);
+        bf.Serialize(stream, playerData.Data);
         stream.Close();
     }
 /*
@@ -50,18 +50,27 @@ public class SaveManager : Singleton<SaveManager>
 
     public void NewPlayerData()
     {
-        PlayerData = BasePlayerData;
-        SaveGame(PlayerData.Data);
+       // playerData = BasePlayerData;
+        playerData.Data.MaxHealth = BasePlayerData.Data.MaxHealth;
+        playerData.Data.CurrentHealth = BasePlayerData.Data.MaxHealth;
+        playerData.Data.HasIce = BasePlayerData.Data.HasIce;
+        playerData.Data.HasWind = BasePlayerData.Data.HasWind;
+        playerData.Data.position[0] = BasePlayerData.Data.position[0];
+        playerData.Data.position[1] = BasePlayerData.Data.position[1];
+        playerData.Data.position[2] = BasePlayerData.Data.position[2];
+
+        Debug.Log("New Player Data");
+        SaveGame(playerData.Data);
         LoadPlayerData();
     }
 
     public void SavePlayerData()
     {
-        SaveGame(PlayerData.Data);
+        SaveGame(playerData.Data);
     }
     public void LoadPlayerData()
     {
-        PlayerData.Data = LoadSave();
+        playerData.Data = LoadSave();
     }
     private void Update()
     {

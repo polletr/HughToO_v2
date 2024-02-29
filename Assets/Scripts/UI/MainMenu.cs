@@ -23,12 +23,12 @@ public class MainMenu : Menu
     {
         if (SaveManager.Instance.LoadSave() != null)
         {
-            Debug.Log("Save file found");
+            //Debug.Log("Save file found");
             _loadGameButton.interactable = true;
         }
         else
         {
-            Debug.Log("Save file not found");
+            //Debug.Log("Save file not found");
             _loadGameButton.interactable = false;
         }
     }

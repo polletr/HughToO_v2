@@ -342,14 +342,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyBoardUI: {fileID: 4228721203444242721}
   gamePadUI: {fileID: 9030768698239914583}
-  player:
-    CurrentHealth: 0
-    MaxHealth: 0
-    Currentform: 0
-    CurrentScene: 0
-    position: []
-    HasIce: 0
-    HasWind: 0
+  player: {fileID: 11400000, guid: d7d67c896e969dc4886c2db9a5e822d1, type: 2}
   colorLocked: {r: 0, g: 0, b: 0, a: 1}
   colorUnLocked: {r: 1, g: 1, b: 1, a: 1}
   water:

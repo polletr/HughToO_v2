@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: BaseData
   m_EditorClassIdentifier: 
   Data:
-    CurrentHealth: 3
-    MaxHealth: 3
+    CurrentHealth: 0
+    MaxHealth: 5
     Currentform: 0
     CurrentScene: 0
     position:

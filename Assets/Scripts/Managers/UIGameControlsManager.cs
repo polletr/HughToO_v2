@@ -8,7 +8,7 @@ public class UIGameControlsManager : Singleton<UIGameControlsManager>
     [SerializeField] private GameObject keyBoardUI;
     [SerializeField] private GameObject gamePadUI;
 
-    [SerializeField] PlayerData player;
+    [SerializeField] PlayerBaseInfo player;
 
     [SerializeField] private Color colorLocked = Color.black;
     [SerializeField] private Color colorUnLocked = Color.white;
@@ -39,8 +39,8 @@ public class UIGameControlsManager : Singleton<UIGameControlsManager>
 
     private void Update()
     {
-        IceUnlocked = player.HasIce;
-        WindsUnlocked = player.HasWind;
+        IceUnlocked = player.Data.HasIce;
+        WindsUnlocked = player.Data.HasWind;
 
         foreach (Image obj in water)//water
         {
@@ -78,6 +78,6 @@ public class UIGameControlsManager : Singleton<UIGameControlsManager>
             }
         }
     }
-
+    
 
 }
