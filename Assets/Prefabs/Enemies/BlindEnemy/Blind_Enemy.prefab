@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 8233914224475346301}
   - component: {fileID: 7961038279458010859}
   - component: {fileID: 4683081003005171232}
+  - component: {fileID: 3001588699567990398}
   m_Layer: 0
   m_Name: Blind_Enemy
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,8 +79,8 @@ SpriteRenderer:
   m_SortingLayerID: 39361769
   m_SortingLayer: 8
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 1317693716, guid: 5c369afd1feafd04d8e749c7acba5dd2, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -102,6 +103,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scriptableAffordances: {fileID: 11400000, guid: c9dae85738fe7ce4db5581985a02073c, type: 2}
+  Hurt:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1520067844566444549}
+        m_TargetAssemblyTypeName: BlindEnemy, Assembly-CSharp
+        m_MethodName: Attacked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1520067844566444549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,10 +132,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptableAffordance: {fileID: 11400000, guid: c9dae85738fe7ce4db5581985a02073c, type: 2}
   enemyStats: {fileID: 11400000, guid: 08bf56e43c10bdf4097fcd363620c6e6, type: 2}
-  stunTime: 2
+  stunTime: 3
   pointA: {fileID: 0}
   pointB: {fileID: 0}
-  moveSpeed: 1
+  moveSpeed: 1.5
+  waitTime: 2
 --- !u!70 &8233914224475346301
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -152,8 +169,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1}
+  m_Offset: {x: -0.035037994, y: 0.084098816}
+  m_Size: {x: 0.929924, y: 2.4016266}
   m_Direction: 0
 --- !u!50 &7961038279458010859
 Rigidbody2D:
@@ -163,7 +180,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8033090045652716246}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -196,8 +213,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   KillObject:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3001588699567990398}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Die
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8233914224475346301}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Die
+          m_BoolArgument: 0
+        m_CallState: 2
   InteractObject:
     m_PersistentCalls:
       m_Calls: []
   currentType: 2
+--- !u!95 &3001588699567990398
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8033090045652716246}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 995fcf350fae0c14fb83c5355d2273e4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

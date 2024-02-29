@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1030760373832401421}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 3.34, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -90,7 +90,7 @@ Transform:
   m_GameObject: {fileID: 8305507958084633020}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -3.52, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -112,14 +112,6 @@ PrefabInstance:
       propertyPath: pointB
       value: 
       objectReference: {fileID: 1165304775844456162}
-    - target: {fileID: 1520067844566444549, guid: 312834f8eef92b045a3668c530c88ae7, type: 3}
-      propertyPath: stunTime
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1520067844566444549, guid: 312834f8eef92b045a3668c530c88ae7, type: 3}
-      propertyPath: waitTime
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 1521600169301257998, guid: 312834f8eef92b045a3668c530c88ae7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -161,21 +153,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4683081003005171232, guid: 312834f8eef92b045a3668c530c88ae7, type: 3}
-      propertyPath: KillObject.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4683081003005171232, guid: 312834f8eef92b045a3668c530c88ae7, type: 3}
       propertyPath: InteractObject.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4683081003005171232, guid: 312834f8eef92b045a3668c530c88ae7, type: 3}
-      propertyPath: KillObject.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4683081003005171232, guid: 312834f8eef92b045a3668c530c88ae7, type: 3}
-      propertyPath: KillObject.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 3881908902205953740}
     - target: {fileID: 4683081003005171232, guid: 312834f8eef92b045a3668c530c88ae7, type: 3}
       propertyPath: InteractObject.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
@@ -189,20 +169,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6631745464858207172}
     - target: {fileID: 4683081003005171232, guid: 312834f8eef92b045a3668c530c88ae7, type: 3}
-      propertyPath: KillObject.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
-      objectReference: {fileID: 0}
-    - target: {fileID: 4683081003005171232, guid: 312834f8eef92b045a3668c530c88ae7, type: 3}
       propertyPath: InteractObject.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4683081003005171232, guid: 312834f8eef92b045a3668c530c88ae7, type: 3}
       propertyPath: InteractObject.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Stun
-      objectReference: {fileID: 0}
-    - target: {fileID: 4683081003005171232, guid: 312834f8eef92b045a3668c530c88ae7, type: 3}
-      propertyPath: KillObject.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4683081003005171232, guid: 312834f8eef92b045a3668c530c88ae7, type: 3}
       propertyPath: KillObject.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
@@ -223,10 +195,6 @@ PrefabInstance:
     - target: {fileID: 8033090045652716246, guid: 312834f8eef92b045a3668c530c88ae7, type: 3}
       propertyPath: m_Name
       value: Blind_Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 8033090045652716246, guid: 312834f8eef92b045a3668c530c88ae7, type: 3}
-      propertyPath: m_TagString
-      value: Interactable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class HurtCollider : MonoBehaviour, IDoDamage
 {
@@ -9,6 +10,8 @@ public class HurtCollider : MonoBehaviour, IDoDamage
 
     private PlayerHealth playerHealth;
     private Player player;
+
+    public UnityEvent Hurt;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -32,6 +35,7 @@ public class HurtCollider : MonoBehaviour, IDoDamage
             player.ChangeState(new KnockBackState());
 
             DoDamage(collision.gameObject.GetComponent<Player>().currentStats, playerHealth);
+            Hurt.Invoke();
         }
     }
 
