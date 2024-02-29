@@ -33,7 +33,6 @@ public class Teleporter : MonoBehaviour
     {
         yield return new WaitForSeconds(_teleportDelay);
         player.transform.position = TeleportPos.position;
-        player.GetComponent<Player>().HandlePotatoState(_teleportDelay);
         currentBackground.SetActive(false);
         newBackground.SetActive(true);
         TransitionManager.Instance.FadeOut();

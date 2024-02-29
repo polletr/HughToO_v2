@@ -154,12 +154,17 @@ public class Player : MonoBehaviour
             ChangeState(new DashState());
         }
     }
-    public void HandlePotatoState(float time)
+    public void HandlePotatoState()
     {
         ChangeState(new PotatoState());
-        if (currentState is PotatoState state)
-            state._potatoTime = time;
     }
+
+    public void ExitPotatoState()
+    {
+        if (currentState is PotatoState state)
+            state._potatoTime = 0f;
+    }
+
     public void HandleWater()
     {
         canDash = false;
@@ -188,6 +193,7 @@ public class Player : MonoBehaviour
             {
                 currentStats = stat;
                 anim.runtimeAnimatorController = animControllers[newForm.ToString()];
+                ChangeState(currentState);
                 changeFormParticle.Play();
             }
         }

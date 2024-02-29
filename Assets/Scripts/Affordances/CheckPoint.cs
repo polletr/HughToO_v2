@@ -25,7 +25,7 @@ public class CheckPoint : MonoBehaviour
         if(_teleportPosition == this.transform.position)
         {
             player.transform.position = _teleportPosition;
-            player.GetComponent<Player>().HandlePotatoState(_teleportDelay);
+            player.ExitPotatoState();
         }
     }
 

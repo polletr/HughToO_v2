@@ -16,7 +16,7 @@ public class Attack : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<InteractableObjects>())
         {
-            ScriptableStats currentStats = player.currentStats;
+            ScriptableStats currentStats = player?.currentStats;
             Check(currentStats, collision.gameObject);// We need to get the current stats
         }
     }

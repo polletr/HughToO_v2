@@ -5127,7 +5127,7 @@ MonoBehaviour:
   _playerData: {fileID: 11400000, guid: d7d67c896e969dc4886c2db9a5e822d1, type: 2}
   isDead: 0
   _deathCooldown: 5
-  _teleportDelay: 0.5
+  _teleportDelay: 2
 --- !u!114 &1982762115420849843
 MonoBehaviour:
   m_ObjectHideFlags: 0

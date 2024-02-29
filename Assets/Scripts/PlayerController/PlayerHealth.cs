@@ -91,15 +91,14 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log("Player is dead"); // Add death logic here
                                          //Player death animation
 
+            GetComponent<Player>().HandlePotatoState();
+
             anim = GetComponent<Animator>();
-            float clipLength;
-            if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
-            {
-                 clipLength = anim.GetCurrentAnimatorClipInfo(0)[0].clip.length;
-                Invoke("SavePointTeleport", clipLength * 1.5f);
-            }
-            //Player death sound
-            GetComponent<Player>().anim.SetBool("isAlive", false);
+            float clipLength = anim.GetCurrentAnimatorClipInfo(0)[0].clip.length;
+
+            Debug.Log(anim.GetCurrentAnimatorClipInfo(0)[0].clip.name);
+            Invoke("SavePointTeleport", clipLength * 3f);
+
         }
         UpdateHeartUI();
     }
@@ -133,8 +132,8 @@ public class PlayerHealth : MonoBehaviour
     public void SavePointTeleport()
     {
         Vector3 _teleportPosition = new Vector3(_playerData.Data.position[0], _playerData.Data.position[1], _playerData.Data.position[2]);
+        GetComponent<Player>().ExitPotatoState();
         this.transform.position = _teleportPosition;
-        GetComponent<Player>().HandlePotatoState(_teleportDelay);
         Invoke("ComeBackToLife", _deathCooldown);
         HealToFull();
         if (GetComponent<Player>().currentStats.currentForm != ScriptableStats.Form.Water)
