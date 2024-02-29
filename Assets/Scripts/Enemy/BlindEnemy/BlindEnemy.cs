@@ -8,7 +8,8 @@ public class BlindEnemy : EnemyBase
     {
         Idle,
         Patrolling,
-        Stunned
+        Stunned,
+        Attacking
     }
 
     private State currentState; //this keeps track of the current state
@@ -37,6 +38,8 @@ public class BlindEnemy : EnemyBase
         base.Start();
         lastPoint = pointA;
 
+        
+
         if (this.gameObject != null)
         {
             SetState(State.Idle);
@@ -58,11 +61,11 @@ public class BlindEnemy : EnemyBase
         vx = rb.velocity.x;
         if (vx < 0) // moving right so face right
         {
-            facingLeft = true;
+            facingLeft = false;
         }
         else if (vx > 0)
         { // moving left so face left
-            facingLeft = false;
+            facingLeft = true;
         }
 
         // check to see if scale x is right for the player
@@ -93,6 +96,11 @@ public class BlindEnemy : EnemyBase
                 StartCoroutine(OnPatrolling());
                 //do some work
                 break;
+            case State.Attacking:
+                StartCoroutine(OnAttacking());
+                //do some work
+                break;
+
             case State.Stunned:
                 StartCoroutine(OnStunned());
                 //do some work
@@ -105,7 +113,9 @@ public class BlindEnemy : EnemyBase
 
     private IEnumerator OnIdle() //handles our idle state
     {
-        //animator.SetBool("Walking", false);
+        anim.SetBool("walking", false);
+
+        rb.velocity = new Vector2(0f, 0f);
 
         while ((currentPoint == null))
         {
@@ -128,7 +138,7 @@ public class BlindEnemy : EnemyBase
 
     private IEnumerator OnPatrolling()
     {
-       // animator.SetBool("Walking", true);
+        anim.SetBool("walking", true);
 
         while (currentPoint != null && isAlive && !isStunned)
         {
@@ -146,14 +156,13 @@ public class BlindEnemy : EnemyBase
             yield return null;
         }
 
-        //After Value turns 1, he is going to search for a new spot
         SetState(State.Idle);
 
     }
 
     private IEnumerator OnStunned()
     {
-        // animator.SetBool("Walking", true);
+        anim.SetBool("walking", false);
 
         while (isAlive && isStunned)
         {
@@ -166,6 +175,19 @@ public class BlindEnemy : EnemyBase
 
     }
 
+    private IEnumerator OnAttacking()
+    {
+        anim.SetTrigger("attack");
+        yield return new WaitForSeconds(1f);
+        SetState(State.Idle);
+    }
+
+    public void Attacked()
+    {
+        rb.velocity = new Vector2(0f, 0f);
+
+        SetState(State.Attacking);
+    }
 
     private void OnDrawGizmos()
     {

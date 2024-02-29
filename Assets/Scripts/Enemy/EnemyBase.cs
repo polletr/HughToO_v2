@@ -21,11 +21,13 @@ public class EnemyBase : MonoBehaviour
     [SerializeField]
     private float stunTime;
 
+    protected Animator anim;
+
 
     public virtual void Start()
     {
         //audioSource = GetComponent<AudioSource>();
-        //animator = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
         isAlive = true;
 
         enemyStats.currentHealth = enemyStats.maxHealth;
@@ -70,8 +72,6 @@ public class EnemyBase : MonoBehaviour
 
         interactableObj.KillObj();
 
-        //animator.SetBool("IsAlive", false);
-        //animator.SetTrigger("Death");
     }
 
 }
