@@ -10,7 +10,7 @@ public class PotatoState : PlayerState
     public override void EnterState()
     {
         Debug.Log("Enter Potato");
-
+         inputManager.DisableForms();
         _potatoTimer = 0f;
 
         player._rb.constraints = ~RigidbodyConstraints2D.FreezePositionY;
@@ -33,26 +33,26 @@ public class PotatoState : PlayerState
         player._rb.constraints = RigidbodyConstraints2D.None;
         player._rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
-
+        inputManager.EnableForms();
     }
     public override void StateUpdate()
     {
-        
+
         _potatoTimer += Time.deltaTime;
         if (_potatoTimer >= _potatoTime)
         {
             Debug.Log(_potatoTimer);
 
-            player.ChangeState(new IdleState());  
+            player.ChangeState(new IdleState());
         }
     }
 
     public override void StateFixedUpdate()
     {
         base.StateFixedUpdate();
-        var inAirGravity = player.currentStats.FallAcceleration/5f;
+        var inAirGravity = player.currentStats.FallAcceleration / 5f;
 
-        float yVelocity = Mathf.MoveTowards(player._rb.velocity.y, -player.currentStats.MaxFallSpeed/2f, inAirGravity * Time.fixedDeltaTime);
+        float yVelocity = Mathf.MoveTowards(player._rb.velocity.y, -player.currentStats.MaxFallSpeed / 2f, inAirGravity * Time.fixedDeltaTime);
         velocity.y = yVelocity;
         velocity.x = 0f;
     }

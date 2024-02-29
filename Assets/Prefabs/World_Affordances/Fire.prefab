@@ -185,6 +185,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scriptableAffordances: {fileID: 11400000, guid: 7beca95b6bb7d5f43a74d03459e30c77, type: 2}
+  Hurt:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &12167806910392872
 MonoBehaviour:
   m_ObjectHideFlags: 0

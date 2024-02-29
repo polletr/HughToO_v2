@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   Data:
-    CurrentHealth: 3
+    CurrentHealth: 5
     MaxHealth: 5
-    Currentform: 0
+    Currentform: 2
     CurrentScene: 0
     position:
-    - 138.51
-    - 20.77
+    - 23.12436
+    - -80.233444
     - 0
-    HasIce: 1
+    HasIce: 0
     HasWind: 0

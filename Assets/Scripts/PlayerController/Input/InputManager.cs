@@ -131,4 +131,17 @@ public class InputManager : MonoBehaviour
         action.Disable();
     }
 
+    public void DisableForms()
+    {
+        action.Player.Water.Disable();
+        action.Player.Ice.Disable();
+        action.Player.Wind.Disable();
+    }
+    public void EnableForms()
+    {
+        action.Player.Water.Enable();
+        action.Player.Ice.Enable();
+        action.Player.Wind.Enable();
+    }
+
 }
