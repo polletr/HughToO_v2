@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 809bab2642f89894bbc3f79fe226491d
+guid: fa8125eec4feaf74b8728246b7a3fc8e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -81,6 +81,19 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -106,30 +119,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WindIdle_0
+      name: TurretDie_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 8
+        y: 0
         width: 112
-        height: 104
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50703398635def648bcd449a2fe393b9
-      internalID: 2031422821
+      spriteID: 658cc7d435a60d549a9d45b9afd5c9f2
+      internalID: -945448582
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WindIdle_1
+      name: TurretDie_1
       rect:
         serializedVersion: 2
         x: 112
-        y: 8
+        y: 0
         width: 112
-        height: 104
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 536b0234a4f04844a9364798be9265d7
-      internalID: 1735715466
+      spriteID: 560eb64b9af31a846be6ed7c8cdaf156
+      internalID: 2047540366
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WindIdle_2
+      name: TurretDie_2
       rect:
         serializedVersion: 2
         x: 224
-        y: 8
+        y: 0
         width: 112
-        height: 104
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2fb53d812a1ac794bb4fc21f4f46b4b3
-      internalID: 1532175523
+      spriteID: 560edf26861347c4fbfa8c536f05da48
+      internalID: 176521844
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WindIdle_3
+      name: TurretDie_3
       rect:
         serializedVersion: 2
         x: 336
-        y: 8
+        y: 0
         width: 112
-        height: 104
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,20 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d607e244d9b56b446b356cf6ff75e139
-      internalID: 834952821
+      spriteID: aa808e8ebce931a418c09b0652e99b3a
+      internalID: -1281120415
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WindIdle_4
+      name: TurretDie_4
       rect:
         serializedVersion: 2
         x: 448
-        y: 8
+        y: 0
         width: 112
-        height: 104
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,20 +221,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fab70a7b8f162904db67ec14489ab21d
-      internalID: -1288825090
+      spriteID: 15248496ca6d24f4685b0a42c802928a
+      internalID: 1370220339
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WindIdle_5
+      name: TurretDie_5
       rect:
         serializedVersion: 2
         x: 560
-        y: 8
+        y: 0
         width: 112
-        height: 104
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,20 +242,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce4eb4e18f225d34eb24a5086aa9666d
-      internalID: 1109492644
+      spriteID: ea49784f40fa3c5428e70e6ad0b74eb4
+      internalID: -1139035131
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WindIdle_6
+      name: TurretDie_6
       rect:
         serializedVersion: 2
         x: 672
-        y: 8
+        y: 0
         width: 112
-        height: 104
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,20 +263,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f5694b0af1b5f3489527f36e2d9bc59
-      internalID: -825271534
+      spriteID: 12a5c37084fdcf24fa50f0d32c2fc142
+      internalID: 1673033332
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WindIdle_7
+      name: TurretDie_7
       rect:
         serializedVersion: 2
         x: 784
-        y: 8
+        y: 0
         width: 112
-        height: 104
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,20 +284,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 971fd24f4bc5d7e418b02dd625a306dc
-      internalID: -2043982722
+      spriteID: 56882e49daf544f438c0a2dc483ce0b2
+      internalID: -871265641
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WindIdle_8
+      name: TurretDie_8
       rect:
         serializedVersion: 2
         x: 896
-        y: 8
+        y: 0
         width: 112
-        height: 104
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -305,20 +305,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d185c154289088c46b9c1b9ebd64ce95
-      internalID: 1223410990
+      spriteID: 5c197dcde185ebc42b368ad435e2c0a7
+      internalID: -733327234
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WindIdle_9
+      name: TurretDie_9
       rect:
         serializedVersion: 2
         x: 1008
-        y: 8
+        y: 0
         width: 112
-        height: 104
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -326,50 +326,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee4b7152e7e024b40b7c4996a98124a4
-      internalID: -623246590
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WindIdle_10
-      rect:
-        serializedVersion: 2
-        x: 1120
-        y: 8
-        width: 112
-        height: 104
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 892dcf2432ac6bb488aee4eff42b55f9
-      internalID: 337694756
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WindIdle_11
-      rect:
-        serializedVersion: 2
-        x: 1232
-        y: 8
-        width: 112
-        height: 104
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 60db5dfacfded2649ab6937b4e843271
-      internalID: 1629093923
+      spriteID: 4c1211235d9918049a3498e9703eac85
+      internalID: 481113267
       vertices: []
       indices: 
       edges: []
@@ -385,18 +343,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      WindIdle_0: 2031422821
-      WindIdle_1: 1735715466
-      WindIdle_10: 337694756
-      WindIdle_11: 1629093923
-      WindIdle_2: 1532175523
-      WindIdle_3: 834952821
-      WindIdle_4: -1288825090
-      WindIdle_5: 1109492644
-      WindIdle_6: -825271534
-      WindIdle_7: -2043982722
-      WindIdle_8: 1223410990
-      WindIdle_9: -623246590
+      TurretDie_0: -945448582
+      TurretDie_1: 2047540366
+      TurretDie_2: 176521844
+      TurretDie_3: -1281120415
+      TurretDie_4: 1370220339
+      TurretDie_5: -1139035131
+      TurretDie_6: 1673033332
+      TurretDie_7: -871265641
+      TurretDie_8: -733327234
+      TurretDie_9: 481113267
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

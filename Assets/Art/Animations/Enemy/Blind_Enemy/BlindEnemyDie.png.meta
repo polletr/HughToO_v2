@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 809bab2642f89894bbc3f79fe226491d
+guid: c3743904ca8caa345ac87e9e6e6d54f4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 35
+  spritePixelsToUnits: 30
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -73,6 +73,19 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -106,30 +119,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WindIdle_0
+      name: BlindEnemyDie_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 8
+        y: 0
         width: 112
-        height: 104
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50703398635def648bcd449a2fe393b9
-      internalID: 2031422821
+      spriteID: b99cf106c0b57074db19c58349d3f10d
+      internalID: 879634198
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WindIdle_1
+      name: BlindEnemyDie_1
       rect:
         serializedVersion: 2
         x: 112
-        y: 8
+        y: 0
         width: 112
-        height: 104
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 536b0234a4f04844a9364798be9265d7
-      internalID: 1735715466
+      spriteID: 47e9d85cfd66faa48b98d6e7d21dffc1
+      internalID: -150339914
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WindIdle_2
+      name: BlindEnemyDie_2
       rect:
         serializedVersion: 2
         x: 224
-        y: 8
+        y: 0
         width: 112
-        height: 104
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2fb53d812a1ac794bb4fc21f4f46b4b3
-      internalID: 1532175523
+      spriteID: ba99517006225534d80708f564933b85
+      internalID: 2042092272
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WindIdle_3
+      name: BlindEnemyDie_3
       rect:
         serializedVersion: 2
         x: 336
-        y: 8
+        y: 0
         width: 112
-        height: 104
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,20 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d607e244d9b56b446b356cf6ff75e139
-      internalID: 834952821
+      spriteID: 76a27bb5d635cef4b99b6ed0bb788b59
+      internalID: -45317958
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WindIdle_4
+      name: BlindEnemyDie_4
       rect:
         serializedVersion: 2
         x: 448
-        y: 8
+        y: 0
         width: 112
-        height: 104
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,20 +221,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fab70a7b8f162904db67ec14489ab21d
-      internalID: -1288825090
+      spriteID: 720bdaa1015e42444966e3bb2add0863
+      internalID: 117249821
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WindIdle_5
+      name: BlindEnemyDie_5
       rect:
         serializedVersion: 2
         x: 560
-        y: 8
+        y: 0
         width: 112
-        height: 104
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,20 +242,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce4eb4e18f225d34eb24a5086aa9666d
-      internalID: 1109492644
+      spriteID: 50cb562ed5be17b4383a86650273d7c8
+      internalID: 1916893443
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WindIdle_6
+      name: BlindEnemyDie_6
       rect:
         serializedVersion: 2
         x: 672
-        y: 8
+        y: 0
         width: 112
-        height: 104
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,20 +263,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f5694b0af1b5f3489527f36e2d9bc59
-      internalID: -825271534
+      spriteID: 5ca51b7360b68dc43a6bf56052e305d5
+      internalID: 85794237
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WindIdle_7
+      name: BlindEnemyDie_7
       rect:
         serializedVersion: 2
         x: 784
-        y: 8
+        y: 0
         width: 112
-        height: 104
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,20 +284,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 971fd24f4bc5d7e418b02dd625a306dc
-      internalID: -2043982722
+      spriteID: f711e1d49e9cf8b41a043f5f0b299495
+      internalID: -566101401
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WindIdle_8
+      name: BlindEnemyDie_8
       rect:
         serializedVersion: 2
         x: 896
-        y: 8
+        y: 0
         width: 112
-        height: 104
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -305,20 +305,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d185c154289088c46b9c1b9ebd64ce95
-      internalID: 1223410990
+      spriteID: f58f71c7389c70444bf1281c21592342
+      internalID: -634754106
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WindIdle_9
+      name: BlindEnemyDie_9
       rect:
         serializedVersion: 2
         x: 1008
-        y: 8
+        y: 0
         width: 112
-        height: 104
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -326,20 +326,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee4b7152e7e024b40b7c4996a98124a4
-      internalID: -623246590
+      spriteID: acd0e2f8e610bbc4baea7fa3a3529a22
+      internalID: -448090607
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WindIdle_10
+      name: BlindEnemyDie_10
       rect:
         serializedVersion: 2
         x: 1120
-        y: 8
+        y: 0
         width: 112
-        height: 104
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -347,20 +347,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 892dcf2432ac6bb488aee4eff42b55f9
-      internalID: 337694756
+      spriteID: d8f99f21e505c5a41b5497ef47fab06d
+      internalID: 656274950
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WindIdle_11
+      name: BlindEnemyDie_11
       rect:
         serializedVersion: 2
         x: 1232
-        y: 8
+        y: 0
         width: 112
-        height: 104
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -368,8 +368,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60db5dfacfded2649ab6937b4e843271
-      internalID: 1629093923
+      spriteID: 2d77347da4ff6e34698a57bc2066d9ec
+      internalID: 1454275964
       vertices: []
       indices: 
       edges: []
@@ -385,18 +385,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      WindIdle_0: 2031422821
-      WindIdle_1: 1735715466
-      WindIdle_10: 337694756
-      WindIdle_11: 1629093923
-      WindIdle_2: 1532175523
-      WindIdle_3: 834952821
-      WindIdle_4: -1288825090
-      WindIdle_5: 1109492644
-      WindIdle_6: -825271534
-      WindIdle_7: -2043982722
-      WindIdle_8: 1223410990
-      WindIdle_9: -623246590
+      BlindEnemyDie_0: 879634198
+      BlindEnemyDie_1: -150339914
+      BlindEnemyDie_10: 656274950
+      BlindEnemyDie_11: 1454275964
+      BlindEnemyDie_2: 2042092272
+      BlindEnemyDie_3: -45317958
+      BlindEnemyDie_4: 117249821
+      BlindEnemyDie_5: 1916893443
+      BlindEnemyDie_6: 85794237
+      BlindEnemyDie_7: -566101401
+      BlindEnemyDie_8: -634754106
+      BlindEnemyDie_9: -448090607
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

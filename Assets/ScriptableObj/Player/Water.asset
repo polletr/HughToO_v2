@@ -23,7 +23,7 @@ MonoBehaviour:
   HorizontalDeadZoneThreshold: 0.1
   MaxSpeed: 6
   DashSpeed: 0
-  Acceleration: 120
+  Acceleration: 40
   GroundDeceleration: 30
   AirDeceleration: 30
   GroundingForce: -1.5
@@ -36,7 +36,7 @@ MonoBehaviour:
   JumpBuffer: 0.2
   KBForce: 5
   KBCounter: 0.2
-  knockFromRight: 1
+  knockFromRight: 0
   KBFallAcceleration: 80
   FallDamage: 0
   GlideFallAcceleration: 110

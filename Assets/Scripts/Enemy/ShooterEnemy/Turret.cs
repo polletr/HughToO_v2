@@ -19,7 +19,7 @@ public class Turret : EnemyBase
     public override void Update()
     {
         base.Update();
-        if (time >= interval && !isStunned) 
+        if (time >= interval && !isStunned && isAlive) 
         {
             time = 0;
             ShootSpike();
@@ -28,6 +28,8 @@ public class Turret : EnemyBase
 
     void ShootSpike()
     {
+        anim.SetTrigger("Shoot");
         GameObject newSpike = Instantiate(spikePrefab, spawnPoint.position, spawnPoint.rotation);
+
     }
 }

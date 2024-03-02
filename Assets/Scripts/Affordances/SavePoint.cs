@@ -9,6 +9,8 @@ public class SavePoint : MonoBehaviour
     [SerializeField] private PlayerBaseInfo PlayerData;
     [SerializeField] private GameObject _blackScreen;
 
+    private Animator anim;
+
     private Vector3 _teleportPosition;
 
     Player player;
@@ -16,12 +18,14 @@ public class SavePoint : MonoBehaviour
     private void Awake()
     {
         GetComponent<Collider2D>().isTrigger = true;
+        anim = GetComponent<Animator>();
     }
     [SerializeField]
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
+            anim.SetTrigger("GrowTree");
             player = other.GetComponent<Player>();
             player.playerData.Data.position[0] = transform.position.x;
             player.playerData.Data.position[1] = transform.position.y;
