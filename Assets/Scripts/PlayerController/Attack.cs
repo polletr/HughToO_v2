@@ -52,7 +52,7 @@ public class Attack : MonoBehaviour
                 {
                     interactableObj.GetComponent<EnemyBase>().Stun();
                 }
-                else
+                else if (stats.currentForm == ScriptableStats.Form.Ice)
                 {
                     interactableObj.GetComponent<EnemyBase>().TakeDamage(stats.damage);
                 }
