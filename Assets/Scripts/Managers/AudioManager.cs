@@ -17,15 +17,7 @@ public class AudioManager : Singleton<AudioManager>
     [SerializeField] AudioClipContainer Audio;
 
 
-    void Awake()
-    {
-        DontDestroyOnLoad(this.gameObject);
-    }
-    void Start()
-    {
-
-    }
-    public void Play(AudioClip clip)
+    public void PlaySFX(AudioClip clip)
     {
         SFXSpeaker.PlayOneShot(clip);
     }
