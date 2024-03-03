@@ -5,6 +5,7 @@ public class GlideState : InAirState
 
     public override void EnterState()
     {
+        Debug.Log("Enter Glide");
         player.anim.SetBool("gliding", true);
     }
     public override void StateUpdate()
@@ -33,11 +34,11 @@ public class GlideState : InAirState
         }
         else 
         {
-            var inAirGravity = player.currentStats.GlideFallAcceleration;
-            if (_endedJumpEarly && player._rb.velocity.y > 0)
+            var inAirGravity = player.currentStats.FallAcceleration;
+/*            if (_endedJumpEarly && player._rb.velocity.y > 0)
                 inAirGravity *= player.currentStats.JumpEndEarlyGravityModifier;
-
-            velocity.y = Mathf.MoveTowards(player._rb.velocity.y, -player.currentStats.MaxFallSpeed, inAirGravity * Time.fixedDeltaTime);
+*/
+            velocity.y = Mathf.MoveTowards(player._rb.velocity.y, -player.currentStats.GlideFallSpeed, inAirGravity * Time.fixedDeltaTime);
         }
 
     }
