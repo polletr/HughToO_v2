@@ -108,7 +108,7 @@ public class Player : MonoBehaviour
             }
         }
         dashTimer += Time.deltaTime;
-        FallDamageCheck();
+        //FallDamageCheck();
     }
     private void FixedUpdate()
     {
@@ -210,7 +210,7 @@ public class Player : MonoBehaviour
         playerData.Data.HasWind = true;
     }
 
-    void FallDamageCheck()
+/*    void FallDamageCheck()
     {
         bool isGrounded = GroundCheck();
         bool isFallingToDamage = MaxFallingTime < falltimer ;
@@ -230,6 +230,7 @@ public class Player : MonoBehaviour
             falltimer = 0;
         }
     }
+*/
     public bool GroundCheck()
     {
         return Physics2D.OverlapCircle(_groundCheckPos.position, 0.2f, LayerMask.GetMask("Ground")) && (Time.time - inputManager.JumpButtonPressedLast) > 0.05f;

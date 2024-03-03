@@ -41,7 +41,6 @@ public class PotatoState : PlayerState
         _potatoTimer += Time.deltaTime;
         if (_potatoTimer >= _potatoTime)
         {
-            Debug.Log(_potatoTimer);
 
             player.ChangeState(new IdleState());
         }

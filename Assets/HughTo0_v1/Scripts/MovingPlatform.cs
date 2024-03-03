@@ -112,7 +112,6 @@ public class MovingPlatform : MonoBehaviour
             if (player)
             {
                 player.ParentVelocity = velocity;
-                Debug.LogFormat("Set parent velocity to {0}", velocity.x);
             }
                 
             
