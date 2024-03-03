@@ -1,6 +1,4 @@
-using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
-using UnityEngine.UI;
 
 
 public class PlayerHealth : MonoBehaviour
@@ -30,7 +28,7 @@ public class PlayerHealth : MonoBehaviour
 
     private float _deathAnimationTime;
 
-    [SerializeField] 
+    [SerializeField]
     private float _teleportDelay = 0.5f;
 
     Animator anim;
@@ -40,25 +38,26 @@ public class PlayerHealth : MonoBehaviour
         maxHealth = _playerData.Data.MaxHealth;
         _currentHealth = _playerData.Data.CurrentHealth;
 
-        
+
         UpdateHeartUI();
     }
     void Update()
     {
         //testing controls
-/*        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            TakeDamage(1);
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Heal(1);
-        }
-        if (Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            IncreaseMaxHealth(1);
-        }
-*/    }
+        /*        if (Input.GetKeyDown(KeyCode.Q))
+                {
+                    TakeDamage(1);
+                }
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    Heal(1);
+                }
+                if (Input.GetKeyDown(KeyCode.LeftControl))
+                {
+                    IncreaseMaxHealth(1);
+                }
+        */
+    }
     private void UpdateHeartUI()
     {
         for (int i = 0; i < _heartContainers.Length; i++)
@@ -87,7 +86,7 @@ public class PlayerHealth : MonoBehaviour
         if (_currentHealth <= 0)
         {
             _currentHealth = 0;
-             isDead = true;
+            isDead = true;
             Debug.Log("Player is dead"); // Add death logic here
                                          //Player death animation
 
