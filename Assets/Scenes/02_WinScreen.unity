@@ -2769,7 +2769,7 @@ MonoBehaviour:
   MusicSpeaker: {fileID: 891605346}
   SFXSpeaker: {fileID: 703598242}
   _MasterAudioMixer: {fileID: 24100000, guid: d61b2663c7b7dda47bba61e4d6f56c08, type: 2}
-  Audio: {fileID: 11400000, guid: fb36faf5e7a643540b2d27dc018d020e, type: 2}
+  _audioClip: {fileID: 11400000, guid: fb36faf5e7a643540b2d27dc018d020e, type: 2}
 --- !u!4 &1783621923
 Transform:
   m_ObjectHideFlags: 0

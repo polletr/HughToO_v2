@@ -26,6 +26,7 @@ public class Teleporter : MonoBehaviour
             player = other.GetComponent<Player>();
             TransitionManager.Instance.FadeIn();
             StartCoroutine(TP());
+            AudioManager.Instance.PlaySFX(AudioManager.Instance._audioClip.TeleportIn);
         }
     }
 
@@ -36,6 +37,7 @@ public class Teleporter : MonoBehaviour
         currentBackground.SetActive(false);
         newBackground.SetActive(true);
         TransitionManager.Instance.FadeOut();
+        AudioManager.Instance.PlaySFX(AudioManager.Instance._audioClip.TeleportOut);
     }
 
 }

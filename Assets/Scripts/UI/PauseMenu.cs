@@ -6,6 +6,7 @@ public class PauseMenu : Menu
     [SerializeField] private GameObject _SettingsMenu;
     private void Awake()
     {
+        AudioManager.Instance.PlayMusic(AudioManager.Instance._audioClip.BGMusic);
         _startActive = false;
     }
     private void Update()
@@ -17,6 +18,12 @@ public class PauseMenu : Menu
     }
     public void OnTogglePauseMenu()
     {
+        if (_isPaused)
+            AudioManager.Instance.PlayMusic(AudioManager.Instance._audioClip.MainMenu);
+        else
+            AudioManager.Instance.PlayMusic(AudioManager.Instance._audioClip.BGMusic);
+
+
         _isPaused = !_isPaused;
         Time.timeScale = _isPaused ? 0 : 1;
         DisableScreens();

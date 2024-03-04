@@ -10,10 +10,23 @@ public class AttackState : GroundState
         player.anim.SetTrigger("attacking");
         hitBox = player.AttackHitBox;
         hitBox.SetActive(true);
-
+        PlayAttckSound();
         timer = 0f;
     }
-
+    public void PlayAttckSound()
+    {
+        switch(player.currentStats.currentForm)        {
+            case ScriptableStats.Form.Gas:
+                AudioManager.Instance.PlaySFX(AudioManager.Instance._audioClip.WindStun);
+                break;
+            case ScriptableStats.Form.Water:
+                AudioManager.Instance.PlaySFX(AudioManager.Instance._audioClip.WaterSplash);
+                break;
+            case ScriptableStats.Form.Ice:
+                AudioManager.Instance.PlaySFX(AudioManager.Instance._audioClip.IcePunch);
+                break;
+        }
+    }
     public override void StateFixedUpdate()
     {
         var deceleration = player.currentStats.GroundDeceleration;
@@ -22,8 +35,8 @@ public class AttackState : GroundState
 
         // base.StateFixedUpdate();//dont call base
         timer += Time.deltaTime;
-
-        if (timer >= 0.5f)
+        float clipLength = player.anim.GetCurrentAnimatorClipInfo(0)[0].clip.length;
+        if (timer >= clipLength)
         {
             player.ChangeState(new IdleState());
         }

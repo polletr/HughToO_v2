@@ -8,6 +8,7 @@ public class MainMenu : Menu
     {
         _startActive = true;
         SetLoadGameActive();
+        AudioManager.Instance.PlayMusic(AudioManager.Instance._audioClip.MainMenu);
     }
     public void OnLoadGame()
     {

@@ -117,7 +117,6 @@ public class GrowingTree : MonoBehaviour
     IEnumerator GrowTree()
     {
         anim.SetTrigger("Shake");
-
         while (Mathf.Abs(Vector2.Distance(currentPos.position, desiredPos.position)) > 0.1f)
         {
             transform.Translate(finalDirection * speed * Time.deltaTime);

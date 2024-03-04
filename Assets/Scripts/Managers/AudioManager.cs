@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -14,17 +15,35 @@ public class AudioManager : Singleton<AudioManager>
     private AudioMixer _MasterAudioMixer;
 
     [Header("Audio Clip Container")]
-    [SerializeField] AudioClipContainer Audio;
+     public AudioClipContainer _audioClip;
 
+    public Dictionary<AudioType, AudioClip> AudioClips = new();
 
+    private void Awake()
+    {
+       /* foreach (AudioPair pair in _audioClip.audioPairs)
+        {
+            AudioClips.Add(pair.Key, pair.Value);
+        }*/
+    }
     public void PlaySFX(AudioClip clip)
     {
-        SFXSpeaker.PlayOneShot(clip);
+        if (clip != null)
+        {
+            SFXSpeaker.clip = clip;
+             SFXSpeaker.Play();
+        }
+        else Debug.LogWarning("Audio Clip is null");
     }
     public void PlayMusic(AudioClip clip)
     {
-        MusicSpeaker.clip = clip;
-        MusicSpeaker.Play();
+        if (clip != null)
+        {
+            MusicSpeaker.clip = clip;
+            MusicSpeaker.Play();
+        }
+        //else Debug.LogError("Audio Clip is null");
+
     }
 
 }

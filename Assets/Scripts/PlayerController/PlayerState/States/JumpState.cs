@@ -27,6 +27,7 @@ public class JumpState : PlayerState
     {
         base.EnterState();
         player.anim.SetTrigger("jumping");
+        AudioManager.Instance.PlaySFX(AudioManager.Instance._audioClip.Jump);
         ExecuteJump();
     }
 

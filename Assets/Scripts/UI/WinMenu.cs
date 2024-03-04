@@ -6,6 +6,7 @@ public class WinMenu : Menu
     private void Awake()
     {
         _startActive = true;
+        AudioManager.Instance.PlayMusic(AudioManager.Instance._audioClip.WinBGMusic);
     }
     private void Start()
     {

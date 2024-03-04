@@ -12,4 +12,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf1a746dc31c9ba46b55845102f1009a, type: 3}
   m_Name: Clips
   m_EditorClassIdentifier: 
-  BgMusicClip: {fileID: 8300000, guid: e73250aaaf5f4924192cb6f9a0af9777, type: 3}
+  MainMenu: {fileID: 0}
+  BGMusic: {fileID: 0}
+  WinBGMusic: {fileID: 0}
+  CaveBGMusic: {fileID: 0}
+  Cave: {fileID: 0}
+  DeepCave: {fileID: 0}
+  Grassland: {fileID: 0}
+  CollectedPickup: {fileID: 8300000, guid: 8e049150e5fad9542936b99af4734905, type: 3}
+  TeleportOut: {fileID: 0}
+  TeleportIn: {fileID: 0}
+  Teleport: {fileID: 0}
+  BreakingWall: {fileID: 0}
+  PlantGrowing: {fileID: 0}
+  PlantWatering: {fileID: 0}
+  Jump: {fileID: 0}
+  Death: {fileID: 0}
+  Glide: {fileID: 0}
+  Drown: {fileID: 8300000, guid: 45cda1d5413b7c741b0a3b076899ca66, type: 3}
+  Hit: {fileID: 0}
+  Fall: {fileID: 8300000, guid: 45b0bc420a5443c4382622d0760e1e7b, type: 3}
+  WaterSplash: {fileID: 0}
+  IcePunch: {fileID: 8300000, guid: 500a0757f335f2a47b197403dfce9f1c, type: 3}
+  WindStun: {fileID: 0}
+  EnemyDeath: {fileID: 0}
+  EnemyHit: {fileID: 0}
+  EnemyStun: {fileID: 0}
+  EnemyAttack: {fileID: 0}
+  EnemyShoot: {fileID: 0}
+  FireEstinguish: {fileID: 0}
+  FireBurning: {fileID: 0}

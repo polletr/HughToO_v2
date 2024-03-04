@@ -25,6 +25,7 @@ public class Water : MonoBehaviour
             if (player != null)
             {
                 playerDrowned?.Invoke();
+                AudioManager.Instance.PlaySFX(AudioManager.Instance._audioClip.Drown);
                 StartCoroutine(StartTeleporting());
                 player.TakeDamage(damage);
 

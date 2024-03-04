@@ -72,6 +72,7 @@ public class EnemyBase : MonoBehaviour
 
         interactableObj.KillObj();
 
+        AudioManager.Instance.PlaySFX(AudioManager.Instance._audioClip.EnemyDeath);
     }
 
 }
