@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Data:
     CurrentHealth: 0
-    MaxHealth: 5
+    MaxHealth: 1
     Currentform: 0
     CurrentScene: 0
     position:
