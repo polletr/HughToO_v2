@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 624f8dc34e9585b4498949d47c4ee8a1
+guid: 826775aca270078498ad561048c709cd
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -106,30 +106,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WindRunTransition_0
+      name: WindTornadoLoop_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 8
+        y: 0
         width: 112
-        height: 104
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7759d383b5a61b446b405fa67b0d7050
-      internalID: -808602791
+      spriteID: 3c89a8ea1b04e4548b152626c97bbc57
+      internalID: -714878542
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WindRunTransition_1
+      name: WindTornadoLoop_1
       rect:
         serializedVersion: 2
         x: 112
-        y: 8
+        y: 0
         width: 112
-        height: 104
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,92 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92b86415e1ba67744bb1dc0eaaec6f7c
-      internalID: -873976619
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WindRunTransition_2
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 8
-        width: 112
-        height: 104
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 080a62ab05b118e43b5311a9831f0b12
-      internalID: 795868543
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WindRunTransition_3
-      rect:
-        serializedVersion: 2
-        x: 336
-        y: 8
-        width: 112
-        height: 104
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6650e8c4fce9fff4c9ac24e6f107a7b8
-      internalID: -362592734
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WindRunTransition_4
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 8
-        width: 112
-        height: 104
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fc1b9ecb9c508894e8a5515437fa8705
-      internalID: 2068814127
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WindRunTransition_5
-      rect:
-        serializedVersion: 2
-        x: 560
-        y: 8
-        width: 112
-        height: 104
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2909b6359614b7a47b8632e82227cc44
-      internalID: 478961138
+      spriteID: 355e96e4b5b6be942a19c23ace62abda
+      internalID: 287543594
       vertices: []
       indices: 
       edges: []
@@ -259,12 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      WindRunTransition_0: -808602791
-      WindRunTransition_1: -873976619
-      WindRunTransition_2: 795868543
-      WindRunTransition_3: -362592734
-      WindRunTransition_4: 2068814127
-      WindRunTransition_5: 478961138
+      WindTornadoLoop_0: -714878542
+      WindTornadoLoop_1: 287543594
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

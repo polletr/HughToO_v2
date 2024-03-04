@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4a7416c56a4b22844a537f447ffc883a
+guid: 624f8dc34e9585b4498949d47c4ee8a1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WindDie_0
+      name: WindRunTransition_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd0655cc2a6e4f84aaa2fa55c8316f28
-      internalID: 1131724797
+      spriteID: e3f299c7c31d3a04baf344bd21ba161c
+      internalID: 584146999
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WindDie_1
+      name: WindRunTransition_1
       rect:
         serializedVersion: 2
         x: 112
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9823448051dcfc408a898dcca460054
-      internalID: -74515714
+      spriteID: 1858f343abdd2ed4fac437d122c40c27
+      internalID: 1454825014
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WindDie_2
+      name: WindRunTransition_2
       rect:
         serializedVersion: 2
         x: 224
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b97fb05b68ef04a4dbc170eccda8f912
-      internalID: -843844348
+      spriteID: 6cf45ca0c9310594b8e44707aaa0e191
+      internalID: 958009159
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WindDie_3
+      name: WindRunTransition_3
       rect:
         serializedVersion: 2
         x: 336
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e83d4477baf56d243984039d9bb9922f
-      internalID: 1421041243
+      spriteID: fcfeb5ab676066247a9cfa393a822e88
+      internalID: -1107046019
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WindDie_4
+      name: WindRunTransition_4
       rect:
         serializedVersion: 2
         x: 448
@@ -208,8 +208,155 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93eb5c8398974a544b6329119816773e
-      internalID: 1368273953
+      spriteID: c739f1154c5fa0b44ab830dafe93464c
+      internalID: -1441904333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WindRunTransition_5
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 0
+        width: 112
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6c34410b3be13b41a74bc7f1d2c274c
+      internalID: -1707929693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WindRunTransition_6
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 0
+        width: 112
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9773b58e89a3c7741a345589384384a4
+      internalID: -1588404389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WindRunTransition_7
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 0
+        width: 112
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f7d22420d9d9a149a7442b9101bec82
+      internalID: -1358582337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WindRunTransition_8
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 112
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92df474e62169cf4cab1e2f5bd2a1d30
+      internalID: 1092889252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WindRunTransition_9
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 0
+        width: 112
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aed7e1cd3832f474e805e7dd07715ed1
+      internalID: 1716541815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WindRunTransition_10
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 0
+        width: 112
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 581b8d9c79d379649a0a73f36ef52e6c
+      internalID: 1434669677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WindRunTransition_11
+      rect:
+        serializedVersion: 2
+        x: 1232
+        y: 0
+        width: 112
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9df4dd26888f3f419297a3b4738d763
+      internalID: -1774643596
       vertices: []
       indices: 
       edges: []
@@ -225,11 +372,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      WindDie_0: 1131724797
-      WindDie_1: -74515714
-      WindDie_2: -843844348
-      WindDie_3: 1421041243
-      WindDie_4: 1368273953
+      WindRunTransition_0: 584146999
+      WindRunTransition_1: 1454825014
+      WindRunTransition_10: 1434669677
+      WindRunTransition_11: -1774643596
+      WindRunTransition_2: 958009159
+      WindRunTransition_3: -1107046019
+      WindRunTransition_4: -1441904333
+      WindRunTransition_5: -1707929693
+      WindRunTransition_6: -1588404389
+      WindRunTransition_7: -1358582337
+      WindRunTransition_8: 1092889252
+      WindRunTransition_9: 1716541815
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

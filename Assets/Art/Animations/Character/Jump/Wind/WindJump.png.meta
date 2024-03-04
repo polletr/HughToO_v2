@@ -72,20 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -137,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6462ec2ab6d2fe4faa93b815df48354
-      internalID: -1403508616
+      spriteID: 0b8946684b3559740a77e8f2ff3fb18f
+      internalID: 485984315
       vertices: []
       indices: 
       edges: []
@@ -158,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1741935f30c1c564993790602adb11ad
-      internalID: -36067951
+      spriteID: dffa73b51183fb240bd638ebbfde8f36
+      internalID: 1665800643
       vertices: []
       indices: 
       edges: []
@@ -179,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 603b4cd42f35c3e479f10df5188ea09b
-      internalID: -543186338
+      spriteID: 2fa55fa9ca18d1c42881e555f4432258
+      internalID: 1885453427
       vertices: []
       indices: 
       edges: []
@@ -200,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69b3c502a439ff745b7a06dd3a386bff
-      internalID: 168377758
+      spriteID: 9993cc9ff23f8e448a1ccd4b10ad8f60
+      internalID: 125522755
       vertices: []
       indices: 
       edges: []
@@ -221,8 +208,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4df6cf31442a0a54ca65d1716c69384c
-      internalID: -672818182
+      spriteID: 05187c548310ad24ea7205d1f8740917
+      internalID: -1671771679
       vertices: []
       indices: 
       edges: []
@@ -238,11 +225,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      WindJump_0: -1403508616
-      WindJump_1: -36067951
-      WindJump_2: -543186338
-      WindJump_3: 168377758
-      WindJump_4: -672818182
+      WindJump_0: 485984315
+      WindJump_1: 1665800643
+      WindJump_2: 1885453427
+      WindJump_3: 125522755
+      WindJump_4: -1671771679
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

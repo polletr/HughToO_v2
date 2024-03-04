@@ -72,20 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -137,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c83210b9eea07e241b217ed325193356
-      internalID: -245594771
+      spriteID: c95d4c6cf6e7a43448ca5e2ca67ec34d
+      internalID: 2119326893
       vertices: []
       indices: 
       edges: []
@@ -158,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a30f749ae8586fc41ae3be7fb09b519a
-      internalID: 742772866
+      spriteID: 10d58768e0c24894194e60178a022ce2
+      internalID: -967875690
       vertices: []
       indices: 
       edges: []
@@ -179,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eca06e31644e97d4eb6099511107436b
-      internalID: -1522337689
+      spriteID: 93f0fd94e478c5f41a5c4803d68a64a6
+      internalID: 829009115
       vertices: []
       indices: 
       edges: []
@@ -196,9 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      WindGlide_0: -245594771
-      WindGlide_1: 742772866
-      WindGlide_2: -1522337689
+      WindGlide_0: 2119326893
+      WindGlide_1: -967875690
+      WindGlide_2: 829009115
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
