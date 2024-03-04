@@ -17,5 +17,9 @@ public class WinMenu : Menu
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("02_WinScreen");
     }
+    public void OnLoadMainMenu()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("00_MainMenu");
+    }
 
 }

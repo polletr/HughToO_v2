@@ -40,13 +40,13 @@ public class InteractableObjects : MonoBehaviour
         switch (currentType)
         {
             case ObjectType.Fire:
-                AudioManager.Instance.PlaySFX(AudioManager.Instance._audioClip.FireEstinguish);
+                AudioManager.Instance.PlayWorldSFX(AudioManager.Instance._audioClip.FireEstinguish);
                 break;
             case ObjectType.BreakableWall:
-                AudioManager.Instance.PlaySFX(AudioManager.Instance._audioClip.BreakingWall);
+                AudioManager.Instance.PlayWorldSFX(AudioManager.Instance._audioClip.BreakingWall);
                 break;
             case ObjectType.Enemy:
-                AudioManager.Instance.PlaySFX(AudioManager.Instance._audioClip.EnemyDeath);
+                AudioManager.Instance.PlayEnemySFX(AudioManager.Instance._audioClip.EnemyDeath);
                 break;
             default:
                 break;
@@ -57,13 +57,13 @@ public class InteractableObjects : MonoBehaviour
         switch (currentType)
         {
             case ObjectType.Mushroom:
-                AudioManager.Instance.PlaySFX(AudioManager.Instance._audioClip.PlantWatering);
+                AudioManager.Instance.PlayWorldSFX(AudioManager.Instance._audioClip.PlantWatering);
                 break;
             case ObjectType.Vine:
-                AudioManager.Instance.PlaySFX(AudioManager.Instance._audioClip.PlantWatering);
+                AudioManager.Instance.PlayWorldSFX(AudioManager.Instance._audioClip.PlantWatering);
                 break;
             case ObjectType.Enemy:
-                AudioManager.Instance.PlaySFX(AudioManager.Instance._audioClip.EnemyStun);
+                AudioManager.Instance.PlayEnemySFX(AudioManager.Instance._audioClip.EnemyStun);
                 break;
             default:
                 break;

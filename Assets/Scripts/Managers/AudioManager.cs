@@ -9,6 +9,10 @@ public class AudioManager : Singleton<AudioManager>
     private AudioSource MusicSpeaker;
     [SerializeField]
     private AudioSource SFXSpeaker;
+    [SerializeField]
+    private AudioSource PlayerSpeaker;
+    [SerializeField]
+    private AudioSource EnemySpeaker;
 
     [Header("Audio Mixer")]
     [SerializeField, Tooltip("Audio Mixer form the Assets folder")]
@@ -26,7 +30,7 @@ public class AudioManager : Singleton<AudioManager>
             AudioClips.Add(pair.Key, pair.Value);
         }*/
     }
-    public void PlaySFX(AudioClip clip)
+    public void PlayWorldSFX(AudioClip clip)
     {
         if (clip != null)
         {
@@ -43,7 +47,25 @@ public class AudioManager : Singleton<AudioManager>
             MusicSpeaker.Play();
         }
         //else Debug.LogError("Audio Clip is null");
+    }
 
+    public void PlayPlayerSFX(AudioClip clip)
+    {
+        if (clip != null)
+        {
+            PlayerSpeaker.clip = clip;
+            PlayerSpeaker.Play();
+        }
+        //else Debug.LogError("Audio Clip is null");
+    }
+    public void PlayEnemySFX(AudioClip clip)
+    {
+        if (clip != null)
+        {
+            EnemySpeaker.clip = clip;
+            EnemySpeaker.Play();
+        }
+        //else Debug.LogError("Audio Clip is null");
     }
 
 }

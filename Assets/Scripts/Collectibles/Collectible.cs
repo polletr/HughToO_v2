@@ -8,7 +8,7 @@ public class Collectible : MonoBehaviour, ICollectible
     public void Collect()
     {
         OnCollected?.Invoke();
-        AudioManager.Instance.PlaySFX(AudioManager.Instance._audioClip.CollectedPickup);
+        AudioManager.Instance.PlayWorldSFX(AudioManager.Instance._audioClip.CollectedPickup);
         Destroy(gameObject);
     }
 

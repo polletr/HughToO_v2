@@ -10,7 +10,7 @@ public class KnockBackState : GroundState
     {
         KBCount = player.currentStats.KBCounter;
         player.anim.SetTrigger("getHit");
-        AudioManager.Instance.PlaySFX(AudioManager.Instance._audioClip.Hit);
+        AudioManager.Instance.PlayPlayerSFX(AudioManager.Instance._audioClip.Hit);
 
         base.EnterState();
     }

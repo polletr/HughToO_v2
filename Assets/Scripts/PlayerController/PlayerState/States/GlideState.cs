@@ -7,7 +7,7 @@ public class GlideState : InAirState
     {
         Debug.Log("Enter Glide");
         player.anim.SetBool("gliding", true);
-        AudioManager.Instance.PlaySFX(AudioManager.Instance._audioClip.Glide);
+        AudioManager.Instance.PlayPlayerSFX(AudioManager.Instance._audioClip.Glide);
     }
     public override void StateUpdate()
     {

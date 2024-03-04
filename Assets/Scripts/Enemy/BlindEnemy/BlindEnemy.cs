@@ -178,7 +178,7 @@ public class BlindEnemy : EnemyBase
     private IEnumerator OnAttacking()
     {
         anim.SetTrigger("attack");
-        AudioManager.Instance.PlaySFX(AudioManager.Instance._audioClip.EnemyAttack);
+        AudioManager.Instance.PlayEnemySFX(AudioManager.Instance._audioClip.EnemyAttack);
         yield return new WaitForSeconds(1f);
         SetState(State.Idle);
     }

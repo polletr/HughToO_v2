@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf1a746dc31c9ba46b55845102f1009a, type: 3}
   m_Name: Clips
   m_EditorClassIdentifier: 
-  MainMenu: {fileID: 0}
-  BGMusic: {fileID: 0}
-  WinBGMusic: {fileID: 0}
+  MainMenu: {fileID: 8300000, guid: 09097c469a2e61142874f93f656499eb, type: 3}
+  BGMusic: {fileID: 8300000, guid: 1a172e9e5bd8fb648a02afbca115ff47, type: 3}
+  WinBGMusic: {fileID: 8300000, guid: 9f2a35bb392c711459ceb6145989dad5, type: 3}
   CaveBGMusic: {fileID: 0}
   Cave: {fileID: 0}
   DeepCave: {fileID: 0}
@@ -31,12 +31,10 @@ MonoBehaviour:
   Glide: {fileID: 0}
   Drown: {fileID: 8300000, guid: 45cda1d5413b7c741b0a3b076899ca66, type: 3}
   Hit: {fileID: 0}
-  Fall: {fileID: 8300000, guid: 45b0bc420a5443c4382622d0760e1e7b, type: 3}
   WaterSplash: {fileID: 0}
   IcePunch: {fileID: 8300000, guid: 500a0757f335f2a47b197403dfce9f1c, type: 3}
   WindStun: {fileID: 0}
   EnemyDeath: {fileID: 0}
-  EnemyHit: {fileID: 0}
   EnemyStun: {fileID: 0}
   EnemyAttack: {fileID: 0}
   EnemyShoot: {fileID: 0}

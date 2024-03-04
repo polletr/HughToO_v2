@@ -30,9 +30,6 @@ public class Player : MonoBehaviour
 
     public Rigidbody2D _rb;
     private Collider2D _collider;
-
-    [SerializeField]
-    private float MaxFallingTime = 0.5f;
     private float falltimer;
 
     public bool canDash = false;

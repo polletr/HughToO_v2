@@ -28,9 +28,6 @@ public class PlayerHealth : MonoBehaviour
 
     private float _deathAnimationTime;
 
-    [SerializeField]
-    private float _teleportDelay = 0.5f;
-
     Animator anim;
 
     void Start()
@@ -89,7 +86,7 @@ public class PlayerHealth : MonoBehaviour
             isDead = true;
             Debug.Log("Player is dead"); // Add death logic here
                                          //Player death animation
-            AudioManager.Instance.PlaySFX(AudioManager.Instance._audioClip.Death);
+            AudioManager.Instance.PlayPlayerSFX(AudioManager.Instance._audioClip.Death);
             GetComponent<Player>().HandlePotatoState();
 
             anim = GetComponent<Animator>();

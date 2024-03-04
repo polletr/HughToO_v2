@@ -17,13 +17,13 @@ public class AttackState : GroundState
     {
         switch(player.currentStats.currentForm)        {
             case ScriptableStats.Form.Gas:
-                AudioManager.Instance.PlaySFX(AudioManager.Instance._audioClip.WindStun);
+                AudioManager.Instance.PlayPlayerSFX(AudioManager.Instance._audioClip.WindStun);
                 break;
             case ScriptableStats.Form.Water:
-                AudioManager.Instance.PlaySFX(AudioManager.Instance._audioClip.WaterSplash);
+                AudioManager.Instance.PlayPlayerSFX(AudioManager.Instance._audioClip.WaterSplash);
                 break;
             case ScriptableStats.Form.Ice:
-                AudioManager.Instance.PlaySFX(AudioManager.Instance._audioClip.IcePunch);
+                AudioManager.Instance.PlayPlayerSFX(AudioManager.Instance._audioClip.IcePunch);
                 break;
         }
     }
