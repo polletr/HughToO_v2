@@ -24,7 +24,7 @@ public class IceDetectorBox : MonoBehaviour
                     _iceBox.SetActive(true);
             }
             else if (other.GetComponent<Player>()?.currentStats.currentForm != ScriptableStats.Form.Ice)
-        {
+            {
                 if (_iceBox != null)
                     _iceBox.SetActive(false);
             }
