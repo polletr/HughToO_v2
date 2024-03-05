@@ -4,8 +4,6 @@ public class SpikeBullet : MonoBehaviour
 {
     [SerializeField]
     private float speed = 2f;
-    [SerializeField]
-    private float timeToDestorySelf = 10f;
     
 
     Rigidbody2D _rb;
