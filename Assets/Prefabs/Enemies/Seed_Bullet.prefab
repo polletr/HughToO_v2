@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 973534973044862889}
   - component: {fileID: 759144436975439277}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 7600496483031343670}
   - component: {fileID: 2790106647992038282}
   - component: {fileID: 1198292923301343629}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Seed_Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
