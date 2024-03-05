@@ -10,12 +10,12 @@ public class AudioClipContainer : ScriptableObject
     public AudioClip MainMenu;
     public AudioClip BGMusic;
     public AudioClip WinBGMusic;
-    public AudioClip CaveBGMusic;
+    //public AudioClip CaveBGMusic;
 
-    //Might add later 
+    /*//Might add later 
     public AudioClip Cave;
     public AudioClip DeepCave;
-    public AudioClip Grassland;
+    public AudioClip Grassland;*/
 
     [Header("WorldSFX")]
 

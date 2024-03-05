@@ -15,10 +15,6 @@ MonoBehaviour:
   MainMenu: {fileID: 8300000, guid: 09097c469a2e61142874f93f656499eb, type: 3}
   BGMusic: {fileID: 8300000, guid: 1a172e9e5bd8fb648a02afbca115ff47, type: 3}
   WinBGMusic: {fileID: 8300000, guid: 9f2a35bb392c711459ceb6145989dad5, type: 3}
-  CaveBGMusic: {fileID: 0}
-  Cave: {fileID: 0}
-  DeepCave: {fileID: 0}
-  Grassland: {fileID: 0}
   CollectedPickup: {fileID: 8300000, guid: 8e049150e5fad9542936b99af4734905, type: 3}
   TeleportOut: {fileID: 8300000, guid: f4a94fa01bd063c4eb7a1fc5e872a3cf, type: 3}
   TeleportIn: {fileID: 8300000, guid: 08c4fc1a8d6205a4697e778381949cf8, type: 3}
@@ -39,4 +35,4 @@ MonoBehaviour:
   EnemyAttack: {fileID: 8300000, guid: c5870f9319d22334883dbc4333629604, type: 3}
   EnemyShoot: {fileID: 8300000, guid: 9747c6a66ed777140974a37b55036eab, type: 3}
   FireEstinguish: {fileID: 8300000, guid: 4af88d4407a2ff74b8c24264a7945df6, type: 3}
-  FireBurning: {fileID: 0}
+  FireBurning: {fileID: 8300000, guid: ddac5b9ca1669a24d8df950e56e9e8e5, type: 3}
