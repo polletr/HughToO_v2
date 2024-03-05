@@ -36,7 +36,7 @@ public class AttackState : GroundState
         // base.StateFixedUpdate();//dont call base
         timer += Time.deltaTime;
         float clipLength = player.anim.GetCurrentAnimatorClipInfo(0)[0].clip.length;
-        if (timer >= clipLength + 0.5f)
+        if (timer >= (clipLength + 0.1f))
         {
             player.ChangeState(new IdleState());
         }
