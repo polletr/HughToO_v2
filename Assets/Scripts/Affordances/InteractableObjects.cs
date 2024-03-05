@@ -14,7 +14,8 @@ public class InteractableObjects : MonoBehaviour
         BreakableWall,
         Enemy,
         Mushroom,
-        Vine
+        Vine,
+        Bullet
     }
 
     public ObjectType currentType;

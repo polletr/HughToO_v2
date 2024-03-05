@@ -72,6 +72,14 @@ public class Attack : MonoBehaviour
 
                 }
                 break;
+            case InteractableObjects.ObjectType.Bullet:
+                if (stats.currentForm == ScriptableStats.Form.Gas)
+                {
+                    interactableObj.GetComponent<InteractableObjects>().InteractObj();
+
+                }
+                break;
+
             default:
                 break;
         }

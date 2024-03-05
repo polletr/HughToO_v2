@@ -14,13 +14,18 @@ public class SpikeBullet : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _rb.bodyType = RigidbodyType2D.Dynamic;
         _rb.gravityScale = 0f;
-        Destroy(gameObject, timeToDestorySelf);
         _rb.velocity = transform.right * speed;
     }
     private void FixedUpdate()
     {
-      ;
+      
     }
-    private void OnCollisionEnter2D() => Destroy(gameObject, 0.1f);
+
+    public void OnDestroy()
+    {
+        Destroy(gameObject, 0.1f);
+    }
+
+    private void OnCollisionEnter2D() => OnDestroy();
 }
 
