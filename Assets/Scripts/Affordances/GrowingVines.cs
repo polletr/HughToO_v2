@@ -209,6 +209,10 @@ public class GrowingVines : MonoBehaviour
             }
             yield return null;
         }
+
+        boxCollider.size = new Vector2(objectSize, boxCollider.size.y);
+        boxCollider.offset = new Vector2(0f, boxCollider.offset.y);
+
         SetState(State.Idle);
 
 
