@@ -29,7 +29,6 @@ public class Turret : EnemyBase
     void ShootSpike()
     {
         anim.SetTrigger("Shoot");
-        AudioManager.Instance.PlayEnemySFX(AudioManager.Instance._audioClip.EnemyShoot);
         GameObject newSpike = Instantiate(spikePrefab, spawnPoint.position, spawnPoint.rotation);
         audioSource.clip = AudioManager.Instance._audioClip.EnemyShoot;
         audioSource.Play();

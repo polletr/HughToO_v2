@@ -25,13 +25,11 @@ public class PauseMenu : Menu
 
         if (_isPaused)
         {
-            AudioManager.Instance.PlayMusic(AudioManager.Instance._audioClip.MainMenu);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
         else
         {
-            AudioManager.Instance.PlayMusic(AudioManager.Instance._audioClip.BGMusic);
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
