@@ -159,10 +159,20 @@ public class GrowingVines : MonoBehaviour
             transform.Translate(finalDirection * speed * Time.fixedDeltaTime);
             currentPos = transform.position;
             float distanceTraveled = Mathf.Abs(currentPos.x - startPos.x);
-            if (distanceTraveled % objectSize <= 0.02f )
+            Debug.Log(distanceTraveled % objectSize);
+            if (distanceTraveled % objectSize <= 0.05f )
             {
-                boxCollider.size = new Vector2(distanceTraveled + objectSize, boxCollider.size.y);
-                boxCollider.offset = new Vector2(-(distanceTraveled)/2, boxCollider.offset.y);
+                boxCollider.size = new Vector2((distanceTraveled + objectSize), boxCollider.size.y);
+
+                if (currentDirection == growthDirection.Left)
+                {
+                    boxCollider.offset = new Vector2((distanceTraveled) / 2, boxCollider.offset.y);
+                }
+                else
+                {
+                    boxCollider.offset = new Vector2(-(distanceTraveled) / 2, boxCollider.offset.y);
+                }
+
                 GameObject vine = Instantiate(VinePrefab, startPos, Quaternion.identity, this.transform);
                 vineStack.Push(vine);
             }
@@ -181,11 +191,19 @@ public class GrowingVines : MonoBehaviour
             transform.Translate(finalDirection * -1 * speed * Time.fixedDeltaTime);
             currentPos = transform.position;
             float distanceTraveled = Mathf.Abs(currentPos.x - startPos.x);
-            if (distanceTraveled % objectSize <= 0.02f)
+            if (distanceTraveled % objectSize <= 0.05f)
             {
                 Debug.Log(distanceTraveled);
+                if (currentDirection == growthDirection.Left)
+                {
+                    boxCollider.offset = new Vector2((distanceTraveled) / 2, boxCollider.offset.y);
+                }
+                else
+                {
+                    boxCollider.offset = new Vector2(-(distanceTraveled) / 2, boxCollider.offset.y);
+                }
+
                 boxCollider.size = new Vector2(boxCollider.size.x - objectSize, boxCollider.size.y);
-                boxCollider.offset = new Vector2(-(distanceTraveled) / 2, boxCollider.offset.y);
 
                 Destroy(vineStack.Pop());
             }
