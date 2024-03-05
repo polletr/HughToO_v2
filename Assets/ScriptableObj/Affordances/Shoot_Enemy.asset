@@ -15,6 +15,6 @@ MonoBehaviour:
   AffordanceLayer:
     serializedVersion: 2
     m_Bits: 0
-  iceDamage: 0
-  waterDamage: 0
-  gasDamage: 0
+  iceDamage: 1
+  waterDamage: 1
+  gasDamage: 1
