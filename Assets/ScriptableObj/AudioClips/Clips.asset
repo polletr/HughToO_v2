@@ -20,23 +20,23 @@ MonoBehaviour:
   DeepCave: {fileID: 0}
   Grassland: {fileID: 0}
   CollectedPickup: {fileID: 8300000, guid: 8e049150e5fad9542936b99af4734905, type: 3}
-  TeleportOut: {fileID: 0}
-  TeleportIn: {fileID: 0}
+  TeleportOut: {fileID: 8300000, guid: f4a94fa01bd063c4eb7a1fc5e872a3cf, type: 3}
+  TeleportIn: {fileID: 8300000, guid: 08c4fc1a8d6205a4697e778381949cf8, type: 3}
   Teleport: {fileID: 0}
-  BreakingWall: {fileID: 0}
-  PlantGrowing: {fileID: 0}
-  PlantWatering: {fileID: 0}
-  Jump: {fileID: 0}
+  BreakingWall: {fileID: 8300000, guid: 262938c690cbc674382c7fd610149e5f, type: 3}
+  PlantGrowing: {fileID: 8300000, guid: 6f69c1a9ce9b2dc4db1a043483e3d241, type: 3}
+  PlantWatering: {fileID: 8300000, guid: 6f69c1a9ce9b2dc4db1a043483e3d241, type: 3}
+  Jump: {fileID: 8300000, guid: 91eb382735b67494892fc606e0f0a1d9, type: 3}
   Death: {fileID: 0}
   Glide: {fileID: 0}
   Drown: {fileID: 8300000, guid: 45cda1d5413b7c741b0a3b076899ca66, type: 3}
-  Hit: {fileID: 0}
+  Hit: {fileID: 8300000, guid: c9b6b337e9ec0904092b6038c5a87f70, type: 3}
   WaterSplash: {fileID: 0}
   IcePunch: {fileID: 8300000, guid: 500a0757f335f2a47b197403dfce9f1c, type: 3}
   WindStun: {fileID: 0}
-  EnemyDeath: {fileID: 0}
+  EnemyDeath: {fileID: 8300000, guid: 0d02ce0ab7a623f41bf249c35daf026d, type: 3}
   EnemyStun: {fileID: 0}
-  EnemyAttack: {fileID: 0}
-  EnemyShoot: {fileID: 0}
-  FireEstinguish: {fileID: 0}
+  EnemyAttack: {fileID: 8300000, guid: c5870f9319d22334883dbc4333629604, type: 3}
+  EnemyShoot: {fileID: 8300000, guid: 9747c6a66ed777140974a37b55036eab, type: 3}
+  FireEstinguish: {fileID: 8300000, guid: 4af88d4407a2ff74b8c24264a7945df6, type: 3}
   FireBurning: {fileID: 0}

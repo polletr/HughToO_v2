@@ -42,4 +42,12 @@ public class PauseMenu : Menu
         _currentMenu.SetActive(_isPaused);
     }
 
+    public void OnLoadMainMenu()
+    {
+        Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        UnityEngine.SceneManagement.SceneManager.LoadScene("00_MainMenu");
+    }
+
 }
