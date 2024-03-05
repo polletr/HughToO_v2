@@ -6,6 +6,7 @@ public class MainMenu : Menu
     [SerializeField] private Button _loadGameButton;
     private void Awake()
     {
+        Time.timeScale = 1f;
         _startActive = true;
         SetLoadGameActive();
         AudioManager.Instance.PlayMusic(AudioManager.Instance._audioClip.MainMenu);
