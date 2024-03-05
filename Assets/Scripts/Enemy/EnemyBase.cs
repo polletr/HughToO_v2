@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+[RequireComponent(typeof(Rigidbody2D), (typeof(AudioSource)))]
 
-[RequireComponent(typeof(Rigidbody2D))]
 public class EnemyBase : MonoBehaviour
 {
     [SerializeField]
@@ -23,6 +21,8 @@ public class EnemyBase : MonoBehaviour
 
     protected Animator anim;
 
+    protected AudioSource audioSource;
+
 
     public virtual void Start()
     {
@@ -35,6 +35,8 @@ public class EnemyBase : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         interactableObj = GetComponent<InteractableObjects>();
         time = 0;
+
+        audioSource = GetComponent<AudioSource>();
 
     }
 

@@ -25,6 +25,7 @@ public class AudioManager : Singleton<AudioManager>
 
     private void Awake()
     {
+        MusicSpeaker.loop = true;
        /* foreach (AudioPair pair in _audioClip.audioPairs)
         {
             AudioClips.Add(pair.Key, pair.Value);

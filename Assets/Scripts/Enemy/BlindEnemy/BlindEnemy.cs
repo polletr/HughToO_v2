@@ -162,11 +162,10 @@ public class BlindEnemy : EnemyBase
 
     private IEnumerator OnStunned()
     {
+      
         anim.SetBool("walking", false);
-
-        while (isAlive && isStunned)
+        while (isAlive)
         {
-            Debug.Log("Stunned");
             if (!isStunned)
                 SetState(State.Idle);
             yield return null;
@@ -178,7 +177,8 @@ public class BlindEnemy : EnemyBase
     private IEnumerator OnAttacking()
     {
         anim.SetTrigger("attack");
-        AudioManager.Instance.PlayEnemySFX(AudioManager.Instance._audioClip.EnemyAttack);
+        audioSource.clip = AudioManager.Instance._audioClip.EnemyAttack;
+        audioSource.Play();
         yield return new WaitForSeconds(1f);
         SetState(State.Idle);
     }
