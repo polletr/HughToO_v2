@@ -8,6 +8,9 @@ public class PauseMenu : Menu
     {
         AudioManager.Instance.PlayMusic(AudioManager.Instance._audioClip.BGMusic);
         _startActive = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
     }
     private void Update()
     {
@@ -18,13 +21,21 @@ public class PauseMenu : Menu
     }
     public void OnTogglePauseMenu()
     {
-        if (_isPaused)
-            AudioManager.Instance.PlayMusic(AudioManager.Instance._audioClip.MainMenu);
-        else
-            AudioManager.Instance.PlayMusic(AudioManager.Instance._audioClip.BGMusic);
-
-
         _isPaused = !_isPaused;
+
+        if (_isPaused)
+        {
+            AudioManager.Instance.PlayMusic(AudioManager.Instance._audioClip.MainMenu);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            AudioManager.Instance.PlayMusic(AudioManager.Instance._audioClip.BGMusic);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+
         Time.timeScale = _isPaused ? 0 : 1;
         DisableScreens();
         _SettingsMenu.SetActive(false);
