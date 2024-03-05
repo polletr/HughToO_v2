@@ -15,7 +15,8 @@ public class AttackState : GroundState
     }
     public void PlayAttckSound()
     {
-        switch(player.currentStats.currentForm)        {
+        switch(player.currentStats.currentForm)        
+        {
             case ScriptableStats.Form.Gas:
                 AudioManager.Instance.PlayPlayerSFX(AudioManager.Instance._audioClip.WindStun);
                 break;
@@ -39,6 +40,7 @@ public class AttackState : GroundState
         if (timer >= (clipLength + 0.1f))
         {
             player.ChangeState(new IdleState());
+            timer = 0f;
         }
     }
     public override void ExitState()
