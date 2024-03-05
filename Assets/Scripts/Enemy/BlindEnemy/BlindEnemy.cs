@@ -177,7 +177,7 @@ public class BlindEnemy : EnemyBase
     private IEnumerator OnAttacking()
     {
         anim.SetTrigger("attack");
-        audioSource.clip = AudioManager.Instance._audioClip.EnemyAttack;
+        //audioSource.clip = AudioManager.Instance._audioClip.EnemyAttack;
         audioSource.Play();
         yield return new WaitForSeconds(1f);
         SetState(State.Idle);
