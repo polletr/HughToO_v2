@@ -1877,7 +1877,7 @@ MonoBehaviour:
   originalSpeed: 3
   desiredPos: {fileID: 3960912459168663423}
   fixedTree: 0
-  TopVines: {fileID: 0}
+  TopVines: {fileID: 749868102623254045}
   HealthyVines: {fileID: 21300000, guid: 7576051f422fc2b458f2a194dafde68c, type: 3}
   DeadVines: {fileID: 21300000, guid: 14cd139b75f8e2540acb879269560487, type: 3}
 --- !u!61 &5166152598872401328
@@ -2556,19 +2556,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6218402084708475579, guid: 0c9f9327c2004d244babfe90bc7adf67, type: 3}
       propertyPath: m_LocalBounds.m_Center.x
-      value: 0.0055000186
+      value: 0.005400002
       objectReference: {fileID: 0}
     - target: {fileID: 6218402084708475579, guid: 0c9f9327c2004d244babfe90bc7adf67, type: 3}
       propertyPath: m_LocalBounds.m_Center.y
-      value: -0.019149989
+      value: -0.019500017
       objectReference: {fileID: 0}
     - target: {fileID: 6218402084708475579, guid: 0c9f9327c2004d244babfe90bc7adf67, type: 3}
       propertyPath: m_LocalBounds.m_Extent.x
-      value: 1.2279
+      value: 1.2283001
       objectReference: {fileID: 0}
     - target: {fileID: 6218402084708475579, guid: 0c9f9327c2004d244babfe90bc7adf67, type: 3}
       propertyPath: m_LocalBounds.m_Extent.y
-      value: 0.79754996
+      value: 0.7982
       objectReference: {fileID: 0}
     - target: {fileID: 7906683548336677663, guid: 0c9f9327c2004d244babfe90bc7adf67, type: 3}
       propertyPath: m_Name
@@ -2579,6 +2579,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c9f9327c2004d244babfe90bc7adf67, type: 3}
+--- !u!1 &749868102623254045 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7906683548336677663, guid: 0c9f9327c2004d244babfe90bc7adf67, type: 3}
+  m_PrefabInstance: {fileID: 7481112142042182914}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5438746564434517881 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3217946127084546683, guid: 0c9f9327c2004d244babfe90bc7adf67, type: 3}
