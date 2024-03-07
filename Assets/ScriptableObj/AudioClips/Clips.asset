@@ -19,7 +19,7 @@ MonoBehaviour:
   TeleportOut: {fileID: 8300000, guid: f4a94fa01bd063c4eb7a1fc5e872a3cf, type: 3}
   TeleportIn: {fileID: 8300000, guid: 08c4fc1a8d6205a4697e778381949cf8, type: 3}
   Teleport: {fileID: 0}
-  BreakingWall: {fileID: 8300000, guid: 262938c690cbc674382c7fd610149e5f, type: 3}
+  BreakingWall: {fileID: 8300000, guid: 3e0d15c5cd61df043a7eb993dfc697f8, type: 3}
   PlantGrowing: {fileID: 8300000, guid: 6f69c1a9ce9b2dc4db1a043483e3d241, type: 3}
   PlantWatering: {fileID: 8300000, guid: 6f69c1a9ce9b2dc4db1a043483e3d241, type: 3}
   Jump: {fileID: 8300000, guid: 91eb382735b67494892fc606e0f0a1d9, type: 3}
