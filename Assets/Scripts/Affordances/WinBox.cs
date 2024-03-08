@@ -21,6 +21,11 @@ public class WinBox : MonoBehaviour
         }
     }
 
+    public void LoadWinLevel()
+    {
+        StartCoroutine(OnLoadWinLevel());
+    }
+
     public IEnumerator OnLoadWinLevel()
     {
         yield return new WaitForSeconds(2f); // Wait for 3 seconds
