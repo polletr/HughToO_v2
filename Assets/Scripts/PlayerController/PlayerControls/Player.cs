@@ -230,7 +230,7 @@ public class Player : MonoBehaviour
 */
     public bool GroundCheck()
     {
-        return Physics2D.OverlapCircle(_groundCheckPos.position, 0.2f, LayerMask.GetMask("Ground")) && (Time.time - inputManager.JumpButtonPressedLast) > 0.05f;
+        return Physics2D.OverlapCircle(_groundCheckPos.position, 0.3f, LayerMask.GetMask("Ground")) && (Time.time - inputManager.JumpButtonPressedLast) > 0.05f;
     }
 
     
